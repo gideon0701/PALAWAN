@@ -1,0 +1,98 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ScannerSampleLab1.Cashier.Model
+{
+    class CashierInventoryModel : ICashierInventoryModel
+    {
+        private TestEntities db;
+
+        public CashierInventoryModel()
+        {
+            db = new TestEntities();
+        }
+
+        public CashierInventoryModel(int ID, string NAME, float PRICE, int QTY) {
+            db = new TestEntities();
+            this.ID = ID;
+            this.NAME = NAME;
+            this.PRICE = PRICE;
+            this.QTY = QTY;
+        }
+
+        public int ID
+        {
+            get
+            {
+                return ID;
+            }
+
+            set
+            {
+                ID = value;
+            }
+        }
+
+        public string NAME
+        {
+            get
+            {
+                return NAME;
+            }
+
+            set
+            {
+                NAME = value;
+            }
+        }
+
+        public float PRICE
+        {
+            get
+            {
+                return PRICE;
+            }
+
+            set
+            {
+                PRICE = value;
+            }
+        }
+
+        public int QTY
+        {
+            get
+            {
+                return QTY;
+            }
+
+            set
+            {
+                QTY = value;
+            }
+        }
+
+
+        public List<Items> getAllItems()
+        {
+            return db.Items.ToList();
+        }
+
+        public bool addToCart(int id, int qty)
+        {
+            var item = db.Items.Find(id);
+
+            if (item != null)
+            {
+                item.QTY = item.QTY - qty;
+                db.SaveChanges();
+                return true;
+            }
+
+            return false;
+        }
+    }
+}
