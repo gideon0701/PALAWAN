@@ -81,6 +81,11 @@ namespace ScannerSampleLab1.Cashier.Model
             return db.Items.ToList();
         }
 
+        public List<Items> getSearchItems(string keyword)
+        {
+            return db.Items.Where(s => s.NAME.ToLower().Contains(keyword.ToLower())).ToList();
+        }
+
         public bool substractItemQty(int id, int qty)
         {
             var item = db.Items.Find(id);
@@ -107,5 +112,7 @@ namespace ScannerSampleLab1.Cashier.Model
             }
             return false;
         }
+
+      
     }
 }

@@ -21,9 +21,16 @@ namespace ScannerSampleLab1.Cashier.Presenter
 
         }
 
-        public void getAllItems() {
-            
-            view.onGetAllItems(model.getAllItems());
+        public void getAllItems(string keyword) {
+
+            if (keyword == null)
+            {
+                view.onGetAllItems(model.getAllItems());
+            }
+            else
+            {
+                view.onGetAllItems(model.getSearchItems(keyword));
+            }
         }
 
         public void itemSelectedChanged(ListView list)

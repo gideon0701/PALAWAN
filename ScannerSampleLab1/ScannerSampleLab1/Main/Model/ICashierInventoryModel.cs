@@ -15,6 +15,7 @@ namespace ScannerSampleLab1.Cashier.Model
 
         bool substractItemQty(int id , int qty);
         List<Items> getAllItems();
+        List<Items> getSearchItems(string keyword);
         bool addItemQty(int id, int qty);
     }
 }

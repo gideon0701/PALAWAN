@@ -10,6 +10,7 @@ namespace ScannerSampleLab1.Cashier
 {
     public partial class MainForm : MetroForm, ICashierView
     {
+        string mKeyword = null;
         CashierPresenter cashierPresenter;
         public MainForm()
         {
@@ -19,7 +20,7 @@ namespace ScannerSampleLab1.Cashier
 
         private void CashierForm_Load(object sender, EventArgs e)
         {
-            cashierPresenter.getAllItems();
+            cashierPresenter.getAllItems(mKeyword);
         }
 
         private void itemListView_ColumnWidthChanging(object sender, ColumnWidthChangingEventArgs e)
@@ -44,8 +45,14 @@ namespace ScannerSampleLab1.Cashier
             if (cartListView.Items.Count != 0)
             {
                 cashierPresenter.clearCart(cartListView);
-                cashierPresenter.getAllItems();
+                cashierPresenter.getAllItems(mKeyword);
             }
+        }
+
+        private void btn_item_search_Click(object sender, EventArgs e)
+        {
+            mKeyword = textbox_item_search.Text.Length > 0 ? textbox_item_search.Text : null;
+            cashierPresenter.getAllItems(mKeyword);
         }
 
         //CALLBACK WHEN ALL ITEMS IN THE INVENTORY WERE GET
@@ -83,7 +90,8 @@ namespace ScannerSampleLab1.Cashier
         public void onItemAddToCart(bool result, ListViewItem list)
         {
             bool isThereItemAlready = false;
-            foreach (ListViewItem li in cartListView.Items)
+
+            foreach (ListViewItem li in cartListView.Items) //To check if the item adding to cart is in there already
             {
                 if (list.SubItems[0].Text == li.SubItems[0].Text)
                 {
@@ -94,7 +102,6 @@ namespace ScannerSampleLab1.Cashier
 
                 }
             }
-
             if (result && !isThereItemAlready)
             {
                 float newPrice = NumberUtils.computePrice(float.Parse(list.SubItems[2].Text), int.Parse(list.SubItems[3].Text));
@@ -107,7 +114,7 @@ namespace ScannerSampleLab1.Cashier
                 cartListView.Items.Add(i);
             }
 
-            cashierPresenter.getAllItems();
+            cashierPresenter.getAllItems(mKeyword);
         }
 
         //CALLBACK WHEN CLEARING THE CART
@@ -116,6 +123,8 @@ namespace ScannerSampleLab1.Cashier
             cartListView.Items.Clear();
 
         }
+
+
     }
 }
 
