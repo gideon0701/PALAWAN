@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using ScannerSampleLab1.Presenter;
 
+//HELLO FROM THE OTHER SIDE
 namespace ScannerSampleLab1.Model
 {
     class MyModel : IModel
