@@ -18,10 +18,6 @@ C:\Users\developer\Documents\Visual Studio 2015\Projects\ScannerSampleLab1\Scann
 C:\Users\developer\Documents\Visual Studio 2015\Projects\ScannerSampleLab1\ScannerSampleLab1\obj\Debug\ScannerSampleLab1.pdb
 C:\Users\developer\Documents\Visual Studio 2015\Projects\ScannerSampleLab1\ScannerSampleLab1\obj\Debug\ScannerSampleLab1.csprojResolveAssemblyReference.cache
 C:\git\PALAWAN\ScannerSampleLab1\ScannerSampleLab1\bin\Debug\ScannerSampleLab1.exe.config
-C:\git\PALAWAN\ScannerSampleLab1\ScannerSampleLab1\obj\Debug\ScannerSampleLab1.exe
-C:\git\PALAWAN\ScannerSampleLab1\ScannerSampleLab1\obj\Debug\ScannerSampleLab1.pdb
-C:\git\PALAWAN\ScannerSampleLab1\ScannerSampleLab1\bin\Debug\Test.mdf
-C:\git\PALAWAN\ScannerSampleLab1\ScannerSampleLab1\bin\Debug\Test_log.ldf
 C:\git\PALAWAN\ScannerSampleLab1\ScannerSampleLab1\bin\Debug\ScannerSampleLab1.exe
 C:\git\PALAWAN\ScannerSampleLab1\ScannerSampleLab1\bin\Debug\ScannerSampleLab1.pdb
 C:\git\PALAWAN\ScannerSampleLab1\ScannerSampleLab1\bin\Debug\EntityFramework.dll
@@ -36,3 +32,5 @@ C:\git\PALAWAN\ScannerSampleLab1\ScannerSampleLab1\obj\Debug\ScannerSampleLab1.C
 C:\git\PALAWAN\ScannerSampleLab1\ScannerSampleLab1\obj\Debug\ScannerSampleLab1.Form1.resources
 C:\git\PALAWAN\ScannerSampleLab1\ScannerSampleLab1\obj\Debug\ScannerSampleLab1.Properties.Resources.resources
 C:\git\PALAWAN\ScannerSampleLab1\ScannerSampleLab1\obj\Debug\ScannerSampleLab1.csproj.GenerateResource.Cache
+C:\git\PALAWAN\ScannerSampleLab1\ScannerSampleLab1\obj\Debug\ScannerSampleLab1.exe
+C:\git\PALAWAN\ScannerSampleLab1\ScannerSampleLab1\obj\Debug\ScannerSampleLab1.pdb

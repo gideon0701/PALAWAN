@@ -65,7 +65,8 @@ namespace ScannerSampleLab1.Cashier.Presenter
             view.onItemAddToCart(result, itemList.SelectedItems[0]);
         }
 
-        public void clearCart(ListView cartList) {
+        public void clearCart(ListView cartList)
+        {
             bool result = true;
             foreach (ListViewItem li in cartList.Items)
             {
@@ -76,6 +77,17 @@ namespace ScannerSampleLab1.Cashier.Presenter
             }
 
             view.onClearCart(result);
+        }
+
+        public void showTotal(ListView cartList)
+        {
+            int total = 0;
+            foreach (ListViewItem li in cartList.Items)
+            {
+                total += int.Parse(li.SubItems[2].Text);
+            }
+
+            view.onShowTotal(total);
         }
 
     }

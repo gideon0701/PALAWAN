@@ -167,9 +167,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="MetroFramework.txt" />
-    <Content Include="Test.mdf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
+    <Content Include="Test.mdf" />
     <Content Include="TestModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>TestModel.edmx</DependentUpon>
@@ -181,7 +179,6 @@
       <LastGenOutput>TestModel.cs</LastGenOutput>
     </Content>
     <Content Include="Test_log.ldf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <DependentUpon>Test.mdf</DependentUpon>
     </Content>
   </ItemGroup>
