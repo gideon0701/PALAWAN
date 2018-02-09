@@ -63,7 +63,10 @@ namespace ScannerSampleLab1.Cashier
             }
         }
 
-        //CALLBACK WHEN ALL ITEMS IN THE INVENTORY WERE GET
+        /// <summary>
+        /// CALLBACK WHEN ALL ITEMS IN THE INVENTORY WERE GET
+        /// </summary>
+        /// <param name="items"></param>
         public void onGetAllItems(List<Items> items)
         {
             itemListView.Items.Clear();
@@ -79,7 +82,11 @@ namespace ScannerSampleLab1.Cashier
             }
         }
 
-        //CALLBACK WHEN THE SELECTED ITEM IN THE ITEM LIST WAS CHANGED
+        /// <summary>
+        /// CALLBACK WHEN THE SELECTED ITEM IN THE ITEM LIST WAS CHANGED
+        /// </summary>
+        /// <param name="numOfSelected"></param>
+        /// <param name="qty"></param>
         public void onSelectedIndexChanged(int numOfSelected, int qty)
         {
             if (numOfSelected > 0)
@@ -94,7 +101,11 @@ namespace ScannerSampleLab1.Cashier
            
         }
 
-        //ON ITEM ADDING TO CART
+        /// <summary>
+        /// ON ITEM ADDING TO CART
+        /// </summary>
+        /// <param name="result"></param>
+        /// <param name="list"></param>
         public void onItemAddToCart(bool result, ListViewItem list)
         {
             bool isThereItemAlready = false;
@@ -125,13 +136,20 @@ namespace ScannerSampleLab1.Cashier
             cashierPresenter.getAllItems(mKeyword);
         }
 
-        //CALLBACK WHEN CLEARING THE CART
+        /// <summary>
+        /// CALLBACK WHEN CLEARING THE CART
+        /// </summary>
+        /// <param name="result"></param>
         public void onClearCart(bool result)
         {
             cartListView.Items.Clear();
 
         }
 
+        /// <summary>
+        /// Callback for show total function 
+        /// </summary>
+        /// <param name="total"></param>
         public void onShowTotal(int total)
         {
             textboxt_total.Text = total.ToString();
