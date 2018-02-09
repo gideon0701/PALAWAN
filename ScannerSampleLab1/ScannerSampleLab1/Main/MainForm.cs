@@ -55,6 +55,14 @@ namespace ScannerSampleLab1.Cashier
             cashierPresenter.getAllItems(mKeyword);
         }
 
+        private void textbox_item_search_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                btn_item_search.PerformClick();
+            }
+        }
+
         //CALLBACK WHEN ALL ITEMS IN THE INVENTORY WERE GET
         public void onGetAllItems(List<Items> items)
         {
@@ -113,7 +121,7 @@ namespace ScannerSampleLab1.Cashier
                });
                 cartListView.Items.Add(i);
             }
-
+            cashierPresenter.showTotal(cartListView);
             cashierPresenter.getAllItems(mKeyword);
         }
 
@@ -124,7 +132,10 @@ namespace ScannerSampleLab1.Cashier
 
         }
 
-
+        public void onShowTotal(int total)
+        {
+            textboxt_total.Text = total.ToString();
+        }
     }
 }
 
