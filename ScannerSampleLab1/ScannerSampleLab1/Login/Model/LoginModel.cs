@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using ScannerSampleLab1.Presenter;
 
-
+//GIDEON
 namespace ScannerSampleLab1.Model
 {
     class MyModel : IModel
