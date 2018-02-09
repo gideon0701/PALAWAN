@@ -81,7 +81,7 @@ namespace ScannerSampleLab1.Cashier.Model
             return db.Items.ToList();
         }
 
-        public bool addToCart(int id, int qty)
+        public bool substractItemQty(int id, int qty)
         {
             var item = db.Items.Find(id);
 
@@ -92,6 +92,19 @@ namespace ScannerSampleLab1.Cashier.Model
                 return true;
             }
 
+            return false;
+        }
+
+        public bool addItemQty(int id, int qty)
+        {
+
+            var item = db.Items.Find(id);
+            if (item != null)
+            {
+                item.QTY = item.QTY + qty;
+                db.SaveChanges();
+                return true;
+            }
             return false;
         }
     }

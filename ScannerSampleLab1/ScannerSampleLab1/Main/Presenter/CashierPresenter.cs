@@ -41,20 +41,34 @@ namespace ScannerSampleLab1.Cashier.Presenter
             view.onSelectedIndexChanged(count, max);
         }
 
-        public void addToCart(ListView list, int qty)
+        public void addToCart(ListView itemList, int qty)
         {
             bool result = false;
+           
             float price = 0;
-            int item_id = int.Parse(list.SelectedItems[0].SubItems[0].Text);
-            if (model.addToCart(item_id, qty))
+            int item_id = int.Parse(itemList.SelectedItems[0].SubItems[0].Text);
+
+            if (model.substractItemQty(item_id, qty))
             {
                 result = true;
-                price = int.Parse(list.SelectedItems[0].SubItems[2].Text);
-                list.SelectedItems[0].SubItems[2].Text = NumberUtils.computePrice(price, qty).ToString();
-                list.SelectedItems[0].SubItems[3].Text = qty.ToString();
+                price = int.Parse(itemList.SelectedItems[0].SubItems[2].Text);
+                itemList.SelectedItems[0].SubItems[3].Text = qty.ToString();
             }
 
-            view.onItemAddToCart(result, list.SelectedItems[0]);
+            view.onItemAddToCart(result, itemList.SelectedItems[0]);
+        }
+
+        public void clearCart(ListView cartList) {
+            bool result = true;
+            foreach (ListViewItem li in cartList.Items)
+            {
+                if (!model.addItemQty(int.Parse(li.SubItems[0].Text), int.Parse(li.SubItems[3].Text)))
+                {
+                    result = false;
+                }
+            }
+
+            view.onClearCart(result);
         }
 
     }

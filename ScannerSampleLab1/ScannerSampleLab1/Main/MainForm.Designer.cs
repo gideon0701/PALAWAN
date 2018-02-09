@@ -348,6 +348,7 @@
             this.btn_cart_clear.TabIndex = 4;
             this.btn_cart_clear.Text = "Clear Cart";
             this.btn_cart_clear.UseSelectable = true;
+            this.btn_cart_clear.Click += new System.EventHandler(this.btn_cart_clear_Click);
             // 
             // MainForm
             // 

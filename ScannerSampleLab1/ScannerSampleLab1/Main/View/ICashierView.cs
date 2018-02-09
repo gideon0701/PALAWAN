@@ -12,5 +12,6 @@ namespace ScannerSampleLab1.Cashier.View
         void onGetAllItems(List<Items> items);
         void onSelectedIndexChanged(int numOfSelected, int qty);
         void onItemAddToCart(bool result, ListViewItem list);
+        void onClearCart(bool result);
     }
 }

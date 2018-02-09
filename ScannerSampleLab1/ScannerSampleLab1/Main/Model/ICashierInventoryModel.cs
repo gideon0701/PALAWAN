@@ -13,7 +13,8 @@ namespace ScannerSampleLab1.Cashier.Model
         int QTY { get; set; }
         float PRICE { get; set; }
 
-        bool addToCart(int id , int qty);
+        bool substractItemQty(int id , int qty);
         List<Items> getAllItems();
+        bool addItemQty(int id, int qty);
     }
 }

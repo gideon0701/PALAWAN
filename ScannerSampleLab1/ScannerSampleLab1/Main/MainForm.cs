@@ -4,6 +4,7 @@ using System.Windows.Forms;
 using MetroFramework.Forms;
 using ScannerSampleLab1.Cashier.View;
 using ScannerSampleLab1.Cashier.Presenter;
+using ScannerSampleLab1.Utils;
 
 namespace ScannerSampleLab1.Cashier
 {
@@ -36,6 +37,15 @@ namespace ScannerSampleLab1.Cashier
         {
             cashierPresenter.addToCart(itemListView, decimal.ToInt32(input_qty.Value));
             panel_add.Visible = false;
+        }
+
+        private void btn_cart_clear_Click(object sender, EventArgs e)
+        {
+            if (cartListView.Items.Count != 0)
+            {
+                cashierPresenter.clearCart(cartListView);
+                cashierPresenter.getAllItems();
+            }
         }
 
         //CALLBACK WHEN ALL ITEMS IN THE INVENTORY WERE GET
@@ -72,18 +82,40 @@ namespace ScannerSampleLab1.Cashier
         //ON ITEM ADDING TO CART
         public void onItemAddToCart(bool result, ListViewItem list)
         {
-            if (result) {
-                cashierPresenter.getAllItems();
+            bool isThereItemAlready = false;
+            foreach (ListViewItem li in cartListView.Items)
+            {
+                if (list.SubItems[0].Text == li.SubItems[0].Text)
+                {
+                    int newQty = int.Parse(li.SubItems[3].Text) + int.Parse(list.SubItems[3].Text);
+                    li.SubItems[2].Text = NumberUtils.computePrice(float.Parse(list.SubItems[2].Text), newQty).ToString();
+                    li.SubItems[3].Text = newQty.ToString();
+                    isThereItemAlready = true;
+
+                }
+            }
+
+            if (result && !isThereItemAlready)
+            {
+                float newPrice = NumberUtils.computePrice(float.Parse(list.SubItems[2].Text), int.Parse(list.SubItems[3].Text));
                 var i = new ListViewItem(new[] {
                    list.SubItems[0].Text,
                    list.SubItems[1].Text,
-                   list.SubItems[2].Text,
-                   list.SubItems[3].Text
+                   newPrice.ToString(),
+                list.SubItems[3].Text
                });
                 cartListView.Items.Add(i);
             }
+
+            cashierPresenter.getAllItems();
         }
 
+        //CALLBACK WHEN CLEARING THE CART
+        public void onClearCart(bool result)
+        {
+            cartListView.Items.Clear();
+
+        }
     }
 }
 
