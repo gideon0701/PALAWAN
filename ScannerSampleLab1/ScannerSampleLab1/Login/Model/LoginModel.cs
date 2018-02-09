@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using ScannerSampleLab1.Presenter;
 
-
+//test test test
 namespace ScannerSampleLab1.Model
 {
     class MyModel : IModel
