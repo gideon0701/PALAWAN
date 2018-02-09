@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using ScannerSampleLab1.Presenter;
 
 //test test test
+//paano mag push kkay origin
 namespace ScannerSampleLab1.Model
 {
     class MyModel : IModel
