@@ -1,38 +1,40 @@
 ﻿using ScannerSampleLab1.Cashier.Model;
 using ScannerSampleLab1.Cashier.View;
-using ScannerSampleLab1.Utils;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace ScannerSampleLab1.Cashier.Presenter
 {
     class CashierPresenter
     {
-        private ICashierView view;
-        private ICashierInventoryModel model;
+        private ICashierView mVIew;
+        private ICashierInventoryModel mMOdel;
 
         public CashierPresenter(ICashierView view) {
-            model = new CashierInventoryModel();
-            this.view = view;
+            mMOdel = new CashierInventoryModel();
+            this.mVIew = view;
 
         }
 
+        /// <summary>
+        ///To get all items in the search depends on the keyword 
+        /// </summary>
+        /// <param name="keyword"></param>
         public void getAllItems(string keyword) {
 
             if (keyword == null)
             {
-                view.onGetAllItems(model.getAllItems());
+                mVIew.onGetAllItems(mMOdel.getAllItems());
             }
             else
             {
-                view.onGetAllItems(model.getSearchItems(keyword));
+                mVIew.onGetAllItems(mMOdel.getSearchItems(keyword));
             }
         }
 
+        /// <summary>
+        /// For the change of the selected item of the itemlistview
+        /// </summary>
+        /// <param name="list"></param>
         public void itemSelectedChanged(ListView list)
         {
             int count = 0;
@@ -45,9 +47,14 @@ namespace ScannerSampleLab1.Cashier.Presenter
                     count++;
                 }
             }
-            view.onSelectedIndexChanged(count, max);
+            mVIew.onSelectedIndexChanged(count, max);
         }
 
+        /// <summary>
+        /// For the adding of the item in the cart
+        /// </summary>
+        /// <param name="itemList"></param>
+        /// <param name="qty"></param>
         public void addToCart(ListView itemList, int qty)
         {
             bool result = false;
@@ -55,30 +62,38 @@ namespace ScannerSampleLab1.Cashier.Presenter
             float price = 0;
             int item_id = int.Parse(itemList.SelectedItems[0].SubItems[0].Text);
 
-            if (model.substractItemQty(item_id, qty))
+            if (mMOdel.substractItemQty(item_id, qty))
             {
                 result = true;
                 price = int.Parse(itemList.SelectedItems[0].SubItems[2].Text);
                 itemList.SelectedItems[0].SubItems[3].Text = qty.ToString();
             }
 
-            view.onItemAddToCart(result, itemList.SelectedItems[0]);
+            mVIew.onItemAddToCart(result, itemList.SelectedItems[0]);
         }
 
+        /// <summary>
+        /// To clear the cart and updating the item database for the qty
+        /// </summary>
+        /// <param name="cartList"></param>
         public void clearCart(ListView cartList)
         {
             bool result = true;
             foreach (ListViewItem li in cartList.Items)
             {
-                if (!model.addItemQty(int.Parse(li.SubItems[0].Text), int.Parse(li.SubItems[3].Text)))
+                if (!mMOdel.addItemQty(int.Parse(li.SubItems[0].Text), int.Parse(li.SubItems[3].Text)))
                 {
                     result = false;
                 }
             }
 
-            view.onClearCart(result);
+            mVIew.onClearCart(result);
         }
 
+        /// <summary>
+        /// To show the total price of the transaction
+        /// </summary>
+        /// <param name="cartList"></param>
         public void showTotal(ListView cartList)
         {
             int total = 0;
@@ -87,7 +102,7 @@ namespace ScannerSampleLab1.Cashier.Presenter
                 total += int.Parse(li.SubItems[2].Text);
             }
 
-            view.onShowTotal(total);
+            mVIew.onShowTotal(total);
         }
 
     }
