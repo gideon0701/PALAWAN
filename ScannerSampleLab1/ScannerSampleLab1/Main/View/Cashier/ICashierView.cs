@@ -9,10 +9,12 @@ namespace ScannerSampleLab1.Cashier.View
 {
     interface ICashierView
     {
-        void onGetAllItems(List<Items> items);
+        ListView inventoryListView { get; set; }
+        ListView myCartListView { get; set; }
+        string itemSearch { get; set; }
+        float buyTotal { get; set; }
+
         void onSelectedIndexChanged(int numOfSelected, int qty);
-        void onItemAddToCart(bool result, ListViewItem list);
-        void onClearCart(bool result);
-        void onShowTotal(int total);
+        
     }
 }
