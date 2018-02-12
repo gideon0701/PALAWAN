@@ -34,7 +34,7 @@
             this.textbox_change = new MetroFramework.Controls.MetroTextBox();
             this.textboxt_total = new MetroFramework.Controls.MetroTextBox();
             this.textbox_recieved = new MetroFramework.Controls.MetroTextBox();
-            this.lbl_recieved = new MetroFramework.Drawing.Html.HtmlLabel();
+            this.lbl_received = new MetroFramework.Drawing.Html.HtmlLabel();
             this.lbl_change = new MetroFramework.Drawing.Html.HtmlLabel();
             this.lbl_total = new MetroFramework.Drawing.Html.HtmlLabel();
             this.btn_item_transact = new MetroFramework.Controls.MetroButton();
@@ -98,7 +98,7 @@
             this.tabpage_Cashier.Controls.Add(this.textbox_change);
             this.tabpage_Cashier.Controls.Add(this.textboxt_total);
             this.tabpage_Cashier.Controls.Add(this.textbox_recieved);
-            this.tabpage_Cashier.Controls.Add(this.lbl_recieved);
+            this.tabpage_Cashier.Controls.Add(this.lbl_received);
             this.tabpage_Cashier.Controls.Add(this.lbl_change);
             this.tabpage_Cashier.Controls.Add(this.lbl_total);
             this.tabpage_Cashier.Controls.Add(this.btn_item_transact);
@@ -208,17 +208,17 @@
             this.textbox_recieved.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.textbox_recieved.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
             // 
-            // lbl_recieved
+            // lbl_received
             // 
-            this.lbl_recieved.AutoScroll = true;
-            this.lbl_recieved.AutoScrollMinSize = new System.Drawing.Size(60, 23);
-            this.lbl_recieved.AutoSize = false;
-            this.lbl_recieved.BackColor = System.Drawing.SystemColors.Window;
-            this.lbl_recieved.Location = new System.Drawing.Point(584, 299);
-            this.lbl_recieved.Name = "lbl_recieved";
-            this.lbl_recieved.Size = new System.Drawing.Size(75, 23);
-            this.lbl_recieved.TabIndex = 7;
-            this.lbl_recieved.Text = "Recieved:";
+            this.lbl_received.AutoScroll = true;
+            this.lbl_received.AutoScrollMinSize = new System.Drawing.Size(60, 23);
+            this.lbl_received.AutoSize = false;
+            this.lbl_received.BackColor = System.Drawing.SystemColors.Window;
+            this.lbl_received.Location = new System.Drawing.Point(584, 299);
+            this.lbl_received.Name = "lbl_received";
+            this.lbl_received.Size = new System.Drawing.Size(75, 23);
+            this.lbl_received.TabIndex = 7;
+            this.lbl_received.Text = "Received:";
             // 
             // lbl_change
             // 
@@ -556,7 +556,7 @@
         private MetroFramework.Controls.MetroTextBox textbox_change;
         private MetroFramework.Controls.MetroTextBox textboxt_total;
         private MetroFramework.Controls.MetroTextBox textbox_recieved;
-        private MetroFramework.Drawing.Html.HtmlLabel lbl_recieved;
+        private MetroFramework.Drawing.Html.HtmlLabel lbl_received;
         private MetroFramework.Drawing.Html.HtmlLabel lbl_change;
         private MetroFramework.Drawing.Html.HtmlLabel lbl_total;
     }
