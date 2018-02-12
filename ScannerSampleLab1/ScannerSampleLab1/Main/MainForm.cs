@@ -13,7 +13,7 @@ namespace ScannerSampleLab1.Cashier
     {
         CashierPresenter cashierPresenter;
 
-        public ListView inventoryListView
+        public ListView cashierInventoryListView
         {
             get
             {
@@ -26,7 +26,7 @@ namespace ScannerSampleLab1.Cashier
             }
         }
 
-        public ListView myCartListView
+        public ListView cashierCartListView
         {
             get
             {
@@ -39,7 +39,7 @@ namespace ScannerSampleLab1.Cashier
             }
         }
 
-        public string itemSearch
+        public string cashierItemSearch
         {
             get
             {
@@ -52,16 +52,16 @@ namespace ScannerSampleLab1.Cashier
             }
         }
 
-        public float buyTotal
+        public string cashierTotalPrice
         {
             get
             {
-                return float.Parse(textboxt_total.Text);
+                return textboxt_total.Text;
             }
 
             set
             {
-                textboxt_total.Text = value.ToString();
+                textboxt_total.Text = value;
             }
         }
 

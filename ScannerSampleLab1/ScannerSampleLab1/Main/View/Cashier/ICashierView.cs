@@ -9,10 +9,10 @@ namespace ScannerSampleLab1.Cashier.View
 {
     interface ICashierView
     {
-        ListView inventoryListView { get; set; }
-        ListView myCartListView { get; set; }
-        string itemSearch { get; set; }
-        float buyTotal { get; set; }
+        ListView cashierInventoryListView { get; set; }
+        ListView cashierCartListView { get; set; }
+        string cashierItemSearch { get; set; }
+        string cashierTotalPrice { get; set; }
 
         void onSelectedIndexChanged(int numOfSelected, int qty);
         
