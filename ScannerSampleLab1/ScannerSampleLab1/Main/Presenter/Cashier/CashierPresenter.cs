@@ -22,9 +22,9 @@ namespace ScannerSampleLab1.Cashier.Presenter
         /// </summary>
         /// <param name="keyword"></param>
         public void getAllItems() {
-            ListView itemList = mVIew.inventoryListView;
+            ListView itemList = mVIew.cashierInventoryListView;
             List<Items> items;
-            string keyword = mVIew.itemSearch;
+            string keyword = mVIew.cashierItemSearch;
             if (keyword == null)
             {
                 items =mMOdel.getAllItems();
@@ -46,7 +46,7 @@ namespace ScannerSampleLab1.Cashier.Presenter
                 itemList.Items.Add(i);
             }
 
-            mVIew.inventoryListView = itemList;
+            mVIew.cashierInventoryListView = itemList;
         }
 
         /// <summary>
@@ -57,7 +57,7 @@ namespace ScannerSampleLab1.Cashier.Presenter
         {
             int count = 0;
             int max = 0;
-            ListView list = mVIew.inventoryListView;
+            ListView list = mVIew.cashierInventoryListView;
             foreach (ListViewItem li in list.Items )
             {
                 if (li.Selected)
@@ -77,7 +77,7 @@ namespace ScannerSampleLab1.Cashier.Presenter
         public void addToCart(int qty)
         {
             bool result = false;
-            ListView itemList = mVIew.inventoryListView;
+            ListView itemList = mVIew.cashierInventoryListView;
             float price = 0;
             int item_id = int.Parse(itemList.SelectedItems[0].SubItems[0].Text);
 
@@ -91,7 +91,7 @@ namespace ScannerSampleLab1.Cashier.Presenter
             ListViewItem list = itemList.SelectedItems[0];
             bool isThereItemAlready = false;
 
-            foreach (ListViewItem li in mVIew.myCartListView.Items) //To check if the item adding to cart is in there already
+            foreach (ListViewItem li in mVIew.cashierCartListView.Items) //To check if the item adding to cart is in there already
             {
                 if (list.SubItems[0].Text == li.SubItems[0].Text)
                 {
@@ -112,7 +112,7 @@ namespace ScannerSampleLab1.Cashier.Presenter
                    newPrice.ToString(),
                 list.SubItems[3].Text
                });
-                mVIew.myCartListView.Items.Add(i);
+                mVIew.cashierCartListView.Items.Add(i);
             }
             showTotal();
             getAllItems();
@@ -124,7 +124,7 @@ namespace ScannerSampleLab1.Cashier.Presenter
         /// <param name="cartList"></param>
         public void clearCart()
         {
-            ListView cartList = mVIew.myCartListView;
+            ListView cartList = mVIew.cashierCartListView;
             bool result = true;
             foreach (ListViewItem li in cartList.Items)
             {
@@ -133,8 +133,12 @@ namespace ScannerSampleLab1.Cashier.Presenter
                     result = false;
                 }
             }
-            mVIew.buyTotal = 0;
-            mVIew.myCartListView.Items.Clear();
+
+            if (result) {
+                mVIew.cashierTotalPrice = "0";
+                mVIew.cashierCartListView.Items.Clear();
+            }
+           
         }
 
         /// <summary>
@@ -143,14 +147,14 @@ namespace ScannerSampleLab1.Cashier.Presenter
         /// <param name="cartList"></param>
         public void showTotal()
         {
-            ListView cartList = mVIew.myCartListView;
+            ListView cartList = mVIew.cashierCartListView;
             float total = 0;
             foreach (ListViewItem li in cartList.Items)
             {
                 total += float.Parse(li.SubItems[2].Text);
             }
 
-            mVIew.buyTotal = total;
+            mVIew.cashierTotalPrice = total.ToString();
         }
 
     }
