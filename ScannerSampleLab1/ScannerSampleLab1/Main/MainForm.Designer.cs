@@ -59,6 +59,7 @@
             this.itemPrice = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.itemQty = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.metroLabel1 = new MetroFramework.Controls.MetroLabel();
+            this.tabpage_inventory = new MetroFramework.Controls.MetroTabPage();
             this.tabControl.SuspendLayout();
             this.tabpage_Cashier.SuspendLayout();
             this.metroPanel2.SuspendLayout();
@@ -71,9 +72,10 @@
             // 
             this.tabControl.Controls.Add(this.tabpage_DashBoard);
             this.tabControl.Controls.Add(this.tabpage_Cashier);
+            this.tabControl.Controls.Add(this.tabpage_inventory);
             this.tabControl.Location = new System.Drawing.Point(7, 37);
             this.tabControl.Name = "tabControl";
-            this.tabControl.SelectedIndex = 1;
+            this.tabControl.SelectedIndex = 2;
             this.tabControl.Size = new System.Drawing.Size(765, 494);
             this.tabControl.TabIndex = 0;
             this.tabControl.Theme = MetroFramework.MetroThemeStyle.Light;
@@ -503,6 +505,20 @@
             this.metroLabel1.TabIndex = 2;
             this.metroLabel1.Text = "Item List";
             // 
+            // tabpage_inventory
+            // 
+            this.tabpage_inventory.HorizontalScrollbarBarColor = true;
+            this.tabpage_inventory.HorizontalScrollbarHighlightOnWheel = false;
+            this.tabpage_inventory.HorizontalScrollbarSize = 10;
+            this.tabpage_inventory.Location = new System.Drawing.Point(4, 38);
+            this.tabpage_inventory.Name = "tabpage_inventory";
+            this.tabpage_inventory.Size = new System.Drawing.Size(757, 452);
+            this.tabpage_inventory.TabIndex = 2;
+            this.tabpage_inventory.Text = "Inventory";
+            this.tabpage_inventory.VerticalScrollbarBarColor = true;
+            this.tabpage_inventory.VerticalScrollbarHighlightOnWheel = false;
+            this.tabpage_inventory.VerticalScrollbarSize = 10;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -559,5 +575,6 @@
         private MetroFramework.Drawing.Html.HtmlLabel lbl_received;
         private MetroFramework.Drawing.Html.HtmlLabel lbl_change;
         private MetroFramework.Drawing.Html.HtmlLabel lbl_total;
+        private MetroFramework.Controls.MetroTabPage tabpage_inventory;
     }
 }
