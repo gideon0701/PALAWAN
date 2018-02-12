@@ -89,10 +89,10 @@
     <Compile Include="Main\MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Main\Model\CashierInventoryModel.cs" />
-    <Compile Include="Main\Model\ICashierInventoryModel.cs" />
-    <Compile Include="Main\Presenter\CashierPresenter.cs" />
-    <Compile Include="Main\View\ICashierView.cs" />
+    <Compile Include="Main\Model\Cashier\CashierInventoryModel.cs" />
+    <Compile Include="Main\Model\Cashier\ICashierInventoryModel.cs" />
+    <Compile Include="Main\Presenter\Cashier\CashierPresenter.cs" />
+    <Compile Include="Main\View\Cashier\ICashierView.cs" />
     <Compile Include="Employee.cs">
       <DependentUpon>TestModel.tt</DependentUpon>
     </Compile>
@@ -197,7 +197,11 @@
       <Install>false</Install>
     </BootstrapperPackage>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Main\Model\Inventory\" />
+    <Folder Include="Main\Presenter\Inventory\" />
+    <Folder Include="Main\View\Inventory\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
