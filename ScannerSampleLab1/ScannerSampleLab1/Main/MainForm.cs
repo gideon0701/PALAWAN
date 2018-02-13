@@ -6,13 +6,16 @@ using ScannerSampleLab1.Cashier.View;
 using ScannerSampleLab1.Cashier.Presenter;
 using ScannerSampleLab1.Utils;
 using MetroFramework.Controls;
+using ScannerSampleLab1.Main.View.Inventory;
+using ScannerSampleLab1.Main.Presenter.Inventory;
 
 namespace ScannerSampleLab1.Cashier
 {
-    public partial class MainForm : MetroForm, ICashierView
+    public partial class MainForm : MetroForm, ICashierView, IInventoryView
     {
         CashierPresenter cashierPresenter;
-
+        InventoryPresenter inventoryPresenter;
+        
         public ListView cashierInventoryListView
         {
             get
@@ -65,15 +68,33 @@ namespace ScannerSampleLab1.Cashier
             }
         }
 
+        public DataGridView inventoryDataGrid
+        {
+            get
+            {
+                return inventoryGrid;
+            }
+
+            set
+            {
+                inventoryGrid = (MetroGrid) value;
+            }
+        }
+
         public MainForm()
         {
             InitializeComponent();
+            this.StyleManager = metroStyleManager1;
             cashierPresenter = new CashierPresenter(this);
+            inventoryPresenter = new InventoryPresenter(this);
         }
 
         private void CashierForm_Load(object sender, EventArgs e)
         {
             cashierPresenter.getAllItems();
+            inventoryPresenter.getAllInventory();
+
+
         }
 
         private void itemListView_ColumnWidthChanging(object sender, ColumnWidthChangingEventArgs e)
@@ -131,6 +152,16 @@ namespace ScannerSampleLab1.Cashier
             {
                 panel_add.Visible = false;
             }
+           
+        }
+
+        public void onButtonTest(string msg)
+        {
+            MessageBox.Show(msg);
+        }
+
+        private void btn_test_Click(object sender, EventArgs e)
+        {
            
         }
 
