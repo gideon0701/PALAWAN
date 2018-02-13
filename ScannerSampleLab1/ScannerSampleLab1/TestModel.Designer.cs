@@ -1,4 +1,4 @@
-﻿// T4 code generation is enabled for model 'C:\Users\developer\Documents\Visual Studio 2015\Projects\ScannerSampleLab1\ScannerSampleLab1\TestModel.edmx'. 
+﻿// T4 code generation is enabled for model 'C:\git\PALAWAN\ScannerSampleLab1\ScannerSampleLab1\TestModel.edmx'. 
 // To enable legacy code generation, change the value of the 'Code Generation Strategy' designer
 // property to 'Legacy ObjectContext'. This property is available in the Properties Window when the model
 // is open in the designer.

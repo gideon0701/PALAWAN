@@ -130,6 +130,7 @@
       <DependentUpon>TestModel.edmx</DependentUpon>
     </Compile>
     <Compile Include="Utils\NumberUtils.cs" />
+    <Compile Include="Utils\ValidateUtil.cs" />
     <EmbeddedResource Include="Main\MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
