@@ -203,8 +203,14 @@ namespace ScannerSampleLab1.Cashier
 
         }
 
+        private void btn_inventory_delete_Click(object sender, EventArgs e)
+        {
+            inventoryPresenter.deleteItem();
+        }
+
         private void validateInputs()
         {
+            errorCount = 0;
             //validate name
             if (ValidateUtil.isStringEmpty(inventoryName))
             {
@@ -222,7 +228,7 @@ namespace ScannerSampleLab1.Cashier
                 errorMessage.SetError(textbox_inventory_price, "Price is required");
                 errorCount++;
             }
-            else if (ValidateUtil.isFloat(inventoryPrice))
+            else if (!ValidateUtil.isFloat(inventoryPrice))
             {
                 errorMessage.SetError(textbox_inventory_price, "Invalid Input");
                 errorCount++;
@@ -268,6 +274,7 @@ namespace ScannerSampleLab1.Cashier
 
         }
 
+   
     }
 }
 
