@@ -30,6 +30,13 @@ namespace ScannerSampleLab1.Main.Model.Inventory
            db.Items.Add(item);
            db.SaveChanges();
         }
+
+        public void deleteItem(Items item)
+        {
+            
+            db.Items.Remove(item);
+            db.SaveChanges();
+        }
         
     }
 }

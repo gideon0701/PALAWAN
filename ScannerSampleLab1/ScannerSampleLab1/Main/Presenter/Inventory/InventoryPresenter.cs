@@ -25,6 +25,14 @@ namespace ScannerSampleLab1.Main.Presenter.Inventory
             mVIew.inventoryDataGrid.DataSource = mMOdel.getAllInventory();
         }
 
+        public void deleteItem()
+        {
+            var item = (Items) mVIew.inventoryDataGrid.CurrentRow.DataBoundItem;
+            mMOdel.deleteItem(item);
+
+            getAllInventory();
+        }
+
         public void doAddUpdate()
         {
 
@@ -48,6 +56,14 @@ namespace ScannerSampleLab1.Main.Presenter.Inventory
             };
 
             return item;
+        }
+
+        private void clearFormInput()
+        {
+            mVIew.inventoryID = "";
+            mVIew.inventoryName = "";
+            mVIew.inventoryPrice = "";
+            mVIew.inventoryQty = 0;
         }
 
     }
