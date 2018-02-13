@@ -91,7 +91,9 @@
     </Compile>
     <Compile Include="Main\Model\Cashier\CashierInventoryModel.cs" />
     <Compile Include="Main\Model\Cashier\ICashierInventoryModel.cs" />
+    <Compile Include="Main\Model\Inventory\InventoryModel.cs" />
     <Compile Include="Main\Presenter\Cashier\CashierPresenter.cs" />
+    <Compile Include="Main\Presenter\Inventory\InventoryPresenter.cs" />
     <Compile Include="Main\View\Cashier\ICashierView.cs" />
     <Compile Include="Employee.cs">
       <DependentUpon>TestModel.tt</DependentUpon>
@@ -108,6 +110,7 @@
     <Compile Include="Login\Model\ILoginModel.cs" />
     <Compile Include="Login\Model\LoginModel.cs" />
     <Compile Include="Login\Presenter\LoginPresenter.cs" />
+    <Compile Include="Main\View\Inventory\IInventoryView.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Login\View\ILoginView.cs" />
@@ -197,11 +200,7 @@
       <Install>false</Install>
     </BootstrapperPackage>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Main\Model\Inventory\" />
-    <Folder Include="Main\Presenter\Inventory\" />
-    <Folder Include="Main\View\Inventory\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
