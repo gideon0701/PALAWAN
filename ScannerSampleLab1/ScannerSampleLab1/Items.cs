@@ -16,7 +16,7 @@ namespace ScannerSampleLab1
     {
         public int ID { get; set; }
         public string NAME { get; set; }
-        public Nullable<int> PRICE { get; set; }
+        public Nullable<double> PRICE { get; set; }
         public Nullable<int> QTY { get; set; }
     }
 }

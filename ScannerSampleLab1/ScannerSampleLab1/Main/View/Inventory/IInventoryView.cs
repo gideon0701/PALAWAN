@@ -10,6 +10,10 @@ namespace ScannerSampleLab1.Main.View.Inventory
     interface IInventoryView
     {
         DataGridView inventoryDataGrid { get; set; }
+        string inventoryID { get; set; }
+        string inventoryName { get; set; }
+        string inventoryPrice { get; set; }
+        int inventoryQty { get; set; }
 
     }
 }

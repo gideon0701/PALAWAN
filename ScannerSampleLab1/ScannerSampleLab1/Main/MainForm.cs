@@ -15,6 +15,7 @@ namespace ScannerSampleLab1.Cashier
     {
         CashierPresenter cashierPresenter;
         InventoryPresenter inventoryPresenter;
+        int errorCount = 0;
         
         public ListView cashierInventoryListView
         {
@@ -81,6 +82,58 @@ namespace ScannerSampleLab1.Cashier
             }
         }
 
+        public string inventoryID
+        {
+            get
+            {
+                return textbox_inventory_id.Text;
+            }
+
+            set
+            {
+                textbox_inventory_id.Text = value;
+            }
+        }
+
+        public string inventoryName
+        {
+            get
+            {
+                return textbox_inventory_name.Text;
+            }
+
+            set
+            {
+                textbox_inventory_name.Text = value;
+            }
+        }
+
+        public string inventoryPrice
+        {
+            get
+            {
+                return textbox_inventory_price.Text;
+            }
+
+            set
+            {
+                textbox_inventory_price.Text = value;
+            }
+        }
+
+        public int inventoryQty
+        {
+            get
+            {
+                return (int) numeric_inventory_qty.Value;
+            }
+
+            set
+            {
+                numeric_inventory_qty.Value = value;
+            }
+        }
+
         public MainForm()
         {
             InitializeComponent();
@@ -136,6 +189,66 @@ namespace ScannerSampleLab1.Cashier
             }
         }
 
+        private void btn_inventory_addupdate_Click(object sender, EventArgs e)
+        {
+            validateInputs();
+            if (errorCount == 0)
+            {
+                inventoryPresenter.doAddUpdate();
+            }
+            else
+            {
+                MessageBox.Show("Invalid Data");
+            }
+
+        }
+
+        private void validateInputs()
+        {
+            //validate name
+            if (ValidateUtil.isStringEmpty(inventoryName))
+            {
+                errorMessage.SetError(textbox_inventory_name, "Name is required");
+                errorCount++;
+            }
+            else 
+            {
+                errorMessage.SetError(textbox_inventory_name,null);
+            }
+
+            //validate price
+            if (ValidateUtil.isStringEmpty(inventoryPrice))
+            {
+                errorMessage.SetError(textbox_inventory_price, "Price is required");
+                errorCount++;
+            }
+            else if (ValidateUtil.isFloat(inventoryPrice))
+            {
+                errorMessage.SetError(textbox_inventory_price, "Invalid Input");
+                errorCount++;
+
+            }
+            else
+            {
+                errorMessage.SetError(textbox_inventory_price, null);
+          
+            }
+
+            //Validate Quantity
+            if (inventoryQty == 0)
+            {
+                errorMessage.SetError(numeric_inventory_qty, "Quantity should be greater than 0");
+                errorCount++;
+
+            }
+            else
+            {
+                errorMessage.SetError(numeric_inventory_qty, null);
+            
+            }
+        }
+     
+
         /// <summary>
         /// CALLBACK WHEN THE SELECTED ITEM IN THE ITEM LIST WAS CHANGED
         /// </summary>
@@ -152,17 +265,7 @@ namespace ScannerSampleLab1.Cashier
             {
                 panel_add.Visible = false;
             }
-           
-        }
 
-        public void onButtonTest(string msg)
-        {
-            MessageBox.Show(msg);
-        }
-
-        private void btn_test_Click(object sender, EventArgs e)
-        {
-           
         }
 
     }

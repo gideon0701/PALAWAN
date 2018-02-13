@@ -21,7 +21,33 @@ namespace ScannerSampleLab1.Main.Presenter.Inventory
 
         public void getAllInventory()
         {
+            
             mVIew.inventoryDataGrid.DataSource = mMOdel.getAllInventory();
+        }
+
+        public void doAddUpdate()
+        {
+
+            if (mVIew.inventoryID == "")
+            {
+                mMOdel.doAdd(inputToModel());
+            }
+           
+            getAllInventory();
+
+        }
+
+        private Items inputToModel()
+        {
+            Items item = new Items
+            {
+                NAME = mVIew.inventoryName,
+                PRICE = double.Parse(mVIew.inventoryPrice),
+                QTY = mVIew.inventoryQty
+
+            };
+
+            return item;
         }
 
     }

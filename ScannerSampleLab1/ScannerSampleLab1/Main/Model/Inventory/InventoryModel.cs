@@ -12,7 +12,7 @@ namespace ScannerSampleLab1.Main.Model.Inventory
 
         public int id { get; set; }
         public string name { get; set; }
-        public string price { get; set; }
+        public float price { get; set; }
         public int qty { get; set; }
 
         public InventoryModel()
@@ -23,6 +23,12 @@ namespace ScannerSampleLab1.Main.Model.Inventory
         public List<Items> getAllInventory()
         {
             return db.Items.ToList();
+        }
+
+        public void doAdd(Items item)
+        {
+           db.Items.Add(item);
+           db.SaveChanges();
         }
         
     }
