@@ -21,3 +21,6 @@ C:\git\PALAWAN\ScannerSampleLab1\ScannerSampleLab1\obj\Debug\POS1.exe.manifest
 C:\git\PALAWAN\ScannerSampleLab1\ScannerSampleLab1\obj\Debug\POS1.application
 C:\git\PALAWAN\ScannerSampleLab1\ScannerSampleLab1\obj\Debug\POS1.exe
 C:\git\PALAWAN\ScannerSampleLab1\ScannerSampleLab1\obj\Debug\POS1.pdb
+C:\git\PALAWAN\POS1\POS1\bin\Debug\POS1.exe.config
+C:\git\PALAWAN\POS1\POS1\obj\Debug\POS1.exe
+C:\git\PALAWAN\POS1\POS1\obj\Debug\POS1.pdb
