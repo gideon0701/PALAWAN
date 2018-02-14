@@ -148,13 +148,19 @@ namespace ScannerSampleLab1.Cashier.Presenter
         public void showTotal()
         {
             ListView cartList = mVIew.cashierCartListView;
-            float total = 0;
+            double total = 0;
+            double vat = 0;
+            double subtotal = 0;
             foreach (ListViewItem li in cartList.Items)
             {
-                total += float.Parse(li.SubItems[2].Text);
+                total += double.Parse(li.SubItems[2].Text);
             }
+            vat = (total * 0.12);
+            subtotal = total - vat;
 
             mVIew.cashierTotalPrice = total.ToString();
+            mVIew.cashierSubtotalPrice = subtotal.ToString();
+            mVIew.cashierVatPrice = vat.ToString();
         }
 
     }

@@ -12,11 +12,10 @@ namespace ScannerSampleLab1.Cashier.Model
 
         public CashierInventoryModel()
         {
-            db = new TestEntities();
+
         }
 
         public CashierInventoryModel(int ID, string NAME, float PRICE, int QTY) {
-            db = new TestEntities();
             this.ID = ID;
             this.NAME = NAME;
             this.PRICE = PRICE;
@@ -78,16 +77,19 @@ namespace ScannerSampleLab1.Cashier.Model
 
         public List<Items> getAllItems()
         {
+            db = new TestEntities();
             return db.Items.ToList();
         }
 
         public List<Items> getSearchItems(string keyword)
         {
+            db = new TestEntities();
             return db.Items.Where(s => s.NAME.ToLower().Contains(keyword.ToLower())).ToList();
         }
 
         public bool substractItemQty(int id, int qty)
         {
+            db = new TestEntities();
             var item = db.Items.Find(id);
 
             if (item != null)
@@ -102,7 +104,7 @@ namespace ScannerSampleLab1.Cashier.Model
 
         public bool addItemQty(int id, int qty)
         {
-
+            db = new TestEntities();
             var item = db.Items.Find(id);
             if (item != null)
             {
