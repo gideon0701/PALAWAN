@@ -1,0 +1,32 @@
+
+(product)
+id
+name
+price per unit
+quantity
+isAvailable
+number of product to discount //nullable
+discount %
+
+
+(sales per transaction)
+id
+date of transaction //yyyyMMddHHmmss
+total sales
+subtotal amount
+tax amount
+total price amount
+total discount amount
+money paid
+
+(sales items sold)
+id
+sales id
+product id
+quantity sold
+price per unit
+
+
+
+
+
