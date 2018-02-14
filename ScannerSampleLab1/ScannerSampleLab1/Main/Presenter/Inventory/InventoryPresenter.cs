@@ -31,6 +31,17 @@ namespace ScannerSampleLab1.Main.Presenter.Inventory
             mMOdel.deleteItem(item);
 
             getAllInventory();
+            mVIew.onDbActionResult("delete", true);
+        }
+
+        public void doEdit()
+        {
+            var item = (Items)mVIew.inventoryDataGrid.CurrentRow.DataBoundItem;
+            mVIew.inventoryID = item.ID.ToString();
+            mVIew.inventoryName = item.NAME;
+            mVIew.inventoryPrice = item.PRICE.ToString();
+            mVIew.inventoryQty = (int) item.QTY;
+
         }
 
         public void doAddUpdate()
@@ -39,8 +50,16 @@ namespace ScannerSampleLab1.Main.Presenter.Inventory
             if (mVIew.inventoryID == "")
             {
                 mMOdel.doAdd(inputToModel());
+                mVIew.onDbActionResult("add", true);
             }
-           
+            else
+            {
+                Items item = inputToModel();
+                item.ID = int.Parse(mVIew.inventoryID);
+                mMOdel.doEdit(item);
+                mVIew.onDbActionResult("edit", true);
+            }
+            clearFormInput();
             getAllInventory();
 
         }
@@ -49,6 +68,7 @@ namespace ScannerSampleLab1.Main.Presenter.Inventory
         {
             Items item = new Items
             {
+                
                 NAME = mVIew.inventoryName,
                 PRICE = double.Parse(mVIew.inventoryPrice),
                 QTY = mVIew.inventoryQty

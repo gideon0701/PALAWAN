@@ -31,6 +31,13 @@ namespace ScannerSampleLab1.Main.Model.Inventory
            db.SaveChanges();
         }
 
+        public void doEdit(Items item)
+        {
+            var model = db.Items.Find(item.ID);
+            db.Entry(model).CurrentValues.SetValues(item);
+            db.SaveChanges();
+        }
+
         public void deleteItem(Items item)
         {
             

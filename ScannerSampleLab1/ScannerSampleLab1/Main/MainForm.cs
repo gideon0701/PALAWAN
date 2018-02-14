@@ -203,6 +203,11 @@ namespace ScannerSampleLab1.Cashier
 
         }
 
+        private void btn_inventory_edit_Click(object sender, EventArgs e)
+        {
+            inventoryPresenter.doEdit();
+        }
+
         private void btn_inventory_delete_Click(object sender, EventArgs e)
         {
             inventoryPresenter.deleteItem();
@@ -274,7 +279,23 @@ namespace ScannerSampleLab1.Cashier
 
         }
 
-   
+        public void onDbActionResult(string action, bool result)
+        {
+            if (action == "delete" && result)
+            {
+                MessageBox.Show("Item Deleted Successfully");
+            }
+
+            if (action == "add" && result)
+            {
+                MessageBox.Show("Item Added Successfully");
+            }
+
+            if (action == "edit" && result)
+            {
+                MessageBox.Show("Item Changed Successfully");
+            }
+        }
     }
 }
 

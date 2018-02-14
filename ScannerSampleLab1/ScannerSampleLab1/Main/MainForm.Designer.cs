@@ -197,6 +197,7 @@
             this.btn_inventory_edit.TabIndex = 3;
             this.btn_inventory_edit.Text = "Edit";
             this.btn_inventory_edit.UseSelectable = true;
+            this.btn_inventory_edit.Click += new System.EventHandler(this.btn_inventory_edit_Click);
             // 
             // metroPanel3
             // 
