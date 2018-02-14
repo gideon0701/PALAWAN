@@ -21,12 +21,12 @@ namespace ScannerSampleLab1.Cashier
         {
             get
             {
-               return itemListView;
+               return lvwItem;
             }
 
             set
             {
-                itemListView = (MetroListView) value;
+                lvwItem = (MetroListView) value;
             }
         }
 
@@ -34,12 +34,12 @@ namespace ScannerSampleLab1.Cashier
         {
             get
             {
-                return cartListView;
+                return lvwCart;
             }
 
             set
             {
-                cartListView = (MetroListView) value;
+                lvwCart = (MetroListView) value;
             }
         }
 
@@ -47,12 +47,12 @@ namespace ScannerSampleLab1.Cashier
         {
             get
             {
-                return textbox_item_search.Text.Length > 0 ? textbox_item_search.Text : null;
+                return txtItemSearch.Text.Length > 0 ? txtItemSearch.Text : null;
             }
 
             set
             {
-                textbox_item_search.Text = value;
+                txtItemSearch.Text = value;
             }
         }
 
@@ -60,12 +60,12 @@ namespace ScannerSampleLab1.Cashier
         {
             get
             {
-                return textboxt_total.Text;
+                return txtTotal.Text;
             }
 
             set
             {
-                textboxt_total.Text = value;
+                txtTotal.Text = value;
             }
         }
 
@@ -73,12 +73,12 @@ namespace ScannerSampleLab1.Cashier
         {
             get
             {
-                return inventoryGrid;
+                return grdInventory;
             }
 
             set
             {
-                inventoryGrid = (MetroGrid) value;
+                grdInventory = (MetroGrid) value;
             }
         }
 
@@ -86,12 +86,12 @@ namespace ScannerSampleLab1.Cashier
         {
             get
             {
-                return textbox_inventory_id.Text;
+                return txtInventoryId.Text;
             }
 
             set
             {
-                textbox_inventory_id.Text = value;
+                txtInventoryId.Text = value;
             }
         }
 
@@ -99,12 +99,12 @@ namespace ScannerSampleLab1.Cashier
         {
             get
             {
-                return textbox_inventory_name.Text;
+                return txtInventoryName.Text;
             }
 
             set
             {
-                textbox_inventory_name.Text = value;
+                txtInventoryName.Text = value;
             }
         }
 
@@ -112,12 +112,12 @@ namespace ScannerSampleLab1.Cashier
         {
             get
             {
-                return textbox_inventory_price.Text;
+                return txtInventoryPrice.Text;
             }
 
             set
             {
-                textbox_inventory_price.Text = value;
+                txtInventoryPrice.Text = value;
             }
         }
 
@@ -125,12 +125,25 @@ namespace ScannerSampleLab1.Cashier
         {
             get
             {
-                return (int) numeric_inventory_qty.Value;
+                return (int) txtInventoryQty.Value;
             }
 
             set
             {
-                numeric_inventory_qty.Value = value;
+                txtInventoryQty.Value = value;
+            }
+        }
+
+        public string inventorySearch
+        {
+            get
+            {
+                return txtInventorySearch.Text.Length > 0 ? txtInventorySearch.Text : null;
+            }
+
+            set
+            {
+                txtInventorySearch.Text = value;
             }
         }
 
@@ -142,7 +155,7 @@ namespace ScannerSampleLab1.Cashier
             inventoryPresenter = new InventoryPresenter(this);
         }
 
-        private void CashierForm_Load(object sender, EventArgs e)
+        private void MainForm_Load(object sender, EventArgs e)
         {
             cashierPresenter.getAllItems();
             inventoryPresenter.getAllInventory();
@@ -153,7 +166,7 @@ namespace ScannerSampleLab1.Cashier
         private void itemListView_ColumnWidthChanging(object sender, ColumnWidthChangingEventArgs e)
         {
             e.Cancel = true;
-            e.NewWidth = itemListView.Columns[e.ColumnIndex].Width;
+            e.NewWidth = lvwItem.Columns[e.ColumnIndex].Width;
         }
 
         private void itemListView_ItemSelectionChanged(object sender, ListViewItemSelectionChangedEventArgs e)
@@ -163,13 +176,13 @@ namespace ScannerSampleLab1.Cashier
 
         private void button_addCart_Click(object sender, EventArgs e)
         {
-            cashierPresenter.addToCart(decimal.ToInt32(input_qty.Value));
-            panel_add.Visible = false;
+            cashierPresenter.addToCart(decimal.ToInt32(inputQty.Value));
+            pnlAdd.Visible = false;
         }
 
         private void btn_cart_clear_Click(object sender, EventArgs e)
         {
-            if (cartListView.Items.Count != 0)
+            if (lvwCart.Items.Count != 0)
             {
                 cashierPresenter.clearCart();
                 cashierPresenter.getAllItems();
@@ -185,7 +198,15 @@ namespace ScannerSampleLab1.Cashier
         {
             if (e.KeyCode == Keys.Enter)
             {
-                btn_item_search.PerformClick();
+                btnItemSearch.PerformClick();
+            }
+        }
+
+        private void btnInventorySearch_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                btnInventorySearch.PerformClick();
             }
         }
 
@@ -213,48 +234,53 @@ namespace ScannerSampleLab1.Cashier
             inventoryPresenter.deleteItem();
         }
 
+        private void btnInventorySearch_Click(object sender, EventArgs e)
+        {
+            inventoryPresenter.getAllInventory();
+        }
+
         private void validateInputs()
         {
             errorCount = 0;
             //validate name
             if (ValidateUtil.isStringEmpty(inventoryName))
             {
-                errorMessage.SetError(textbox_inventory_name, "Name is required");
+                errorMessage.SetError(txtInventoryName, "Name is required");
                 errorCount++;
             }
             else 
             {
-                errorMessage.SetError(textbox_inventory_name,null);
+                errorMessage.SetError(txtInventoryName,null);
             }
 
             //validate price
             if (ValidateUtil.isStringEmpty(inventoryPrice))
             {
-                errorMessage.SetError(textbox_inventory_price, "Price is required");
+                errorMessage.SetError(txtInventoryPrice, "Price is required");
                 errorCount++;
             }
             else if (!ValidateUtil.isFloat(inventoryPrice))
             {
-                errorMessage.SetError(textbox_inventory_price, "Invalid Input");
+                errorMessage.SetError(txtInventoryPrice, "Invalid Input");
                 errorCount++;
 
             }
             else
             {
-                errorMessage.SetError(textbox_inventory_price, null);
+                errorMessage.SetError(txtInventoryPrice, null);
           
             }
 
             //Validate Quantity
             if (inventoryQty == 0)
             {
-                errorMessage.SetError(numeric_inventory_qty, "Quantity should be greater than 0");
+                errorMessage.SetError(txtInventoryQty, "Quantity should be greater than 0");
                 errorCount++;
 
             }
             else
             {
-                errorMessage.SetError(numeric_inventory_qty, null);
+                errorMessage.SetError(txtInventoryQty, null);
             
             }
         }
@@ -269,12 +295,12 @@ namespace ScannerSampleLab1.Cashier
         {
             if (numOfSelected > 0)
             {
-                panel_add.Visible = true;
-                input_qty.Maximum = qty;
+                pnlAdd.Visible = true;
+                inputQty.Maximum = qty;
             }
             else
             {
-                panel_add.Visible = false;
+                pnlAdd.Visible = false;
             }
 
         }
@@ -296,6 +322,8 @@ namespace ScannerSampleLab1.Cashier
                 MessageBox.Show("Item Changed Successfully");
             }
         }
+
+
     }
 }
 

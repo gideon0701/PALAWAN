@@ -13,6 +13,9 @@ namespace ScannerSampleLab1.Main.View.Inventory
         string inventoryID { get; set; }
         string inventoryName { get; set; }
         string inventoryPrice { get; set; }
+
+        string inventorySearch { get; set; }
+
         int inventoryQty { get; set; }
 
         void onDbActionResult(string action, bool isSuccess);
