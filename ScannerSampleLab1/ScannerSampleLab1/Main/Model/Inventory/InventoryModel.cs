@@ -25,6 +25,11 @@ namespace ScannerSampleLab1.Main.Model.Inventory
             return db.Items.ToList();
         }
 
+        public List<Items> searchInventory(string keyword)
+        {
+            return db.Items.Where(s => s.NAME.ToLower().Contains(keyword.ToLower())).ToList();
+        }
+
         public void doAdd(Items item)
         {
            db.Items.Add(item);

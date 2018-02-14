@@ -21,8 +21,17 @@ namespace ScannerSampleLab1.Main.Presenter.Inventory
 
         public void getAllInventory()
         {
-            
-            mVIew.inventoryDataGrid.DataSource = mMOdel.getAllInventory();
+            string searchKeyword = mVIew.inventorySearch;
+
+            if (searchKeyword == null)
+            {
+                mVIew.inventoryDataGrid.DataSource = mMOdel.getAllInventory();
+            }
+            else
+            {
+                mVIew.inventoryDataGrid.DataSource = mMOdel.searchInventory(searchKeyword);
+            }
+          
         }
 
         public void deleteItem()

@@ -102,14 +102,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="ScannerSampleLab1.exe" size="46552">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="ScannerSampleLab1.exe" size="47576">
       <assemblyIdentity name="ScannerSampleLab1" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>QIFLGWxKny2ivKrI61xbRGLToDmklZlFIJBlF/doBXA=</dsig:DigestValue>
+        <dsig:DigestValue>QHGKXF/cv0GCWn5ABD/ql4V9q3TOw8knpJYb1H4/618=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
