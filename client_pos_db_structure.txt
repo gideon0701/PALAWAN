@@ -10,7 +10,7 @@ discount % [int]
 
 
 (sales per transaction)
-id [int]
+id [int, pk]
 date of transaction [double] //yyyyMMddHHmmss 
 subtotal amount [double]
 tax amount [double]
@@ -19,9 +19,9 @@ total discount amount [double]
 money paid [double]
 
 (sales items sold)
-id [int]
-sales id [int]
-product id [int]
+id [int, pk]
+sales id [int, fk]
+product id [int, fk]
 quantity sold [int]
 price per unit [double]
 
