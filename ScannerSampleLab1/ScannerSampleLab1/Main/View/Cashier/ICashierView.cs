@@ -13,6 +13,8 @@ namespace ScannerSampleLab1.Cashier.View
         ListView cashierCartListView { get; set; }
         string cashierItemSearch { get; set; }
         string cashierTotalPrice { get; set; }
+        string cashierSubtotalPrice { get; set; }
+        string cashierVatPrice { get; set; }
 
         void onSelectedIndexChanged(int numOfSelected, int qty);
         

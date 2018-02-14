@@ -69,6 +69,33 @@ namespace ScannerSampleLab1.Cashier
             }
         }
 
+
+        public string cashierSubtotalPrice
+        {
+            get
+            {
+                return txtSubtotal.Text;
+            }
+
+            set
+            {
+                txtSubtotal.Text = value;
+            }
+        }
+
+        public string cashierVatPrice
+        {
+            get
+            {
+                return txtVat.Text;
+            }
+
+            set
+            {
+                txtVat.Text = value;
+            }
+        }
+
         public DataGridView inventoryDataGrid
         {
             get
@@ -159,8 +186,12 @@ namespace ScannerSampleLab1.Cashier
         {
             cashierPresenter.getAllItems();
             inventoryPresenter.getAllInventory();
+        }
 
-
+        private void tabControl_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            cashierPresenter.getAllItems();
+            inventoryPresenter.getAllInventory();
         }
 
         private void itemListView_ColumnWidthChanging(object sender, ColumnWidthChangingEventArgs e)
