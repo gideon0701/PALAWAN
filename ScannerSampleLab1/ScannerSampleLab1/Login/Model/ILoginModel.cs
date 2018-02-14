@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 
 
-namespace ScannerSampleLab1.Model
+namespace POS1.Model
 {
     interface IModel
     {

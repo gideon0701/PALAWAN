@@ -1,5 +1,5 @@
 ﻿
-namespace ScannerSampleLab1.View
+namespace POS1.View
 {
     public interface IView
     {

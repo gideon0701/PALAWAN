@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ScannerSampleLab1.Main.Model.Inventory
+namespace POS1.Main.Model.Inventory
 {
     class InventoryModel
     {

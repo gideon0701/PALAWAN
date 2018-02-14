@@ -1,4 +1,4 @@
-﻿namespace ScannerSampleLab1.Cashier
+﻿namespace POS1.Cashier
 {
     partial class MainForm
     {

@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace ScannerSampleLab1.Main.View.Inventory
+namespace POS1.Main.View.Inventory
 {
     interface IInventoryView
     {

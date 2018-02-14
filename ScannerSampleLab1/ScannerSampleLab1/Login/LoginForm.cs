@@ -1,11 +1,11 @@
-﻿using ScannerSampleLab1.Presenter;
-using ScannerSampleLab1.View;
-using ScannerSampleLab1.Cashier;
+﻿using POS1.Presenter;
+using POS1.View;
+using POS1.Cashier;
 using System;
 
 using System.Windows.Forms;
 
-namespace ScannerSampleLab1
+namespace POS1
 {
     public partial class Form1 : Form, IView
     {

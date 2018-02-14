@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace ScannerSampleLab1.Cashier.View
+namespace POS1.Cashier.View
 {
     interface ICashierView
     {

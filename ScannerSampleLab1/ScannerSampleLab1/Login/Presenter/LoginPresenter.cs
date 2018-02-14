@@ -1,7 +1,7 @@
-﻿using ScannerSampleLab1.Model;
-using ScannerSampleLab1.View;
+﻿using POS1.Model;
+using POS1.View;
 
-namespace ScannerSampleLab1.Presenter
+namespace POS1.Presenter
 {
     class MyPresenter
     {

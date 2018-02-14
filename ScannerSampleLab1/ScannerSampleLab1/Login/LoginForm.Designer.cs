@@ -1,4 +1,4 @@
-﻿namespace ScannerSampleLab1
+﻿namespace POS1
 {
     partial class Form1
     {

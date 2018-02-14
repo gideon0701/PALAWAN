@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ScannerSampleLab1.Utils
+namespace POS1.Utils
 {
     class ValidateUtil
     {

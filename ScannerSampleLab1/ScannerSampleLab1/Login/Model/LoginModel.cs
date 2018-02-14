@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using ScannerSampleLab1.Presenter;
+using POS1.Presenter;
 
-namespace ScannerSampleLab1.Model
+namespace POS1.Model
 {
     class MyModel : IModel
     {

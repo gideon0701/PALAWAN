@@ -1,12 +1,12 @@
-﻿using ScannerSampleLab1.Main.Model.Inventory;
-using ScannerSampleLab1.Main.View.Inventory;
+﻿using POS1.Main.Model.Inventory;
+using POS1.Main.View.Inventory;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ScannerSampleLab1.Main.Presenter.Inventory
+namespace POS1.Main.Presenter.Inventory
 {
     class InventoryPresenter
     {

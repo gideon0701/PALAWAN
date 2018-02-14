@@ -1,10 +1,10 @@
-﻿using ScannerSampleLab1.Cashier.Model;
-using ScannerSampleLab1.Cashier.View;
-using ScannerSampleLab1.Utils;
+﻿using POS1.Cashier.Model;
+using POS1.Cashier.View;
+using POS1.Utils;
 using System.Collections.Generic;
 using System.Windows.Forms;
 
-namespace ScannerSampleLab1.Cashier.Presenter
+namespace POS1.Cashier.Presenter
 {
     class CashierPresenter
     {

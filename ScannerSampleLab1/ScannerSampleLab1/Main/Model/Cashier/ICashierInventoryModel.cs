@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ScannerSampleLab1.Cashier.Model
+namespace POS1.Cashier.Model
 {
     interface ICashierInventoryModel
     {

@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace ScannerSampleLab1
+namespace POS1
 {
     using System;
     using System.Data.Entity;

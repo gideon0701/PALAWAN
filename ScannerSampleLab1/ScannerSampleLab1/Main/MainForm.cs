@@ -2,14 +2,14 @@
 using System.Collections.Generic;
 using System.Windows.Forms;
 using MetroFramework.Forms;
-using ScannerSampleLab1.Cashier.View;
-using ScannerSampleLab1.Cashier.Presenter;
-using ScannerSampleLab1.Utils;
+using POS1.Cashier.View;
+using POS1.Cashier.Presenter;
+using POS1.Utils;
 using MetroFramework.Controls;
-using ScannerSampleLab1.Main.View.Inventory;
-using ScannerSampleLab1.Main.Presenter.Inventory;
+using POS1.Main.View.Inventory;
+using POS1.Main.Presenter.Inventory;
 
-namespace ScannerSampleLab1.Cashier
+namespace POS1.Cashier
 {
     public partial class MainForm : MetroForm, ICashierView, IInventoryView
     {
