@@ -2,12 +2,16 @@
 <asmv1:assembly xsi:schemaLocation="urn:schemas-microsoft-com:asm.v1 assembly.adaptive.xsd" manifestVersion="1.0" xmlns:asmv1="urn:schemas-microsoft-com:asm.v1" xmlns="urn:schemas-microsoft-com:asm.v2" xmlns:asmv2="urn:schemas-microsoft-com:asm.v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:co.v1="urn:schemas-microsoft-com:clickonce.v1" xmlns:asmv3="urn:schemas-microsoft-com:asm.v3" xmlns:dsig="http://www.w3.org/2000/09/xmldsig#" xmlns:co.v2="urn:schemas-microsoft-com:clickonce.v2">
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
   <asmv1:assemblyIdentity name="POS1.exe" version="1.0.0.9" publicKeyToken="0000000000000000" language="neutral" processorArchitecture="msil" type="win32" />
 =======
   <asmv1:assemblyIdentity name="POS1.exe" version="1.0.0.10" publicKeyToken="0000000000000000" language="neutral" processorArchitecture="msil" type="win32" />
 >>>>>>> gideon
 =======
   <asmv1:assemblyIdentity name="POS1.exe" version="1.0.0.12" publicKeyToken="0000000000000000" language="neutral" processorArchitecture="msil" type="win32" />
+>>>>>>> gideon
+=======
+  <asmv1:assemblyIdentity name="POS1.exe" version="1.0.0.13" publicKeyToken="0000000000000000" language="neutral" processorArchitecture="msil" type="win32" />
 >>>>>>> gideon
   <application />
   <entryPoint>
@@ -123,12 +127,16 @@
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
         <dsig:DigestValue>9gdsSqf/VgjFBNpdKShHD44GdcVhLjropwQYlB8g3V8=</dsig:DigestValue>
 =======
         <dsig:DigestValue>M3T16UnYMa0wgSlroTU7P4hgtw/Jqqju7OpicUAQSos=</dsig:DigestValue>
 >>>>>>> gideon
 =======
         <dsig:DigestValue>+qR4k1F/GwJucylarKhlEeRiTNiCxn7oVm+0B7DZBm4=</dsig:DigestValue>
+>>>>>>> gideon
+=======
+        <dsig:DigestValue>598GRlHSFEP8lltpIKLvtHrS0LV5Pk6/l5FjUnBNP6g=</dsig:DigestValue>
 >>>>>>> gideon
       </hash>
     </dependentAssembly>

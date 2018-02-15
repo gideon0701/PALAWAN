@@ -28,11 +28,16 @@ namespace POS1.Main.Model.Inventory
                 ID = s.ID,
                 NAME = s.NAME,
 <<<<<<< HEAD
+<<<<<<< HEAD
                 PRICE =  s.PRICE,
                 QTY =  s.QTY
 =======
                 PRICE = s.PRICE,
                 QTY = s.QTY
+>>>>>>> gideon
+=======
+                PRICE =  s.PRICE,
+                QTY =  s.QTY
 >>>>>>> gideon
             }).ToList();
         }
@@ -47,9 +52,13 @@ namespace POS1.Main.Model.Inventory
                     NAME = s.NAME,
                     PRICE = s.PRICE,
 <<<<<<< HEAD
+<<<<<<< HEAD
                     QTY =s.QTY
 =======
                     QTY = s.QTY
+>>>>>>> gideon
+=======
+                    QTY =s.QTY
 >>>>>>> gideon
                 }).ToList();
         }
