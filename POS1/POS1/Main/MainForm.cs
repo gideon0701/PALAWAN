@@ -95,6 +95,32 @@ namespace POS1.Cashier
             }
         }
 
+        public string cashierAmountPaid
+        {
+            get
+            {
+                return txtReceived.Text;
+            }
+
+            set
+            {
+                txtReceived.Text = value;
+            }
+        }
+
+        public string cashierAmountChange
+        {
+            get
+            {
+                return txtChange.Text;
+            }
+
+            set
+            {
+                txtChange.Text = value;
+            }
+        }
+
         public DataGridView inventoryDataGrid
         {
             get
@@ -208,7 +234,7 @@ namespace POS1.Cashier
 
         private void btn_cart_clear_Click(object sender, EventArgs e)
         {
-            cashierPresenter.clearCart();
+            cashierPresenter.clearCart(false);
         }
 
         private void btn_item_search_Click(object sender, EventArgs e)
@@ -261,6 +287,35 @@ namespace POS1.Cashier
             inventoryPresenter.getAllInventory();
         }
 
+        private void btnItemTransact_Click(object sender, EventArgs e)
+        {
+            cashierPresenter.doTransact();
+        }
+
+        private void txtReceived_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                double amountPaid = double.Parse(cashierAmountPaid);
+                double amountTotal = double.Parse(cashierTotalPrice);
+                if (amountPaid >= amountTotal)
+                {
+                    btnItemTransact.Enabled = true;
+                }
+                else
+                {
+                    btnItemTransact.Enabled = false;
+                }
+            }
+            catch 
+            {
+                btnItemTransact.Enabled = false;
+            }
+        }
+
+        /// <summary>
+        /// TO VALIDATE THE INPUTS FROM THE INVENTORY CRUD
+        /// </summary>
         private void validateInputs()
         {
             errorCount = 0;
@@ -350,6 +405,13 @@ namespace POS1.Cashier
             }
         }
 
+        /// <summary>
+        /// CALLS WHEN TRANSACTION DONE
+        /// </summary>
+        public void onTransactDone()
+        {
+            MessageBox.Show("Tansaction Done");
+        }
     }
 }
 

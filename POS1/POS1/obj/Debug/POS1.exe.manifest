@@ -102,14 +102,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="POS1.exe" size="56792">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="POS1.exe" size="62424">
       <assemblyIdentity name="POS1" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>GAGCEVGmZSxOD9aoSz3w8N0qmAmhB26H70Z73Rnksx0=</dsig:DigestValue>
+        <dsig:DigestValue>NDIHHX6taKkO4OFmt6sSOTqXV1eh+/YV2nc0Tg+CHg4=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

@@ -147,15 +147,18 @@ namespace POS1.Cashier.Presenter
         /// To clear the cart and updating the item database for the qty
         /// </summary>
         /// <param name="cartList"></param>
-        public void clearCart()
+        public void clearCart(bool isTransact)
         {
-            var cartList = mVIew.cashierCart.Rows;
             bool result = true;
-            foreach (DataGridViewRow li in cartList)
+            if (!isTransact)
             {
-                if (!mMOdel.addItemQty(int.Parse(li.Cells[0].Value.ToString()), int.Parse(li.Cells[3].Value.ToString())))
+                var cartList = mVIew.cashierCart.Rows;
+                foreach (DataGridViewRow li in cartList)
                 {
-                    result = false;
+                    if (!mMOdel.addItemQty(int.Parse(li.Cells[0].Value.ToString()), int.Parse(li.Cells[3].Value.ToString())))
+                    {
+                        result = false;
+                    }
                 }
             }
 
@@ -189,6 +192,37 @@ namespace POS1.Cashier.Presenter
             mVIew.cashierTotalPrice = total.ToString();
             mVIew.cashierSubtotalPrice = subtotal.ToString();
             mVIew.cashierVatPrice = vat.ToString();
+        }
+
+        public void doTransact()
+        {
+            Sales sales = new Sales()
+            {
+                dateOfTransaction = double.Parse(DateUtils.getStringDateNow()),
+                subtotalAmount = double.Parse(mVIew.cashierSubtotalPrice),
+                taxAmount = double.Parse(mVIew.cashierVatPrice),
+                totalPriceAmount = double.Parse(mVIew.cashierTotalPrice),
+                totalDiscountAmount = 0,
+                moneyPaid = double.Parse(mVIew.cashierAmountPaid),
+                SalesItem = new List<SalesItem>()
+            };
+
+            foreach (DataGridViewRow row in mVIew.cashierCart.Rows)
+            {
+
+                sales.SalesItem.Add(new SalesItem()
+                {
+                    quantitySold = int.Parse(row.Cells[3].Value.ToString()),
+                    pricePerUnit = double.Parse(row.Cells[2].Value.ToString()) / double.Parse(row.Cells[3].Value.ToString()),
+                    itemsID = int .Parse(row.Cells[0].Value.ToString())
+                });
+            }
+            double change = double.Parse(mVIew.cashierAmountPaid) - double.Parse(mVIew.cashierTotalPrice);
+            mMOdel.addSales(sales);
+            clearCart(true);
+            mVIew.cashierAmountPaid = "0";
+            mVIew.cashierAmountChange = change.ToString();
+            mVIew.onTransactDone();
         }
 
     }

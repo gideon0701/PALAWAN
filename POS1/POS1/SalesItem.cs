@@ -19,5 +19,8 @@ namespace POS1
         public double pricePerUnit { get; set; }
         public int itemsID { get; set; }
         public int SalesId { get; set; }
+    
+        public virtual Items Items { get; set; }
+        public virtual Sales Sales { get; set; }
     }
 }

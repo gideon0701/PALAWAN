@@ -73,6 +73,13 @@ namespace POS1.Cashier.Model
             return false;
         }
 
+        public void addSales(Sales sales)
+        {
+            db = new TestEntities();
+            db.Sales.Add(sales);
+            db.SaveChanges();
+        }
+
 
     }
 }

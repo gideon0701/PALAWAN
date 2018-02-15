@@ -14,12 +14,21 @@ namespace POS1
     
     public partial class Sales
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Sales()
+        {
+            this.SalesItem = new HashSet<SalesItem>();
+        }
+    
         public int Id { get; set; }
-        public int dateOfTransaction { get; set; }
+        public double dateOfTransaction { get; set; }
         public double subtotalAmount { get; set; }
         public double taxAmount { get; set; }
         public double totalPriceAmount { get; set; }
         public double totalDiscountAmount { get; set; }
         public double moneyPaid { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<SalesItem> SalesItem { get; set; }
     }
 }

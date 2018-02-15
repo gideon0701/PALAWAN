@@ -12,11 +12,15 @@ namespace POS1.Cashier.View
         DataGridView cashierItems { get; set; }
         DataGridView cashierCart { get; set; }
         string cashierItemSearch { get; set; }
+
         string cashierTotalPrice { get; set; }
         string cashierSubtotalPrice { get; set; }
         string cashierVatPrice { get; set; }
+        string cashierAmountPaid { get; set; }
+        string cashierAmountChange { get; set; }
 
         void onSelectedIndexChanged(int numOfSelected, int qty);
+        void onTransactDone();
         
     }
 }

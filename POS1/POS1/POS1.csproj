@@ -152,6 +152,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>TestModel.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Utils\DateUtils.cs" />
     <Compile Include="Utils\NumberUtils.cs" />
     <Compile Include="Utils\ValidateUtil.cs" />
     <EmbeddedResource Include="Main\MainForm.resx">

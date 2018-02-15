@@ -57,12 +57,12 @@ namespace POS1.Main.Presenter.Inventory
 
             if (mVIew.inventoryID == "")
             {
-                mMOdel.doAdd(inputToModel());
+                mMOdel.doAdd(inputToItemModel());
                 mVIew.onDbActionResult("add", true);
             }
             else
             {
-                Items item = inputToModel();
+                Items item = inputToItemModel();
                 item.ID = int.Parse(mVIew.inventoryID);
                 mMOdel.doEdit(item);
                 mVIew.onDbActionResult("edit", true);
@@ -72,7 +72,7 @@ namespace POS1.Main.Presenter.Inventory
 
         }
 
-        private Items inputToModel()
+        private Items inputToItemModel()
         {
             Items item = new Items
             {

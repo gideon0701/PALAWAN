@@ -21,8 +21,8 @@
     <Key>
       <PropertyRef Name="Id" />
     </Key>
-    <Property Name="Id" Type="int" Nullable="false" />
-    <Property Name="dateOfTransaction" Type="int" Nullable="false" />
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="dateOfTransaction" Type="float" Nullable="false" />
     <Property Name="subtotalAmount" Type="float" Nullable="false" />
     <Property Name="taxAmount" Type="float" Nullable="false" />
     <Property Name="totalPriceAmount" Type="float" Nullable="false" />
@@ -33,16 +33,48 @@
     <Key>
       <PropertyRef Name="Id" />
     </Key>
-    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="quantitySold" Type="int" Nullable="false" />
     <Property Name="pricePerUnit" Type="float" Nullable="false" />
     <Property Name="itemsID" Type="int" Nullable="false" />
     <Property Name="SalesId" Type="int" Nullable="false" />
   </EntityType>
+  <Association Name="FK__SalesItem__items__18EBB532">
+    <End Role="Items" Type="Self.Items" Multiplicity="1" />
+    <End Role="SalesItem" Type="Self.SalesItem" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Items">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="SalesItem">
+        <PropertyRef Name="itemsID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__SalesItem__Sales__19DFD96B">
+    <End Role="Sales" Type="Self.Sales" Multiplicity="1" />
+    <End Role="SalesItem" Type="Self.SalesItem" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Sales">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="SalesItem">
+        <PropertyRef Name="SalesId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <EntityContainer Name="TestModelStoreContainer">
     <EntitySet Name="Employee" EntityType="Self.Employee" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Items" EntityType="Self.Items" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Sales" EntityType="Self.Sales" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="SalesItem" EntityType="Self.SalesItem" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__SalesItem__items__18EBB532" Association="Self.FK__SalesItem__items__18EBB532">
+      <End Role="Items" EntitySet="Items" />
+      <End Role="SalesItem" EntitySet="SalesItem" />
+    </AssociationSet>
+    <AssociationSet Name="FK__SalesItem__Sales__19DFD96B" Association="Self.FK__SalesItem__Sales__19DFD96B">
+      <End Role="Sales" EntitySet="Sales" />
+      <End Role="SalesItem" EntitySet="SalesItem" />
+    </AssociationSet>
   </EntityContainer>
 </Schema>
