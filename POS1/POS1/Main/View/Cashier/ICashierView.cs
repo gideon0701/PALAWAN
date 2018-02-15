@@ -9,8 +9,8 @@ namespace POS1.Cashier.View
 {
     interface ICashierView
     {
-        ListView cashierInventoryListView { get; set; }
-        ListView cashierCartListView { get; set; }
+        DataGridView cashierItems { get; set; }
+        DataGridView cashierCart { get; set; }
         string cashierItemSearch { get; set; }
         string cashierTotalPrice { get; set; }
         string cashierSubtotalPrice { get; set; }

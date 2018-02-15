@@ -38,7 +38,6 @@ namespace POS1.Main.Presenter.Inventory
         {
             var item = (Items) mVIew.inventoryDataGrid.CurrentRow.DataBoundItem;
             mMOdel.deleteItem(item);
-
             getAllInventory();
             mVIew.onDbActionResult("delete", true);
         }

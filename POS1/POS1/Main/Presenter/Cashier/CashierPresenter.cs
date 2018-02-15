@@ -22,7 +22,8 @@ namespace POS1.Cashier.Presenter
         /// </summary>
         /// <param name="keyword"></param>
         public void getAllItems() {
-            ListView itemList = mVIew.cashierInventoryListView;
+    
+
             List<Items> items;
             string keyword = mVIew.cashierItemSearch;
             if (keyword == null)
@@ -34,19 +35,6 @@ namespace POS1.Cashier.Presenter
                items = mMOdel.getSearchItems(keyword);
             }
 
-            itemList.Items.Clear();
-            foreach (Items item in items)
-            {
-                var i = new ListViewItem(new[] {
-                   item.ID.ToString(),
-                   item.NAME,
-                   item.PRICE.ToString(),
-                   item.QTY.ToString()
-               });
-                itemList.Items.Add(i);
-            }
-
-            mVIew.cashierInventoryListView = itemList;
         }
 
         /// <summary>

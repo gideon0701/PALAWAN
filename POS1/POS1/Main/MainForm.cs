@@ -16,30 +16,30 @@ namespace POS1.Cashier
         CashierPresenter cashierPresenter;
         InventoryPresenter inventoryPresenter;
         int errorCount = 0;
-        
-        public ListView cashierInventoryListView
+
+        public DataGridView cashierItems
         {
             get
             {
-               return lvwItem;
+                return  dgdCashierItems;
             }
 
             set
             {
-                lvwItem = (MetroListView) value;
+                dgdCashierItems = (MetroGrid) value;
             }
         }
 
-        public ListView cashierCartListView
+        public DataGridView cashierCart
         {
             get
             {
-                return lvwCart;
+                return dgdCashierCart;
             }
 
             set
             {
-                lvwCart = (MetroListView) value;
+                dgdCashierCart = (MetroGrid) value;
             }
         }
 
@@ -194,11 +194,6 @@ namespace POS1.Cashier
             inventoryPresenter.getAllInventory();
         }
 
-        private void itemListView_ColumnWidthChanging(object sender, ColumnWidthChangingEventArgs e)
-        {
-            e.Cancel = true;
-            e.NewWidth = lvwItem.Columns[e.ColumnIndex].Width;
-        }
 
         private void itemListView_ItemSelectionChanged(object sender, ListViewItemSelectionChangedEventArgs e)
         {
@@ -213,11 +208,7 @@ namespace POS1.Cashier
 
         private void btn_cart_clear_Click(object sender, EventArgs e)
         {
-            if (lvwCart.Items.Count != 0)
-            {
-                cashierPresenter.clearCart();
-                cashierPresenter.getAllItems();
-            }
+          
         }
 
         private void btn_item_search_Click(object sender, EventArgs e)
