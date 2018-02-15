@@ -27,8 +27,8 @@ namespace POS1.Main.Model.Inventory
             {
                 ID = s.ID,
                 NAME = s.NAME,
-                PRICE = s.PRICE,
-                QTY = s.QTY
+                PRICE =  s.PRICE,
+                QTY =  s.QTY
             }).ToList();
         }
 
@@ -41,7 +41,7 @@ namespace POS1.Main.Model.Inventory
                     ID = s.ID,
                     NAME = s.NAME,
                     PRICE = s.PRICE,
-                    QTY = s.QTY
+                    QTY =s.QTY
                 }).ToList();
         }
 
