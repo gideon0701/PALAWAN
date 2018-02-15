@@ -1,0 +1,242 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="TestModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Employee">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="USERNAME" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="PASSWORD" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Items">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NAME" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="PRICE" Type="float" />
+          <Property Name="QTY" Type="int" />
+        </EntityType>
+        <EntityType Name="Sales">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="dateOfTransaction" Type="float" Nullable="false" />
+          <Property Name="subtotalAmount" Type="float" Nullable="false" />
+          <Property Name="taxAmount" Type="float" Nullable="false" />
+          <Property Name="totalPriceAmount" Type="float" Nullable="false" />
+          <Property Name="totalDiscountAmount" Type="float" Nullable="false" />
+          <Property Name="moneyPaid" Type="float" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SalesItem">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="quantitySold" Type="int" Nullable="false" />
+          <Property Name="pricePerUnit" Type="float" Nullable="false" />
+          <Property Name="itemsID" Type="int" Nullable="false" />
+          <Property Name="SalesId" Type="int" Nullable="false" />
+        </EntityType>
+        <Association Name="FK__SalesItem__items__18EBB532">
+          <End Role="Items" Type="Self.Items" Multiplicity="1" />
+          <End Role="SalesItem" Type="Self.SalesItem" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Items">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="SalesItem">
+              <PropertyRef Name="itemsID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__SalesItem__Sales__19DFD96B">
+          <End Role="Sales" Type="Self.Sales" Multiplicity="1" />
+          <End Role="SalesItem" Type="Self.SalesItem" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Sales">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="SalesItem">
+              <PropertyRef Name="SalesId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="TestModelStoreContainer">
+          <EntitySet Name="Employee" EntityType="Self.Employee" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Items" EntityType="Self.Items" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Sales" EntityType="Self.Sales" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SalesItem" EntityType="Self.SalesItem" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__SalesItem__items__18EBB532" Association="Self.FK__SalesItem__items__18EBB532">
+            <End Role="Items" EntitySet="Items" />
+            <End Role="SalesItem" EntitySet="SalesItem" />
+          </AssociationSet>
+          <AssociationSet Name="FK__SalesItem__Sales__19DFD96B" Association="Self.FK__SalesItem__Sales__19DFD96B">
+            <End Role="Sales" EntitySet="Sales" />
+            <End Role="SalesItem" EntitySet="SalesItem" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="TestModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Employee">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="USERNAME" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="PASSWORD" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="TestEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Employee" EntityType="Self.Employee" />
+          <EntitySet Name="Items" EntityType="TestModel.Items" />
+          <EntitySet Name="Sales" EntityType="TestModel.Sales" />
+          <EntitySet Name="SalesItem" EntityType="TestModel.SalesItem" />
+          <AssociationSet Name="FK__SalesItem__items__01142BA1" Association="TestModel.FK__SalesItem__items__01142BA1">
+            <End Role="Items" EntitySet="Items" />
+            <End Role="SalesItem" EntitySet="SalesItem" />
+          </AssociationSet>
+          <AssociationSet Name="FK__SalesItem__Sales__02084FDA" Association="TestModel.FK__SalesItem__Sales__02084FDA">
+            <End Role="Sales" EntitySet="Sales" />
+            <End Role="SalesItem" EntitySet="SalesItem" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Items">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="NAME" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PRICE" Type="Double" />
+          <Property Name="QTY" Type="Int32" />
+          <NavigationProperty Name="SalesItem" Relationship="TestModel.FK__SalesItem__items__01142BA1" FromRole="Items" ToRole="SalesItem" />
+        </EntityType>
+        <EntityType Name="Sales">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="dateOfTransaction" Type="Double" Nullable="false" />
+          <Property Name="subtotalAmount" Type="Double" Nullable="false" />
+          <Property Name="taxAmount" Type="Double" Nullable="false" />
+          <Property Name="totalPriceAmount" Type="Double" Nullable="false" />
+          <Property Name="totalDiscountAmount" Type="Double" Nullable="false" />
+          <Property Name="moneyPaid" Type="Double" Nullable="false" />
+          <NavigationProperty Name="SalesItem" Relationship="TestModel.FK__SalesItem__Sales__02084FDA" FromRole="Sales" ToRole="SalesItem" />
+        </EntityType>
+        <EntityType Name="SalesItem">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="quantitySold" Type="Int32" Nullable="false" />
+          <Property Name="pricePerUnit" Type="Double" Nullable="false" />
+          <Property Name="itemsID" Type="Int32" Nullable="false" />
+          <Property Name="SalesId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Items" Relationship="TestModel.FK__SalesItem__items__01142BA1" FromRole="SalesItem" ToRole="Items" />
+          <NavigationProperty Name="Sales" Relationship="TestModel.FK__SalesItem__Sales__02084FDA" FromRole="SalesItem" ToRole="Sales" />
+        </EntityType>
+        <Association Name="FK__SalesItem__items__01142BA1">
+          <End Type="TestModel.Items" Role="Items" Multiplicity="1" />
+          <End Type="TestModel.SalesItem" Role="SalesItem" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Items">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="SalesItem">
+              <PropertyRef Name="itemsID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__SalesItem__Sales__02084FDA">
+          <End Type="TestModel.Sales" Role="Sales" Multiplicity="1" />
+          <End Type="TestModel.SalesItem" Role="SalesItem" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Sales">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="SalesItem">
+              <PropertyRef Name="SalesId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="TestModelStoreContainer" CdmEntityContainer="TestEntities">
+          <EntitySetMapping Name="Employee">
+            <EntityTypeMapping TypeName="TestModel.Employee">
+              <MappingFragment StoreEntitySet="Employee">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="USERNAME" ColumnName="USERNAME" />
+                <ScalarProperty Name="PASSWORD" ColumnName="PASSWORD" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Items">
+            <EntityTypeMapping TypeName="TestModel.Items">
+              <MappingFragment StoreEntitySet="Items">
+                <ScalarProperty Name="QTY" ColumnName="QTY" />
+                <ScalarProperty Name="PRICE" ColumnName="PRICE" />
+                <ScalarProperty Name="NAME" ColumnName="NAME" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Sales">
+            <EntityTypeMapping TypeName="TestModel.Sales">
+              <MappingFragment StoreEntitySet="Sales">
+                <ScalarProperty Name="moneyPaid" ColumnName="moneyPaid" />
+                <ScalarProperty Name="totalDiscountAmount" ColumnName="totalDiscountAmount" />
+                <ScalarProperty Name="totalPriceAmount" ColumnName="totalPriceAmount" />
+                <ScalarProperty Name="taxAmount" ColumnName="taxAmount" />
+                <ScalarProperty Name="subtotalAmount" ColumnName="subtotalAmount" />
+                <ScalarProperty Name="dateOfTransaction" ColumnName="dateOfTransaction" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SalesItem">
+            <EntityTypeMapping TypeName="TestModel.SalesItem">
+              <MappingFragment StoreEntitySet="SalesItem">
+                <ScalarProperty Name="SalesId" ColumnName="SalesId" />
+                <ScalarProperty Name="itemsID" ColumnName="itemsID" />
+                <ScalarProperty Name="pricePerUnit" ColumnName="pricePerUnit" />
+                <ScalarProperty Name="quantitySold" ColumnName="quantitySold" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

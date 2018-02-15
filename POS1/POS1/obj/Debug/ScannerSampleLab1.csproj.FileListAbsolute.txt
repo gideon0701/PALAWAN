@@ -1,0 +1,42 @@
+C:\Users\developer\Documents\Visual Studio 2015\Projects\ScannerSampleLab1\ScannerSampleLab1\bin\Debug\Test.mdf
+C:\Users\developer\Documents\Visual Studio 2015\Projects\ScannerSampleLab1\ScannerSampleLab1\bin\Debug\Test_log.ldf
+C:\Users\developer\Documents\Visual Studio 2015\Projects\ScannerSampleLab1\ScannerSampleLab1\bin\Debug\ScannerSampleLab1.exe.config
+C:\Users\developer\Documents\Visual Studio 2015\Projects\ScannerSampleLab1\ScannerSampleLab1\bin\Debug\ScannerSampleLab1.exe
+C:\Users\developer\Documents\Visual Studio 2015\Projects\ScannerSampleLab1\ScannerSampleLab1\bin\Debug\ScannerSampleLab1.pdb
+C:\Users\developer\Documents\Visual Studio 2015\Projects\ScannerSampleLab1\ScannerSampleLab1\bin\Debug\EntityFramework.dll
+C:\Users\developer\Documents\Visual Studio 2015\Projects\ScannerSampleLab1\ScannerSampleLab1\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\developer\Documents\Visual Studio 2015\Projects\ScannerSampleLab1\ScannerSampleLab1\bin\Debug\MetroFramework.Design.dll
+C:\Users\developer\Documents\Visual Studio 2015\Projects\ScannerSampleLab1\ScannerSampleLab1\bin\Debug\MetroFramework.dll
+C:\Users\developer\Documents\Visual Studio 2015\Projects\ScannerSampleLab1\ScannerSampleLab1\bin\Debug\MetroFramework.Fonts.dll
+C:\Users\developer\Documents\Visual Studio 2015\Projects\ScannerSampleLab1\ScannerSampleLab1\bin\Debug\EntityFramework.xml
+C:\Users\developer\Documents\Visual Studio 2015\Projects\ScannerSampleLab1\ScannerSampleLab1\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\developer\Documents\Visual Studio 2015\Projects\ScannerSampleLab1\ScannerSampleLab1\obj\Debug\ScannerSampleLab1.Cashier.MainForm.resources
+C:\Users\developer\Documents\Visual Studio 2015\Projects\ScannerSampleLab1\ScannerSampleLab1\obj\Debug\ScannerSampleLab1.Form1.resources
+C:\Users\developer\Documents\Visual Studio 2015\Projects\ScannerSampleLab1\ScannerSampleLab1\obj\Debug\ScannerSampleLab1.Properties.Resources.resources
+C:\Users\developer\Documents\Visual Studio 2015\Projects\ScannerSampleLab1\ScannerSampleLab1\obj\Debug\ScannerSampleLab1.csproj.GenerateResource.Cache
+C:\Users\developer\Documents\Visual Studio 2015\Projects\ScannerSampleLab1\ScannerSampleLab1\obj\Debug\ScannerSampleLab1.exe
+C:\Users\developer\Documents\Visual Studio 2015\Projects\ScannerSampleLab1\ScannerSampleLab1\obj\Debug\ScannerSampleLab1.pdb
+C:\Users\developer\Documents\Visual Studio 2015\Projects\ScannerSampleLab1\ScannerSampleLab1\obj\Debug\ScannerSampleLab1.csprojResolveAssemblyReference.cache
+C:\git\PALAWAN\ScannerSampleLab1\ScannerSampleLab1\bin\Debug\ScannerSampleLab1.exe.config
+C:\git\PALAWAN\ScannerSampleLab1\ScannerSampleLab1\bin\Debug\ScannerSampleLab1.exe
+C:\git\PALAWAN\ScannerSampleLab1\ScannerSampleLab1\bin\Debug\ScannerSampleLab1.pdb
+C:\git\PALAWAN\ScannerSampleLab1\ScannerSampleLab1\bin\Debug\EntityFramework.dll
+C:\git\PALAWAN\ScannerSampleLab1\ScannerSampleLab1\bin\Debug\EntityFramework.SqlServer.dll
+C:\git\PALAWAN\ScannerSampleLab1\ScannerSampleLab1\bin\Debug\MetroFramework.Design.dll
+C:\git\PALAWAN\ScannerSampleLab1\ScannerSampleLab1\bin\Debug\MetroFramework.dll
+C:\git\PALAWAN\ScannerSampleLab1\ScannerSampleLab1\bin\Debug\MetroFramework.Fonts.dll
+C:\git\PALAWAN\ScannerSampleLab1\ScannerSampleLab1\bin\Debug\EntityFramework.xml
+C:\git\PALAWAN\ScannerSampleLab1\ScannerSampleLab1\bin\Debug\EntityFramework.SqlServer.xml
+C:\git\PALAWAN\ScannerSampleLab1\ScannerSampleLab1\obj\Debug\ScannerSampleLab1.csprojResolveAssemblyReference.cache
+C:\git\PALAWAN\ScannerSampleLab1\ScannerSampleLab1\obj\Debug\ScannerSampleLab1.Cashier.MainForm.resources
+C:\git\PALAWAN\ScannerSampleLab1\ScannerSampleLab1\obj\Debug\ScannerSampleLab1.Form1.resources
+C:\git\PALAWAN\ScannerSampleLab1\ScannerSampleLab1\obj\Debug\ScannerSampleLab1.Properties.Resources.resources
+C:\git\PALAWAN\ScannerSampleLab1\ScannerSampleLab1\obj\Debug\ScannerSampleLab1.csproj.GenerateResource.Cache
+C:\git\PALAWAN\ScannerSampleLab1\ScannerSampleLab1\obj\Debug\ScannerSampleLab1.exe
+C:\git\PALAWAN\ScannerSampleLab1\ScannerSampleLab1\obj\Debug\ScannerSampleLab1.pdb
+C:\git\PALAWAN\ScannerSampleLab1\ScannerSampleLab1\bin\Debug\ScannerSampleLab1.exe.manifest
+C:\git\PALAWAN\ScannerSampleLab1\ScannerSampleLab1\bin\Debug\ScannerSampleLab1.application
+C:\git\PALAWAN\ScannerSampleLab1\ScannerSampleLab1\obj\Debug\ScannerSampleLab1.exe.manifest
+C:\git\PALAWAN\ScannerSampleLab1\ScannerSampleLab1\obj\Debug\ScannerSampleLab1.application
+C:\git\PALAWAN\ScannerSampleLab1\ScannerSampleLab1\bin\Debug\Test.mdf
+C:\git\PALAWAN\ScannerSampleLab1\ScannerSampleLab1\bin\Debug\Test_log.ldf
