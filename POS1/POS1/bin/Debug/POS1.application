@@ -1,9 +1,13 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <asmv1:assembly xsi:schemaLocation="urn:schemas-microsoft-com:asm.v1 assembly.adaptive.xsd" manifestVersion="1.0" xmlns:asmv1="urn:schemas-microsoft-com:asm.v1" xmlns="urn:schemas-microsoft-com:asm.v2" xmlns:asmv2="urn:schemas-microsoft-com:asm.v2" xmlns:xrml="urn:mpeg:mpeg21:2003:01-REL-R-NS" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:asmv3="urn:schemas-microsoft-com:asm.v3" xmlns:dsig="http://www.w3.org/2000/09/xmldsig#" xmlns:co.v1="urn:schemas-microsoft-com:clickonce.v1" xmlns:co.v2="urn:schemas-microsoft-com:clickonce.v2">
 <<<<<<< HEAD
+<<<<<<< HEAD
   <assemblyIdentity name="POS1.application" version="1.0.0.9" publicKeyToken="0000000000000000" language="neutral" processorArchitecture="msil" xmlns="urn:schemas-microsoft-com:asm.v1" />
 =======
   <assemblyIdentity name="POS1.application" version="1.0.0.10" publicKeyToken="0000000000000000" language="neutral" processorArchitecture="msil" xmlns="urn:schemas-microsoft-com:asm.v1" />
+>>>>>>> gideon
+=======
+  <assemblyIdentity name="POS1.application" version="1.0.0.12" publicKeyToken="0000000000000000" language="neutral" processorArchitecture="msil" xmlns="urn:schemas-microsoft-com:asm.v1" />
 >>>>>>> gideon
   <description asmv2:publisher="Pentagon" co.v1:suiteName="setupfile" asmv2:product="pos" xmlns="urn:schemas-microsoft-com:asm.v1" />
   <deployment install="true" mapFileExtensions="true" />
@@ -16,7 +20,11 @@
       <assemblyIdentity name="POS1.exe" version="1.0.0.9" publicKeyToken="0000000000000000" language="neutral" processorArchitecture="msil" type="win32" />
 =======
     <dependentAssembly dependencyType="install" codebase="POS1.exe.manifest" size="8498">
+<<<<<<< HEAD
       <assemblyIdentity name="POS1.exe" version="1.0.0.10" publicKeyToken="0000000000000000" language="neutral" processorArchitecture="msil" type="win32" />
+>>>>>>> gideon
+=======
+      <assemblyIdentity name="POS1.exe" version="1.0.0.12" publicKeyToken="0000000000000000" language="neutral" processorArchitecture="msil" type="win32" />
 >>>>>>> gideon
       <hash>
         <dsig:Transforms>
@@ -24,9 +32,13 @@
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
 <<<<<<< HEAD
+<<<<<<< HEAD
         <dsig:DigestValue>g9fUdjjYl/7k+iTMhKDo+lSbQRs3kEIHFnx3wlgHoNs=</dsig:DigestValue>
 =======
         <dsig:DigestValue>Wm63DKfh9SPV+Bke6WUc6xDssmGbglhlxBkcDN21d2o=</dsig:DigestValue>
+>>>>>>> gideon
+=======
+        <dsig:DigestValue>LHg78R4gQ3C19+xtrbSFtGYrLjI8KILxm3govlzVpDw=</dsig:DigestValue>
 >>>>>>> gideon
       </hash>
     </dependentAssembly>

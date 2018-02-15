@@ -36,15 +36,23 @@ namespace POS1.Main.Presenter.Inventory
 
         public void deleteItem()
         {
-            var item = (Items) mVIew.inventoryDataGrid.CurrentRow.DataBoundItem;
-            mMOdel.deleteItem(item);
-            getAllInventory();
-            mVIew.onDbActionResult("delete", true);
+            try
+            {
+                var item = (InventoryModel)mVIew.inventoryDataGrid.CurrentRow.DataBoundItem;
+                mMOdel.deleteItem(item);
+                getAllInventory();
+                mVIew.onDbActionResult("delete", true);
+            }
+            catch
+            {
+                mVIew.onDbActionResult("delete", false);
+            }
+            
         }
 
         public void doEdit()
         {
-            var item = (Items)mVIew.inventoryDataGrid.CurrentRow.DataBoundItem;
+            var item = (InventoryModel)mVIew.inventoryDataGrid.CurrentRow.DataBoundItem;
             mVIew.inventoryID = item.ID.ToString();
             mVIew.inventoryName = item.NAME;
             mVIew.inventoryPrice = item.PRICE.ToString();

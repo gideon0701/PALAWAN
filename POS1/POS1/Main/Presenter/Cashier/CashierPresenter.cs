@@ -106,7 +106,7 @@ namespace POS1.Cashier.Presenter
             if (mMOdel.substractItemQty(item_id, qty))
             {
                 result = true;
-                price = int.Parse(grid.SelectedRows[0].Cells[2].Value.ToString());
+                price = double.Parse(grid.SelectedRows[0].Cells[2].Value.ToString());
                 grid.SelectedRows[0].Cells[3].Value = qty.ToString();
             }
 
