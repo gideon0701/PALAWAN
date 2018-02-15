@@ -9,30 +9,64 @@ namespace POS1.Cashier.Presenter
     class CashierPresenter
     {
         private ICashierView mVIew;
-        private ICashierInventoryModel mMOdel;
+        private CashierInventoryModel mMOdel;
 
-        public CashierPresenter(ICashierView view) {
+        public CashierPresenter(ICashierView view)
+        {
             mMOdel = new CashierInventoryModel();
             this.mVIew = view;
 
         }
 
+        public void initTables()
+        {
+            DataGridView grid = mVIew.cashierItems;
+
+            //CASHIER ITEM TABLE
+            grid.ColumnCount = 4;
+            grid.Columns[0].Name = "PRODUCT ID";
+            grid.Columns[1].Name = "NAME";
+            grid.Columns[2].Name = "PRICE PER UNIT";
+            grid.Columns[3].Name = "STOCK";
+
+            //CASHIER CART TABLE
+            grid = mVIew.cashierCart;
+            grid.ColumnCount = 4;
+            grid.Columns[0].Name = "PRODUCT ID";
+            grid.Columns[1].Name = "NAME";
+            grid.Columns[2].Name = "PRICE";
+            grid.Columns[3].Name = "QTY";
+
+        }
         /// <summary>
         ///To get all items in the search depends on the keyword 
         /// </summary>
         /// <param name="keyword"></param>
-        public void getAllItems() {
-    
+        public void getAllItems()
+        {
+            List<CashierInventoryModel> items;
+            DataGridView grid = mVIew.cashierItems;
 
-            List<Items> items;
+            grid.Rows.Clear();
             string keyword = mVIew.cashierItemSearch;
             if (keyword == null)
             {
-                items =mMOdel.getAllItems();
+                items = mMOdel.getAllItems();
             }
             else
             {
-               items = mMOdel.getSearchItems(keyword);
+                items = mMOdel.getSearchItems(keyword);
+            }
+
+            foreach (CashierInventoryModel model in items)
+            {
+                string[] row = new string[] {
+                    model.ID.ToString(),
+                    model.NAME,
+                    model.PRICE.ToString(),
+                    model.QTY.ToString()
+                };
+                grid.Rows.Add(row);
             }
 
         }
@@ -45,12 +79,12 @@ namespace POS1.Cashier.Presenter
         {
             int count = 0;
             int max = 0;
-            ListView list = mVIew.cashierInventoryListView;
-            foreach (ListViewItem li in list.Items )
+            var list = mVIew.cashierItems.Rows;
+            foreach (DataGridViewRow li in list)
             {
                 if (li.Selected)
                 {
-                    max = int.Parse(li.SubItems[3].Text);
+                    max = int.Parse(li.Cells[3].Value.ToString());
                     count++;
                 }
             }
@@ -65,27 +99,27 @@ namespace POS1.Cashier.Presenter
         public void addToCart(int qty)
         {
             bool result = false;
-            ListView itemList = mVIew.cashierInventoryListView;
-            float price = 0;
-            int item_id = int.Parse(itemList.SelectedItems[0].SubItems[0].Text);
+            double price = 0;
+            DataGridView grid = mVIew.cashierItems;
+            int item_id = int.Parse(grid.SelectedRows[0].Cells[0].Value.ToString());
 
             if (mMOdel.substractItemQty(item_id, qty))
             {
                 result = true;
-                price = int.Parse(itemList.SelectedItems[0].SubItems[2].Text);
-                itemList.SelectedItems[0].SubItems[3].Text = qty.ToString();
+                price = int.Parse(grid.SelectedRows[0].Cells[2].Value.ToString());
+                grid.SelectedRows[0].Cells[3].Value = qty.ToString();
             }
 
-            ListViewItem list = itemList.SelectedItems[0];
+            var list = grid.SelectedRows[0];
             bool isThereItemAlready = false;
 
-            foreach (ListViewItem li in mVIew.cashierCartListView.Items) //To check if the item adding to cart is in there already
+            foreach (DataGridViewRow li in mVIew.cashierCart.Rows) //To check if the item adding to cart is in there already
             {
-                if (list.SubItems[0].Text == li.SubItems[0].Text)
+                if (list.Cells[0].Value.ToString() == li.Cells[0].Value.ToString())
                 {
-                    int newQty = int.Parse(li.SubItems[3].Text) + int.Parse(list.SubItems[3].Text);
-                    li.SubItems[2].Text = NumberUtils.computePrice(float.Parse(list.SubItems[2].Text), newQty).ToString();
-                    li.SubItems[3].Text = newQty.ToString();
+                    int newQty = int.Parse(li.Cells[3].Value.ToString()) + int.Parse(list.Cells[3].Value.ToString());
+                    li.Cells[2].Value = NumberUtils.computePrice(float.Parse(list.Cells[2].Value.ToString()), newQty);
+                    li.Cells[3].Value = newQty.ToString();
                     isThereItemAlready = true;
 
                 }
@@ -93,17 +127,20 @@ namespace POS1.Cashier.Presenter
 
             if (result && !isThereItemAlready) //Add item to the cart
             {
-                float newPrice = NumberUtils.computePrice(float.Parse(list.SubItems[2].Text), int.Parse(list.SubItems[3].Text));
-                var i = new ListViewItem(new[] {
-                   list.SubItems[0].Text,
-                   list.SubItems[1].Text,
-                   newPrice.ToString(),
-                list.SubItems[3].Text
-               });
-                mVIew.cashierCartListView.Items.Add(i);
+                float newPrice = NumberUtils.computePrice(float.Parse(list.Cells[2].Value.ToString()), int.Parse(list.Cells[3].Value.ToString()));
+                string[] row = new string[] {
+                    list.Cells[0].Value.ToString(),
+                    list.Cells[1].Value.ToString(),
+                    newPrice.ToString(),
+                    list.Cells[3].Value.ToString()
+                };
+
+                mVIew.cashierCart.Rows.Add(row);
+
             }
             showTotal();
             getAllItems();
+
         }
 
         /// <summary>
@@ -112,21 +149,24 @@ namespace POS1.Cashier.Presenter
         /// <param name="cartList"></param>
         public void clearCart()
         {
-            ListView cartList = mVIew.cashierCartListView;
+            var cartList = mVIew.cashierCart.Rows;
             bool result = true;
-            foreach (ListViewItem li in cartList.Items)
+            foreach (DataGridViewRow li in cartList)
             {
-                if (!mMOdel.addItemQty(int.Parse(li.SubItems[0].Text), int.Parse(li.SubItems[3].Text)))
+                if (!mMOdel.addItemQty(int.Parse(li.Cells[0].Value.ToString()), int.Parse(li.Cells[3].Value.ToString())))
                 {
                     result = false;
                 }
             }
 
-            if (result) {
+            if (result)
+            {
                 mVIew.cashierTotalPrice = "0";
-                mVIew.cashierCartListView.Items.Clear();
+                mVIew.cashierSubtotalPrice = "0";
+                mVIew.cashierVatPrice = "0";
+                mVIew.cashierCart.Rows.Clear();
             }
-           
+
         }
 
         /// <summary>
@@ -135,13 +175,13 @@ namespace POS1.Cashier.Presenter
         /// <param name="cartList"></param>
         public void showTotal()
         {
-            ListView cartList = mVIew.cashierCartListView;
+            var cartList = mVIew.cashierCart.Rows;
             double total = 0;
             double vat = 0;
             double subtotal = 0;
-            foreach (ListViewItem li in cartList.Items)
+            foreach (DataGridViewRow li in cartList)
             {
-                total += double.Parse(li.SubItems[2].Text);
+                total += double.Parse(li.Cells[2].Value.ToString());
             }
             vat = (total * 0.12);
             subtotal = total - vat;

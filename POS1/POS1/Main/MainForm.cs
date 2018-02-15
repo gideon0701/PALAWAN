@@ -69,7 +69,6 @@ namespace POS1.Cashier
             }
         }
 
-
         public string cashierSubtotalPrice
         {
             get
@@ -184,6 +183,7 @@ namespace POS1.Cashier
 
         private void MainForm_Load(object sender, EventArgs e)
         {
+            cashierPresenter.initTables();
             cashierPresenter.getAllItems();
             inventoryPresenter.getAllInventory();
         }
@@ -194,10 +194,10 @@ namespace POS1.Cashier
             inventoryPresenter.getAllInventory();
         }
 
-
-        private void itemListView_ItemSelectionChanged(object sender, ListViewItemSelectionChangedEventArgs e)
+        private void dgdCashierItems_SelectionChanged(object sender, EventArgs e)
         {
             cashierPresenter.itemSelectedChanged();
+         
         }
 
         private void button_addCart_Click(object sender, EventArgs e)
@@ -208,7 +208,7 @@ namespace POS1.Cashier
 
         private void btn_cart_clear_Click(object sender, EventArgs e)
         {
-          
+            cashierPresenter.clearCart();
         }
 
         private void btn_item_search_Click(object sender, EventArgs e)
@@ -306,7 +306,6 @@ namespace POS1.Cashier
             
             }
         }
-     
 
         /// <summary>
         /// CALLBACK WHEN THE SELECTED ITEM IN THE ITEM LIST WAS CHANGED
@@ -315,6 +314,7 @@ namespace POS1.Cashier
         /// <param name="qty"></param>
         public void onSelectedIndexChanged(int numOfSelected, int qty)
         {
+            inputQty.Value = 1;
             if (numOfSelected > 0)
             {
                 pnlAdd.Visible = true;
@@ -327,6 +327,11 @@ namespace POS1.Cashier
 
         }
 
+        /// <summary>
+        /// FOR THE CRUD OPERATIONS IN INVENTORY
+        /// </summary>
+        /// <param name="action"></param>
+        /// <param name="result"></param>
         public void onDbActionResult(string action, bool result)
         {
             if (action == "delete" && result)
@@ -344,7 +349,6 @@ namespace POS1.Cashier
                 MessageBox.Show("Item Changed Successfully");
             }
         }
-
 
     }
 }

@@ -11,6 +11,8 @@
   <EntityContainer Name="TestEntities" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="Employee" EntityType="Self.Employee" />
     <EntitySet Name="Items" EntityType="TestModel.Items" />
+    <EntitySet Name="Sales" EntityType="TestModel.Sales" />
+    <EntitySet Name="SalesItem" EntityType="TestModel.SalesItem" />
   </EntityContainer>
   <EntityType Name="Items">
     <Key>
@@ -20,5 +22,27 @@
     <Property Name="NAME" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="PRICE" Type="Double" />
     <Property Name="QTY" Type="Int32" />
+  </EntityType>
+  <EntityType Name="Sales">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="dateOfTransaction" Type="Int32" Nullable="false" />
+    <Property Name="subtotalAmount" Type="Double" Nullable="false" />
+    <Property Name="taxAmount" Type="Double" Nullable="false" />
+    <Property Name="totalPriceAmount" Type="Double" Nullable="false" />
+    <Property Name="totalDiscountAmount" Type="Double" Nullable="false" />
+    <Property Name="moneyPaid" Type="Double" Nullable="false" />
+  </EntityType>
+  <EntityType Name="SalesItem">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="quantitySold" Type="Int32" Nullable="false" />
+    <Property Name="pricePerUnit" Type="Double" Nullable="false" />
+    <Property Name="itemsID" Type="Int32" Nullable="false" />
+    <Property Name="SalesId" Type="Int32" Nullable="false" />
   </EntityType>
 </Schema>

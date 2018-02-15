@@ -17,8 +17,32 @@
     <Property Name="PRICE" Type="float" />
     <Property Name="QTY" Type="int" />
   </EntityType>
+  <EntityType Name="Sales">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="dateOfTransaction" Type="int" Nullable="false" />
+    <Property Name="subtotalAmount" Type="float" Nullable="false" />
+    <Property Name="taxAmount" Type="float" Nullable="false" />
+    <Property Name="totalPriceAmount" Type="float" Nullable="false" />
+    <Property Name="totalDiscountAmount" Type="float" Nullable="false" />
+    <Property Name="moneyPaid" Type="float" Nullable="false" />
+  </EntityType>
+  <EntityType Name="SalesItem">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="quantitySold" Type="int" Nullable="false" />
+    <Property Name="pricePerUnit" Type="float" Nullable="false" />
+    <Property Name="itemsID" Type="int" Nullable="false" />
+    <Property Name="SalesId" Type="int" Nullable="false" />
+  </EntityType>
   <EntityContainer Name="TestModelStoreContainer">
     <EntitySet Name="Employee" EntityType="Self.Employee" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Items" EntityType="Self.Items" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Sales" EntityType="Self.Sales" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SalesItem" EntityType="Self.SalesItem" Schema="dbo" store:Type="Tables" />
   </EntityContainer>
 </Schema>

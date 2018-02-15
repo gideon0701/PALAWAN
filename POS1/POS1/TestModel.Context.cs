@@ -27,5 +27,7 @@ namespace POS1
     
         public virtual DbSet<Employee> Employee { get; set; }
         public virtual DbSet<Items> Items { get; set; }
+        public virtual DbSet<Sales> Sales { get; set; }
+        public virtual DbSet<SalesItem> SalesItem { get; set; }
     }
 }

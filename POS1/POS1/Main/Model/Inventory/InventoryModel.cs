@@ -10,26 +10,39 @@ namespace POS1.Main.Model.Inventory
     {
         private TestEntities db;
 
-        public int id { get; set; }
-        public string name { get; set; }
-        public float price { get; set; }
-        public int qty { get; set; }
+        public int ID { get; set; }
+        public string NAME { get; set; }
+        public double? PRICE { get; set; }
+        public int? QTY { get; set; }
 
         public InventoryModel()
         {
 
         }
 
-        public List<Items> getAllInventory()
+        public List<InventoryModel> getAllInventory()
         {
             db = new TestEntities();
-            return db.Items.ToList();
+            return db.Items.Select(s => new InventoryModel()
+            {
+                ID = s.ID,
+                NAME = s.NAME,
+                PRICE = s.PRICE,
+                QTY = s.QTY
+            }).ToList();
         }
 
-        public List<Items> searchInventory(string keyword)
+        public List<InventoryModel> searchInventory(string keyword)
         {
             db = new TestEntities();
-            return db.Items.Where(s => s.NAME.ToLower().Contains(keyword.ToLower())).ToList();
+            return db.Items.Where(s => s.NAME.ToLower().Contains(keyword.ToLower()))
+                .Select(s => new InventoryModel()
+                {
+                    ID = s.ID,
+                    NAME = s.NAME,
+                    PRICE = s.PRICE,
+                    QTY = s.QTY
+                }).ToList();
         }
 
         public void doAdd(Items item)
@@ -53,6 +66,6 @@ namespace POS1.Main.Model.Inventory
             db.Items.Remove(item);
             db.SaveChanges();
         }
-        
+
     }
 }

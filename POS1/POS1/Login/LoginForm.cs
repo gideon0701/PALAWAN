@@ -50,5 +50,6 @@ namespace POS1
                 MessageBox.Show("Input username or password");
             }
         }
+
     }
 }

@@ -6,85 +6,43 @@ using System.Threading.Tasks;
 
 namespace POS1.Cashier.Model
 {
-    class CashierInventoryModel : ICashierInventoryModel
+    class CashierInventoryModel 
     {
         private TestEntities db;
+
+        public int ID { get; set; }
+        public string NAME { get; set; }
+        public double? PRICE { get; set; }
+        public int? QTY { get; set; }
 
         public CashierInventoryModel()
         {
 
         }
 
-        public CashierInventoryModel(int ID, string NAME, float PRICE, int QTY) {
-            this.ID = ID;
-            this.NAME = NAME;
-            this.PRICE = PRICE;
-            this.QTY = QTY;
-        }
-
-        public int ID
-        {
-            get
-            {
-                return ID;
-            }
-
-            set
-            {
-                ID = value;
-            }
-        }
-
-        public string NAME
-        {
-            get
-            {
-                return NAME;
-            }
-
-            set
-            {
-                NAME = value;
-            }
-        }
-
-        public float PRICE
-        {
-            get
-            {
-                return PRICE;
-            }
-
-            set
-            {
-                PRICE = value;
-            }
-        }
-
-        public int QTY
-        {
-            get
-            {
-                return QTY;
-            }
-
-            set
-            {
-                QTY = value;
-            }
-        }
-
-
-        public List<Items> getAllItems()
+        public List<CashierInventoryModel> getAllItems()
         {
             db = new TestEntities();
-            return db.Items.ToList();
+            return db.Items.Select(s => new CashierInventoryModel()
+            {
+                ID = s.ID,
+                NAME = s.NAME,
+                PRICE = s.PRICE,
+                QTY = s.QTY
+            }).ToList();
         }
 
-        public List<Items> getSearchItems(string keyword)
+        public List<CashierInventoryModel> getSearchItems(string keyword)
         {
             db = new TestEntities();
-            return db.Items.Where(s => s.NAME.ToLower().Contains(keyword.ToLower())).ToList();
+            return db.Items.Where(s => s.NAME.ToLower().Contains(keyword.ToLower()))
+                .Select(s => new CashierInventoryModel()
+                {
+                    ID = s.ID,
+                    NAME = s.NAME,
+                    PRICE = s.PRICE,
+                    QTY = s.QTY
+                }).ToList();
         }
 
         public bool substractItemQty(int id, int qty)
@@ -115,6 +73,6 @@ namespace POS1.Cashier.Model
             return false;
         }
 
-      
+
     }
 }

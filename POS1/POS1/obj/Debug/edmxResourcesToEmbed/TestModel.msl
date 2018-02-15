@@ -20,5 +20,29 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="Sales">
+      <EntityTypeMapping TypeName="TestModel.Sales">
+        <MappingFragment StoreEntitySet="Sales">
+          <ScalarProperty Name="moneyPaid" ColumnName="moneyPaid" />
+          <ScalarProperty Name="totalDiscountAmount" ColumnName="totalDiscountAmount" />
+          <ScalarProperty Name="totalPriceAmount" ColumnName="totalPriceAmount" />
+          <ScalarProperty Name="taxAmount" ColumnName="taxAmount" />
+          <ScalarProperty Name="subtotalAmount" ColumnName="subtotalAmount" />
+          <ScalarProperty Name="dateOfTransaction" ColumnName="dateOfTransaction" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SalesItem">
+      <EntityTypeMapping TypeName="TestModel.SalesItem">
+        <MappingFragment StoreEntitySet="SalesItem">
+          <ScalarProperty Name="SalesId" ColumnName="SalesId" />
+          <ScalarProperty Name="itemsID" ColumnName="itemsID" />
+          <ScalarProperty Name="pricePerUnit" ColumnName="pricePerUnit" />
+          <ScalarProperty Name="quantitySold" ColumnName="quantitySold" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>
