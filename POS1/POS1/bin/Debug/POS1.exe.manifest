@@ -122,13 +122,13 @@
       <dsig:DigestValue>+yV6adEVlpUIOiH/IdsfqaixKo0MB7DiB/hBOyI4wKw=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="POS1.exe.config" size="1539">
+  <file name="POS1.exe.config" size="1459">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>TxTiXibW8ySVm7kzhZFQLzsereoONGTQsxAXVtYCuKI=</dsig:DigestValue>
+      <dsig:DigestValue>95EWuUn7Dr9t8fFwKaWJvljx4BVNEOaHGtPcZf/v0+4=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Test.mdf" size="8388608" writeableType="applicationData">
