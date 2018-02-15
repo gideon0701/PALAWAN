@@ -393,7 +393,7 @@ namespace POS1.Cashier
             {
                 MessageBox.Show("Item Deleted Successfully");
             }
-            else
+            else if (action == "delete" && !result)
             {
                 MessageBox.Show("Cant Delete This Item");
             }
