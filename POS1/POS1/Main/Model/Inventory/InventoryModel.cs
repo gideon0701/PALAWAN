@@ -54,16 +54,22 @@ namespace POS1.Main.Model.Inventory
 
         public void doEdit(Items item)
         {
+
             db = new TestEntities();
             var model = db.Items.Find(item.ID);
             db.Entry(model).CurrentValues.SetValues(item);
             db.SaveChanges();
         }
 
-        public void deleteItem(Items item)
+        public void deleteItem(InventoryModel item)
         {
             db = new TestEntities();
-            db.Items.Remove(item);
+            Items i = new Items()
+            {
+                ID = item.ID,
+            };
+            db.Items.Attach(i);
+            db.Items.Remove(i);
             db.SaveChanges();
         }
 
