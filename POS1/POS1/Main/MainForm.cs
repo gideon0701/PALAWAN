@@ -16,30 +16,30 @@ namespace POS1.Cashier
         CashierPresenter cashierPresenter;
         InventoryPresenter inventoryPresenter;
         int errorCount = 0;
-        
-        public ListView cashierInventoryListView
+
+        public DataGridView cashierItems
         {
             get
             {
-               return lvwItem;
+                return  dgdCashierItems;
             }
 
             set
             {
-                lvwItem = (MetroListView) value;
+                dgdCashierItems = (MetroGrid) value;
             }
         }
 
-        public ListView cashierCartListView
+        public DataGridView cashierCart
         {
             get
             {
-                return lvwCart;
+                return dgdCashierCart;
             }
 
             set
             {
-                lvwCart = (MetroListView) value;
+                dgdCashierCart = (MetroGrid) value;
             }
         }
 
@@ -69,7 +69,6 @@ namespace POS1.Cashier
             }
         }
 
-
         public string cashierSubtotalPrice
         {
             get
@@ -93,6 +92,32 @@ namespace POS1.Cashier
             set
             {
                 txtVat.Text = value;
+            }
+        }
+
+        public string cashierAmountPaid
+        {
+            get
+            {
+                return txtReceived.Text;
+            }
+
+            set
+            {
+                txtReceived.Text = value;
+            }
+        }
+
+        public string cashierAmountChange
+        {
+            get
+            {
+                return txtChange.Text;
+            }
+
+            set
+            {
+                txtChange.Text = value;
             }
         }
 
@@ -184,6 +209,7 @@ namespace POS1.Cashier
 
         private void MainForm_Load(object sender, EventArgs e)
         {
+            cashierPresenter.initTables();
             cashierPresenter.getAllItems();
             inventoryPresenter.getAllInventory();
         }
@@ -194,15 +220,10 @@ namespace POS1.Cashier
             inventoryPresenter.getAllInventory();
         }
 
-        private void itemListView_ColumnWidthChanging(object sender, ColumnWidthChangingEventArgs e)
-        {
-            e.Cancel = true;
-            e.NewWidth = lvwItem.Columns[e.ColumnIndex].Width;
-        }
-
-        private void itemListView_ItemSelectionChanged(object sender, ListViewItemSelectionChangedEventArgs e)
+        private void dgdCashierItems_SelectionChanged(object sender, EventArgs e)
         {
             cashierPresenter.itemSelectedChanged();
+         
         }
 
         private void button_addCart_Click(object sender, EventArgs e)
@@ -213,11 +234,7 @@ namespace POS1.Cashier
 
         private void btn_cart_clear_Click(object sender, EventArgs e)
         {
-            if (lvwCart.Items.Count != 0)
-            {
-                cashierPresenter.clearCart();
-                cashierPresenter.getAllItems();
-            }
+            cashierPresenter.clearCart(false);
         }
 
         private void btn_item_search_Click(object sender, EventArgs e)
@@ -270,6 +287,35 @@ namespace POS1.Cashier
             inventoryPresenter.getAllInventory();
         }
 
+        private void btnItemTransact_Click(object sender, EventArgs e)
+        {
+            cashierPresenter.doTransact();
+        }
+
+        private void txtReceived_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                double amountPaid = double.Parse(cashierAmountPaid);
+                double amountTotal = double.Parse(cashierTotalPrice);
+                if (amountPaid >= amountTotal)
+                {
+                    btnItemTransact.Enabled = true;
+                }
+                else
+                {
+                    btnItemTransact.Enabled = false;
+                }
+            }
+            catch 
+            {
+                btnItemTransact.Enabled = false;
+            }
+        }
+
+        /// <summary>
+        /// TO VALIDATE THE INPUTS FROM THE INVENTORY CRUD
+        /// </summary>
         private void validateInputs()
         {
             errorCount = 0;
@@ -315,7 +361,6 @@ namespace POS1.Cashier
             
             }
         }
-     
 
         /// <summary>
         /// CALLBACK WHEN THE SELECTED ITEM IN THE ITEM LIST WAS CHANGED
@@ -324,6 +369,7 @@ namespace POS1.Cashier
         /// <param name="qty"></param>
         public void onSelectedIndexChanged(int numOfSelected, int qty)
         {
+            inputQty.Value = 1;
             if (numOfSelected > 0)
             {
                 pnlAdd.Visible = true;
@@ -336,6 +382,11 @@ namespace POS1.Cashier
 
         }
 
+        /// <summary>
+        /// FOR THE CRUD OPERATIONS IN INVENTORY
+        /// </summary>
+        /// <param name="action"></param>
+        /// <param name="result"></param>
         public void onDbActionResult(string action, bool result)
         {
             if (action == "delete" && result)
@@ -354,7 +405,13 @@ namespace POS1.Cashier
             }
         }
 
-
+        /// <summary>
+        /// CALLS WHEN TRANSACTION DONE
+        /// </summary>
+        public void onTransactDone()
+        {
+            MessageBox.Show("Tansaction Done");
+        }
     }
 }
 

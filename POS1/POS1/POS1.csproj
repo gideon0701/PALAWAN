@@ -25,7 +25,7 @@
     <ProductName>pos</ProductName>
     <PublisherName>Pentagon</PublisherName>
     <SuiteName>setupfile</SuiteName>
-    <ApplicationRevision>9</ApplicationRevision>
+    <ApplicationRevision>11</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -114,7 +114,6 @@
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Main\Model\Cashier\CashierInventoryModel.cs" />
-    <Compile Include="Main\Model\Cashier\ICashierInventoryModel.cs" />
     <Compile Include="Main\Model\Inventory\InventoryModel.cs" />
     <Compile Include="Main\Presenter\Cashier\CashierPresenter.cs" />
     <Compile Include="Main\Presenter\Inventory\InventoryPresenter.cs" />
@@ -153,6 +152,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>TestModel.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Utils\DateUtils.cs" />
     <Compile Include="Utils\NumberUtils.cs" />
     <Compile Include="Utils\ValidateUtil.cs" />
     <EmbeddedResource Include="Main\MainForm.resx">

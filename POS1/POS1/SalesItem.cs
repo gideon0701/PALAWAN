@@ -17,7 +17,11 @@ namespace POS1
         public int Id { get; set; }
         public int quantitySold { get; set; }
         public double pricePerUnit { get; set; }
+<<<<<<< HEAD
         public int ItemsID { get; set; }
+=======
+        public int itemsID { get; set; }
+>>>>>>> gideon
         public int SalesId { get; set; }
     
         public virtual Items Items { get; set; }

@@ -21,7 +21,11 @@ namespace POS1
         }
     
         public int Id { get; set; }
+<<<<<<< HEAD
         public int dateOfTransaction { get; set; }
+=======
+        public double dateOfTransaction { get; set; }
+>>>>>>> gideon
         public double subtotalAmount { get; set; }
         public double taxAmount { get; set; }
         public double totalPriceAmount { get; set; }

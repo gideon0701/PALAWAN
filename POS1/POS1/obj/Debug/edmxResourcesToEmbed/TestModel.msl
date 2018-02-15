@@ -36,7 +36,12 @@
     <EntitySetMapping Name="SalesItem">
       <EntityTypeMapping TypeName="TestModel.SalesItem">
         <MappingFragment StoreEntitySet="SalesItem">
+<<<<<<< HEAD
           <ScalarProperty Name="ItemsID" ColumnName="itemsID" />
+=======
+          <ScalarProperty Name="SalesId" ColumnName="SalesId" />
+          <ScalarProperty Name="itemsID" ColumnName="itemsID" />
+>>>>>>> gideon
           <ScalarProperty Name="pricePerUnit" ColumnName="pricePerUnit" />
           <ScalarProperty Name="quantitySold" ColumnName="quantitySold" />
           <ScalarProperty Name="Id" ColumnName="Id" />

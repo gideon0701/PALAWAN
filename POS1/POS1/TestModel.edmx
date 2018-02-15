@@ -26,8 +26,13 @@
           <Key>
             <PropertyRef Name="Id" />
           </Key>
+<<<<<<< HEAD
           <Property Name="Id" Type="int" Nullable="false" />
           <Property Name="dateOfTransaction" Type="int" Nullable="false" />
+=======
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="dateOfTransaction" Type="float" Nullable="false" />
+>>>>>>> gideon
           <Property Name="subtotalAmount" Type="float" Nullable="false" />
           <Property Name="taxAmount" Type="float" Nullable="false" />
           <Property Name="totalPriceAmount" Type="float" Nullable="false" />
@@ -38,17 +43,59 @@
           <Key>
             <PropertyRef Name="Id" />
           </Key>
+<<<<<<< HEAD
           <Property Name="Id" Type="int" Nullable="false" />
+=======
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+>>>>>>> gideon
           <Property Name="quantitySold" Type="int" Nullable="false" />
           <Property Name="pricePerUnit" Type="float" Nullable="false" />
           <Property Name="itemsID" Type="int" Nullable="false" />
           <Property Name="SalesId" Type="int" Nullable="false" />
         </EntityType>
+<<<<<<< HEAD
+=======
+        <Association Name="FK__SalesItem__items__18EBB532">
+          <End Role="Items" Type="Self.Items" Multiplicity="1" />
+          <End Role="SalesItem" Type="Self.SalesItem" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Items">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="SalesItem">
+              <PropertyRef Name="itemsID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__SalesItem__Sales__19DFD96B">
+          <End Role="Sales" Type="Self.Sales" Multiplicity="1" />
+          <End Role="SalesItem" Type="Self.SalesItem" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Sales">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="SalesItem">
+              <PropertyRef Name="SalesId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+>>>>>>> gideon
         <EntityContainer Name="TestModelStoreContainer">
           <EntitySet Name="Employee" EntityType="Self.Employee" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Items" EntityType="Self.Items" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Sales" EntityType="Self.Sales" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="SalesItem" EntityType="Self.SalesItem" Schema="dbo" store:Type="Tables" />
+<<<<<<< HEAD
+=======
+          <AssociationSet Name="FK__SalesItem__items__18EBB532" Association="Self.FK__SalesItem__items__18EBB532">
+            <End Role="Items" EntitySet="Items" />
+            <End Role="SalesItem" EntitySet="SalesItem" />
+          </AssociationSet>
+          <AssociationSet Name="FK__SalesItem__Sales__19DFD96B" Association="Self.FK__SalesItem__Sales__19DFD96B">
+            <End Role="Sales" EntitySet="Sales" />
+            <End Role="SalesItem" EntitySet="SalesItem" />
+          </AssociationSet>
+>>>>>>> gideon
         </EntityContainer>
       </Schema></edmx:StorageModels>
     <!-- CSDL content -->
@@ -67,11 +114,19 @@
           <EntitySet Name="Items" EntityType="TestModel.Items" />
           <EntitySet Name="Sales" EntityType="TestModel.Sales" />
           <EntitySet Name="SalesItem" EntityType="TestModel.SalesItem" />
+<<<<<<< HEAD
           <AssociationSet Name="ItemsSalesItem" Association="TestModel.ItemsSalesItem">
             <End Role="Items" EntitySet="Items" />
             <End Role="SalesItem" EntitySet="SalesItem" />
           </AssociationSet>
           <AssociationSet Name="SalesSalesItem" Association="TestModel.SalesSalesItem">
+=======
+          <AssociationSet Name="FK__SalesItem__items__01142BA1" Association="TestModel.FK__SalesItem__items__01142BA1">
+            <End Role="Items" EntitySet="Items" />
+            <End Role="SalesItem" EntitySet="SalesItem" />
+          </AssociationSet>
+          <AssociationSet Name="FK__SalesItem__Sales__02084FDA" Association="TestModel.FK__SalesItem__Sales__02084FDA">
+>>>>>>> gideon
             <End Role="Sales" EntitySet="Sales" />
             <End Role="SalesItem" EntitySet="SalesItem" />
           </AssociationSet>
@@ -84,20 +139,32 @@
           <Property Name="NAME" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="PRICE" Type="Double" />
           <Property Name="QTY" Type="Int32" />
+<<<<<<< HEAD
           <NavigationProperty Name="SalesItem" Relationship="TestModel.ItemsSalesItem" FromRole="Items" ToRole="SalesItem" />
+=======
+          <NavigationProperty Name="SalesItem" Relationship="TestModel.FK__SalesItem__items__01142BA1" FromRole="Items" ToRole="SalesItem" />
+>>>>>>> gideon
         </EntityType>
         <EntityType Name="Sales">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" />
+<<<<<<< HEAD
           <Property Name="dateOfTransaction" Type="Int32" Nullable="false" />
+=======
+          <Property Name="dateOfTransaction" Type="Double" Nullable="false" />
+>>>>>>> gideon
           <Property Name="subtotalAmount" Type="Double" Nullable="false" />
           <Property Name="taxAmount" Type="Double" Nullable="false" />
           <Property Name="totalPriceAmount" Type="Double" Nullable="false" />
           <Property Name="totalDiscountAmount" Type="Double" Nullable="false" />
           <Property Name="moneyPaid" Type="Double" Nullable="false" />
+<<<<<<< HEAD
           <NavigationProperty Name="SalesItem" Relationship="TestModel.SalesSalesItem" FromRole="Sales" ToRole="SalesItem" />
+=======
+          <NavigationProperty Name="SalesItem" Relationship="TestModel.FK__SalesItem__Sales__02084FDA" FromRole="Sales" ToRole="SalesItem" />
+>>>>>>> gideon
         </EntityType>
         <EntityType Name="SalesItem">
           <Key>
@@ -106,12 +173,21 @@
           <Property Name="Id" Type="Int32" Nullable="false" />
           <Property Name="quantitySold" Type="Int32" Nullable="false" />
           <Property Name="pricePerUnit" Type="Double" Nullable="false" />
+<<<<<<< HEAD
           <NavigationProperty Name="Items" Relationship="TestModel.ItemsSalesItem" FromRole="SalesItem" ToRole="Items" />
           <Property Name="ItemsID" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Sales" Relationship="TestModel.SalesSalesItem" FromRole="SalesItem" ToRole="Sales" />
           <Property Name="SalesId" Type="Int32" Nullable="false" />
           </EntityType>
         <Association Name="ItemsSalesItem">
+=======
+          <Property Name="itemsID" Type="Int32" Nullable="false" />
+          <Property Name="SalesId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Items" Relationship="TestModel.FK__SalesItem__items__01142BA1" FromRole="SalesItem" ToRole="Items" />
+          <NavigationProperty Name="Sales" Relationship="TestModel.FK__SalesItem__Sales__02084FDA" FromRole="SalesItem" ToRole="Sales" />
+        </EntityType>
+        <Association Name="FK__SalesItem__items__01142BA1">
+>>>>>>> gideon
           <End Type="TestModel.Items" Role="Items" Multiplicity="1" />
           <End Type="TestModel.SalesItem" Role="SalesItem" Multiplicity="*" />
           <ReferentialConstraint>
@@ -119,11 +195,19 @@
               <PropertyRef Name="ID" />
             </Principal>
             <Dependent Role="SalesItem">
+<<<<<<< HEAD
               <PropertyRef Name="ItemsID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
         <Association Name="SalesSalesItem">
+=======
+              <PropertyRef Name="itemsID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__SalesItem__Sales__02084FDA">
+>>>>>>> gideon
           <End Type="TestModel.Sales" Role="Sales" Multiplicity="1" />
           <End Type="TestModel.SalesItem" Role="SalesItem" Multiplicity="*" />
           <ReferentialConstraint>
@@ -177,7 +261,11 @@
             <EntityTypeMapping TypeName="TestModel.SalesItem">
               <MappingFragment StoreEntitySet="SalesItem">
                 <ScalarProperty Name="SalesId" ColumnName="SalesId" />
+<<<<<<< HEAD
                 <ScalarProperty Name="ItemsID" ColumnName="itemsID" />
+=======
+                <ScalarProperty Name="itemsID" ColumnName="itemsID" />
+>>>>>>> gideon
                 <ScalarProperty Name="pricePerUnit" ColumnName="pricePerUnit" />
                 <ScalarProperty Name="quantitySold" ColumnName="quantitySold" />
                 <ScalarProperty Name="Id" ColumnName="Id" />

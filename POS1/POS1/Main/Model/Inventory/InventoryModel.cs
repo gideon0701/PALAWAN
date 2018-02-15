@@ -27,8 +27,13 @@ namespace POS1.Main.Model.Inventory
             {
                 ID = s.ID,
                 NAME = s.NAME,
+<<<<<<< HEAD
                 PRICE =  s.PRICE,
                 QTY =  s.QTY
+=======
+                PRICE = s.PRICE,
+                QTY = s.QTY
+>>>>>>> gideon
             }).ToList();
         }
 
@@ -41,7 +46,11 @@ namespace POS1.Main.Model.Inventory
                     ID = s.ID,
                     NAME = s.NAME,
                     PRICE = s.PRICE,
+<<<<<<< HEAD
                     QTY =s.QTY
+=======
+                    QTY = s.QTY
+>>>>>>> gideon
                 }).ToList();
         }
 
@@ -66,6 +75,6 @@ namespace POS1.Main.Model.Inventory
             db.Items.Remove(item);
             db.SaveChanges();
         }
-        
+
     }
 }
