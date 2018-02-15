@@ -12,18 +12,21 @@ namespace POS1
     using System;
     using System.Collections.Generic;
     
-    public partial class Items
+    public partial class Sales
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Items()
+        public Sales()
         {
             this.SalesItem = new HashSet<SalesItem>();
         }
     
-        public int ID { get; set; }
-        public string NAME { get; set; }
-        public Nullable<double> PRICE { get; set; }
-        public Nullable<int> QTY { get; set; }
+        public int Id { get; set; }
+        public int dateOfTransaction { get; set; }
+        public double subtotalAmount { get; set; }
+        public double taxAmount { get; set; }
+        public double totalPriceAmount { get; set; }
+        public double totalDiscountAmount { get; set; }
+        public double moneyPaid { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<SalesItem> SalesItem { get; set; }

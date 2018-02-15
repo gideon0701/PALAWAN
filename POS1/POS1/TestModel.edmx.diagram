@@ -7,6 +7,10 @@
       <Diagram DiagramId="e4bee2875581411e8e42bf4a5f5735e0" Name="Diagram1">
         <EntityTypeShape EntityType="TestModel.Employee" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="TestModel.Items" Width="1.5" PointX="3.375" PointY="0.75" />
+        <EntityTypeShape EntityType="TestModel.Sales" Width="1.5" PointX="0.75" PointY="3.75" />
+        <EntityTypeShape EntityType="TestModel.SalesItem" Width="1.5" PointX="3.5" PointY="3.5" IsExpanded="true" />
+        <AssociationConnector Association="TestModel.ItemsSalesItem" />
+        <AssociationConnector Association="TestModel.SalesSalesItem" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
