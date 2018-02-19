@@ -8,13 +8,18 @@ using POS1.Utils;
 using MetroFramework.Controls;
 using POS1.Main.View.Inventory;
 using POS1.Main.Presenter.Inventory;
+using POS1.Main.View.Dashboard;
+using System.Windows.Forms.DataVisualization.Charting;
+using POS1.Main.Presenter.Dashboard;
 
 namespace POS1.Cashier
 {
-    public partial class MainForm : MetroForm, ICashierView, IInventoryView
+    public partial class MainForm : MetroForm, ICashierView, IInventoryView, IDashboardView
     {
         CashierPresenter cashierPresenter;
         InventoryPresenter inventoryPresenter;
+        DashboardPresenter dashboardPresenter;
+
         int errorCount = 0;
 
         public DataGridView cashierItems
@@ -199,19 +204,49 @@ namespace POS1.Cashier
             }
         }
 
+        public Chart dashboardChartYearly
+        {
+            get
+            {
+                return chDashboardYearly;
+            }
+
+            set
+            {
+                chDashboardYearly = value;
+            }
+        }
+
+        public ComboBox dashboardDropdownYearly
+        {
+            get
+            {
+                return cboDashboardYearlyChart;
+            }
+
+            set
+            {
+                cboDashboardYearlyChart = (MetroComboBox) value;
+            }
+        }
+
         public MainForm()
         {
             InitializeComponent();
             this.StyleManager = metroStyleManager1;
             cashierPresenter = new CashierPresenter(this);
             inventoryPresenter = new InventoryPresenter(this);
+            dashboardPresenter = new DashboardPresenter(this);
         }
 
         private void MainForm_Load(object sender, EventArgs e)
         {
             cashierPresenter.initTables();
             cashierPresenter.getAllItems();
+
             inventoryPresenter.getAllInventory();
+
+            dashboardPresenter.initDashboard();
         }
 
         private void tabControl_SelectedIndexChanged(object sender, EventArgs e)
@@ -230,6 +265,7 @@ namespace POS1.Cashier
         {
             cashierPresenter.addToCart(decimal.ToInt32(inputQty.Value));
             pnlAdd.Visible = false;
+            btnItemTransact.Enabled = false;
         }
 
         private void btn_cart_clear_Click(object sender, EventArgs e)
@@ -240,6 +276,27 @@ namespace POS1.Cashier
         private void btn_item_search_Click(object sender, EventArgs e)
         {
             cashierPresenter.getAllItems();
+        }
+
+        private void txtReceived_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                double amountPaid = double.Parse(cashierAmountPaid);
+                double amountTotal = double.Parse(cashierTotalPrice);
+                if (amountPaid >= amountTotal)
+                {
+                    btnItemTransact.Enabled = true;
+                }
+                else
+                {
+                    btnItemTransact.Enabled = false;
+                }
+            }
+            catch
+            {
+                btnItemTransact.Enabled = false;
+            }
         }
 
         private void textbox_item_search_KeyDown(object sender, KeyEventArgs e)
@@ -292,25 +349,9 @@ namespace POS1.Cashier
             cashierPresenter.doTransact();
         }
 
-        private void txtReceived_TextChanged(object sender, EventArgs e)
+        private void cboDashboardYearlyChart_SelectedIndexChanged(object sender, EventArgs e)
         {
-            try
-            {
-                double amountPaid = double.Parse(cashierAmountPaid);
-                double amountTotal = double.Parse(cashierTotalPrice);
-                if (amountPaid >= amountTotal)
-                {
-                    btnItemTransact.Enabled = true;
-                }
-                else
-                {
-                    btnItemTransact.Enabled = false;
-                }
-            }
-            catch 
-            {
-                btnItemTransact.Enabled = false;
-            }
+            dashboardPresenter.fillYearlyChart();
         }
 
         /// <summary>
@@ -416,6 +457,7 @@ namespace POS1.Cashier
         {
             MessageBox.Show("Tansaction Done");
         }
+
     }
 }
 
