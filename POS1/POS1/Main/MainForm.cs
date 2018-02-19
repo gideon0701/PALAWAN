@@ -252,7 +252,10 @@ namespace POS1.Cashier
         private void tabControl_SelectedIndexChanged(object sender, EventArgs e)
         {
             cashierPresenter.getAllItems();
+
             inventoryPresenter.getAllInventory();
+
+            dashboardPresenter.initDashboard();
         }
 
         private void dgdCashierItems_SelectionChanged(object sender, EventArgs e)

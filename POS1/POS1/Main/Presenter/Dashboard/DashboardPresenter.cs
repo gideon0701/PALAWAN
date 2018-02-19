@@ -31,11 +31,17 @@ namespace POS1.Main.Presenter.Dashboard
 
         private void setCombobox()
         {
-            var years = mModel.getAllYear();
+            mView.dashboardDropdownYearly.Items.Clear();
 
+            var years = mModel.getAllYear();
+            
             foreach (string s in years)
             {
                 mView.dashboardDropdownYearly.Items.Add(new ComboboxItem() { Text = s, Value = s });
+            }
+            if (years.Count <= 0)
+            {
+                mView.dashboardDropdownYearly.Items.Add(new ComboboxItem() { Text = "", Value = "" });
             }
 
             mView.dashboardDropdownYearly.SelectedIndex = 0;
@@ -47,11 +53,18 @@ namespace POS1.Main.Presenter.Dashboard
             ComboBox yearlyDropdown = mView.dashboardDropdownYearly;
             yearlyChart.Series["Sales"].Points.Clear();
             int count = 0;
-            string year = yearlyDropdown.Items.Count > 0 ? (yearlyDropdown.SelectedItem as ComboboxItem).Value.ToString() : "";
+            string year =  (yearlyDropdown.SelectedItem as ComboboxItem).Value.ToString();
             var monthlySales = mModel.getMonthlySales(year);
             foreach (var month in months)
             {
-                mView.dashboardChartYearly.Series["Sales"].Points.AddXY(month, monthlySales[count]);
+                if (year != "")
+                {
+                    mView.dashboardChartYearly.Series["Sales"].Points.AddXY(month, monthlySales[count]);
+                }
+                else
+                {
+                    mView.dashboardChartYearly.Series["Sales"].Points.AddXY(month, "0");
+                }
                 count++;
             }
 
