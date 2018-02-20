@@ -198,7 +198,7 @@ namespace POS1.Cashier.Presenter
         {
             Sales sales = new Sales()
             {
-                dateOfTransaction = double.Parse(DateUtils.getStringDateNow()),
+                dateOfTransaction = double.Parse(DateUtils.getStringDateNow("yyyyMMdd")),
                 subtotalAmount = double.Parse(mVIew.cashierSubtotalPrice),
                 taxAmount = double.Parse(mVIew.cashierVatPrice),
                 totalPriceAmount = double.Parse(mVIew.cashierTotalPrice),

@@ -1,8 +1,7 @@
-﻿using System;
+﻿using POS1.Utils;
+using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace POS1.Main.Model.Dashboard
 {
@@ -35,6 +34,23 @@ namespace POS1.Main.Model.Dashboard
             return years;
         }
 
+        public List<string> getAllMonths()
+        {
+            db = new TestEntities();
+            List<string> months = new List<string>();
+            var query = db.Sales.Select(y => y.dateOfTransaction).ToList();
+
+            foreach (var month in query)
+            {
+                if (!months.Contains(month.ToString().Substring(4, 2)))
+                {
+                    months.Add(month.ToString().Substring(4, 2));
+                }
+
+            }
+            return months;
+        }
+
         public List<double> getMonthlySales(string year)
         {
             string[] months = {"01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12" };
@@ -64,6 +80,33 @@ namespace POS1.Main.Model.Dashboard
             }
 
             return monthlySales;
+        }
+
+        public List<double> getWeeklySales(string month)
+        {
+
+            List<double> weeklySales = new List<double>();
+            if (month == "")
+            {
+                return weeklySales;
+            }
+            for (int i = 1; i <= 4; i++)
+            {
+                double totalSales = 0;
+                var startDay = int.Parse(DateUtils.FirstDateOfWeek(2018, int.Parse(month), i));
+                var endDay = startDay + 6;
+
+                var query = db.Sales.Where(y => y.dateOfTransaction >= startDay && y.dateOfTransaction <= endDay)
+                .Select(s => s.subtotalAmount).ToList();
+                foreach (var q in query)
+                {
+                    totalSales += q;
+                }
+
+                weeklySales.Add(totalSales);
+
+            }
+            return weeklySales;
         }
 
     }
