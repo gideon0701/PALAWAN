@@ -36,6 +36,12 @@ namespace POS1.Cashier.Presenter
             grid.Columns[1].Name = "NAME";
             grid.Columns[2].Name = "PRICE";
             grid.Columns[3].Name = "QTY";
+            DataGridViewButtonColumn btnAddQty = new DataGridViewButtonColumn();
+            btnAddQty.HeaderText = "Action";
+            btnAddQty.Name = "btnAddQty";
+            btnAddQty.Text = "Add";
+            btnAddQty.UseColumnTextForButtonValue = true;
+            grid.Columns.Insert(4, btnAddQty);
 
         }
         /// <summary>

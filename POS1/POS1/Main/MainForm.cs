@@ -275,6 +275,11 @@ namespace POS1.Cashier
             dashboardPresenter.initDashboard();
         }
 
+        private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            cashierPresenter.clearCart(false);
+        }
+
         private void tabControl_SelectedIndexChanged(object sender, EventArgs e)
         {
             cashierPresenter.getAllItems();
@@ -487,6 +492,7 @@ namespace POS1.Cashier
             MessageBox.Show("Tansaction Done");
         }
 
+        
     }
 }
 
