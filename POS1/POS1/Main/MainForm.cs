@@ -230,6 +230,32 @@ namespace POS1.Cashier
             }
         }
 
+        public Chart dashboardChartMonthly
+        {
+            get
+            {
+                return chDashboardMonthly;
+            }
+
+            set
+            {
+                chDashboardMonthly = value;
+            }
+        }
+
+        public ComboBox dashboardDropdownMonthly
+        {
+            get
+            {
+                return cboDashboardMonthlyChart;
+            }
+
+            set
+            {
+                cboDashboardMonthlyChart = (MetroComboBox) value;
+            }
+        }
+
         public MainForm()
         {
             InitializeComponent();
