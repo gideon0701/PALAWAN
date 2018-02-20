@@ -67,12 +67,14 @@ namespace POS1.Main.Presenter.Dashboard
             string[] weeks = new string[] { "1st Week", "2nd Week", "3rd Week", "4th Week" };
             Chart monthlyChart = mView.dashboardChartMonthly;
             ComboBox monthlyDropdown = mView.dashboardDropdownMonthly;
+            ComboBox yearlyDropdown = mView.dashboardDropdownYearly;
             monthlyChart.Series["Sales"].Points.Clear();
+            monthlyChart.Series["Sales"].ToolTip = "#VAL";
             monthlyChart.ChartAreas["ChartArea1"].AxisX.Interval = 1;
             int count = 0;
             string month = DateUtils.getMonthNumber((monthlyDropdown.SelectedItem as ComboboxItem).Value.ToString());
-
-            var weeklaySales = mModel.getWeeklySales(month);
+            string year = (yearlyDropdown.SelectedItem as ComboboxItem).Value.ToString();
+            var weeklaySales = mModel.getWeeklySales(month, year);
             foreach (var week in weeks)
             {
                 if (month != "")
@@ -91,6 +93,7 @@ namespace POS1.Main.Presenter.Dashboard
             Chart yearlyChart = mView.dashboardChartYearly;
             ComboBox yearlyDropdown = mView.dashboardDropdownYearly;
             yearlyChart.Series["Sales"].Points.Clear();
+            yearlyChart.Series["Sales"].ToolTip = "#VAL";
             yearlyChart.ChartAreas["ChartArea1"].AxisX.Interval = 1;
 
             int count = 0;
