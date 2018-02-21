@@ -12,6 +12,7 @@ namespace POS1.Main.View.Dashboard
     {
         Chart dashboardChartYearly { get; set; }
         Chart dashboardChartMonthly { get; set; }
+        Chart dashboardChartProductYearly { get; set; }
         ComboBox dashboardDropdownYearly { get; set; }
         ComboBox dashboardDropdownMonthly { get; set; }
     }
