@@ -256,6 +256,19 @@ namespace POS1.Cashier
             }
         }
 
+        public Chart dashboardChartProductYearly
+        {
+            get
+            {
+                return chDashboardProductSales;
+            }
+
+            set
+            {
+                chDashboardProductSales = value;
+            }
+        }
+
         public MainForm()
         {
             InitializeComponent();

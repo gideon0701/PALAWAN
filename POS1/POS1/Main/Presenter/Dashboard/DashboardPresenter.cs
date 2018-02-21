@@ -29,7 +29,7 @@ namespace POS1.Main.Presenter.Dashboard
             setCombobox();
             fillYearlyChart();
             fillMonthlyChart();
-
+            fillYearlyChartProduct();
         }
 
         private void setCombobox()
@@ -52,14 +52,33 @@ namespace POS1.Main.Presenter.Dashboard
             var months = mModel.getAllMonths();
             foreach (string s in months)
             {
-                mView.dashboardDropdownMonthly.Items.Add(new ComboboxItem() { Text = DateUtils.getMonthName(s), Value = DateUtils.getMonthName(s)});
+                mView.dashboardDropdownMonthly.Items.Add(new ComboboxItem() { Text = DateUtils.getMonthName(s), Value = DateUtils.getMonthName(s) });
             }
             if (months.Count <= 0)
             {
                 mView.dashboardDropdownMonthly.Items.Add(new ComboboxItem() { Text = "", Value = "" });
             }
             mView.dashboardDropdownMonthly.SelectedIndex = 0;
+
+        }
+
+        public void fillYearlyChartProduct()
+        {
+            Chart yearlyChart = mView.dashboardChartProductYearly;
+            ComboBox yearlyDropdown = mView.dashboardDropdownYearly;
+            string year = (yearlyDropdown.SelectedItem as ComboboxItem).Value.ToString();
+            yearlyChart.Series["Sales"].Points.Clear();
+            yearlyChart.Series["Sales"].ToolTip = "#VAL";
+            yearlyChart.ChartAreas["ChartArea1"].AxisX.Interval = 1;
+            var groups = mModel.getAllSalesItem(year);
             
+            foreach (var items in groups)
+            {
+                if (year != "")
+                {
+                    yearlyChart.Series["Sales"].Points.AddXY(items.productName, items.totalQuantity);
+                }
+            }
         }
 
         public void fillMonthlyChart()
@@ -97,7 +116,7 @@ namespace POS1.Main.Presenter.Dashboard
             yearlyChart.ChartAreas["ChartArea1"].AxisX.Interval = 1;
 
             int count = 0;
-            string year =  (yearlyDropdown.SelectedItem as ComboboxItem).Value.ToString();
+            string year = (yearlyDropdown.SelectedItem as ComboboxItem).Value.ToString();
             var monthlySales = mModel.getMonthlySales(year);
             foreach (var month in months)
             {
@@ -105,10 +124,9 @@ namespace POS1.Main.Presenter.Dashboard
                 {
                     yearlyChart.Series["Sales"].Points.AddXY(month, monthlySales[count]);
                 }
-        
+
                 count++;
             }
-
         }
 
     }
@@ -123,4 +141,5 @@ namespace POS1.Main.Presenter.Dashboard
             return Text;
         }
     }
+
 }

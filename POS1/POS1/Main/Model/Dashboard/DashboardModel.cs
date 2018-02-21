@@ -1,4 +1,5 @@
-﻿using POS1.Utils;
+﻿using POS1.Main.Presenter.Dashboard;
+using POS1.Utils;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -120,5 +121,63 @@ namespace POS1.Main.Model.Dashboard
             return weeklySales;
         }
 
+        public List<SalesItemModel> getAllSalesItem(string year)
+        {
+            double startYear =double.Parse(year + "0101");
+            double endYear = double.Parse(year + "1231");
+            List<SalesItem> salesItems = new List<SalesItem>();
+            List<SalesItemModel> list = new List<SalesItemModel>();
+            using (var db = new TestEntities())
+            {
+                var res = db.Sales.Where(y => y.dateOfTransaction >= startYear && y.dateOfTransaction <= endYear)
+                    .Select(s => s.SalesItem).ToList();
+                foreach (var sales in res)
+                {
+                    foreach (var items in sales)
+                    {
+                        salesItems.Add(items);
+                    }
+                }
+
+                var groups =  salesItems.GroupBy(s => s.itemsID).ToList();
+
+                foreach (var group in groups)
+                {
+                    double total = 0;
+                    int totalQty = 0;
+                    var s = 0;
+                    string name = "";
+                    foreach (var item in group)
+                    {
+                        s = item.itemsID;
+                        total += item.pricePerUnit * item.quantitySold;
+                        totalQty += item.quantitySold;
+                        name = item.Items.NAME;
+                    }
+                    list.Add(new SalesItemModel
+                    {
+                        itemID = s,
+                        totalQuantity = totalQty,
+                        totalPrice = total,
+                        productName = name
+
+                    });
+                }
+                list = list.OrderByDescending(q => q.totalQuantity).ToList();
+                //return db.SalesItem
+                //    .GroupBy(s => s.itemsID).ToList();
+
+                return list;
+            }
+        }
+
+    }
+
+    public class SalesItemModel
+    {
+        public int itemID { get; set; }
+        public int totalQuantity { get; set; }
+        public string productName { get; set; }
+        public double totalPrice { get; set; }
     }
 }
