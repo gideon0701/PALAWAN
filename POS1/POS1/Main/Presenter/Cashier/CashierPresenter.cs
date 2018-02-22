@@ -1,6 +1,8 @@
 ﻿using POS1.Cashier.Model;
 using POS1.Cashier.View;
 using POS1.Utils;
+using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Windows.Forms;
 
@@ -25,23 +27,40 @@ namespace POS1.Cashier.Presenter
             //CASHIER ITEM TABLE
             grid.ColumnCount = 4;
             grid.Columns[0].Name = "PRODUCT ID";
+            grid.Columns[0].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
             grid.Columns[1].Name = "NAME";
+            grid.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
             grid.Columns[2].Name = "PRICE PER UNIT";
+            grid.Columns[2].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
             grid.Columns[3].Name = "STOCK";
+            grid.Columns[3].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
 
             //CASHIER CART TABLE
             grid = mVIew.cashierCart;
-            grid.ColumnCount = 4;
+            grid.ColumnCount = 5;
             grid.Columns[0].Name = "PRODUCT ID";
+            grid.Columns[0].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
             grid.Columns[1].Name = "NAME";
+            grid.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
             grid.Columns[2].Name = "PRICE";
+            grid.Columns[2].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
             grid.Columns[3].Name = "QTY";
+            grid.Columns[3].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
             DataGridViewButtonColumn btnAddQty = new DataGridViewButtonColumn();
-            btnAddQty.HeaderText = "Action";
-            btnAddQty.Name = "btnAddQty";
+            //btnAddQty.HeaderText = "Action";
+            //btnAddQty.Name = "Add";
             btnAddQty.Text = "Add";
+            btnAddQty.Width = 40;
             btnAddQty.UseColumnTextForButtonValue = true;
             grid.Columns.Insert(4, btnAddQty);
+            grid.Columns[4].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+            DataGridViewButtonColumn btnMinusQty = new DataGridViewButtonColumn();
+            //btnMinusQty.Name = "Minus";
+            btnMinusQty.Text = "Minus";
+            btnMinusQty.Width = 40;
+            btnMinusQty.UseColumnTextForButtonValue = true;
+            grid.Columns.Insert(5, btnMinusQty);
+            grid.Columns[5].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
 
         }
         /// <summary>
@@ -232,5 +251,4 @@ namespace POS1.Cashier.Presenter
         }
 
     }
-
 }

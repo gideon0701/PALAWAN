@@ -11,6 +11,7 @@ using POS1.Main.Presenter.Inventory;
 using POS1.Main.View.Dashboard;
 using System.Windows.Forms.DataVisualization.Charting;
 using POS1.Main.Presenter.Dashboard;
+using System.Drawing;
 
 namespace POS1.Cashier
 {
@@ -354,6 +355,46 @@ namespace POS1.Cashier
             }
         }
 
+        private void dgdCashierCart_CellPainting(object sender, DataGridViewCellPaintingEventArgs e)
+        {
+            if (e.RowIndex == -1 && e.ColumnIndex > -1)
+            {
+                Rectangle r2 = e.CellBounds;
+
+                r2.Y += e.CellBounds.Height / 2;
+                r2.Height = e.CellBounds.Height / 2;
+                e.PaintBackground(r2, true);
+                e.PaintContent(r2);
+
+                e.Handled = true;
+            }
+        }
+
+        private void dgdCashierCart_Paint(object sender, PaintEventArgs e)
+        {
+
+            Rectangle r1 = this.dgdCashierCart.GetCellDisplayRectangle(4, -1, true);
+            int w2 = this.dgdCashierCart.GetCellDisplayRectangle(5, -1, true).Width;
+
+            r1.X += 1;
+
+            r1.Y += 1;
+
+            r1.Width = r1.Width + w2 - 2;
+
+            r1.Height = r1.Height;
+
+            e.Graphics.FillRectangle(new SolidBrush(this.dgdCashierCart.ColumnHeadersDefaultCellStyle.BackColor), r1);
+            StringFormat format = new StringFormat();
+            format.Alignment = StringAlignment.Center;
+            format.LineAlignment = StringAlignment.Center;
+            e.Graphics.DrawString("ACTION",
+                this.dgdCashierCart.ColumnHeadersDefaultCellStyle.Font,
+                new SolidBrush(this.dgdCashierCart.ColumnHeadersDefaultCellStyle.ForeColor),
+                r1,
+                format);
+        }
+
         private void btnInventorySearch_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
@@ -505,7 +546,6 @@ namespace POS1.Cashier
             MessageBox.Show("Tansaction Done");
         }
 
-        
     }
 }
 
