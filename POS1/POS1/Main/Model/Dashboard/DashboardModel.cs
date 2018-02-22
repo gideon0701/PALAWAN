@@ -8,6 +8,7 @@ namespace POS1.Main.Model.Dashboard
 {
     class DashboardModel
     {
+        //SALES
         public int Id { get; set; }
         public double dateOfTransaction { get; set; }
         public double subtotalAmount { get; set; }
@@ -15,6 +16,12 @@ namespace POS1.Main.Model.Dashboard
         public double totalPriceAmount { get; set; }
         public double totalDiscountAmount { get; set; }
         public double moneyPaid { get; set; }
+
+        //SALES ITEM
+        public int itemID { get; set; }
+        public int totalQuantity { get; set; }
+        public string productName { get; set; }
+        public double totalPrice { get; set; }
 
         public List<string> getAllYear()
         {
@@ -52,7 +59,6 @@ namespace POS1.Main.Model.Dashboard
 
                 }
             }
-                
             return months;
         }
 
@@ -121,12 +127,13 @@ namespace POS1.Main.Model.Dashboard
             return weeklySales;
         }
 
-        public List<SalesItemModel> getAllSalesItem(string year)
+        public List<DashboardModel> getAllSalesItemYearly(string year)
         {
+            
             double startYear =double.Parse(year + "0101");
             double endYear = double.Parse(year + "1231");
             List<SalesItem> salesItems = new List<SalesItem>();
-            List<SalesItemModel> list = new List<SalesItemModel>();
+            List<DashboardModel> list = new List<DashboardModel>();
             using (var db = new TestEntities())
             {
                 var res = db.Sales.Where(y => y.dateOfTransaction >= startYear && y.dateOfTransaction <= endYear)
@@ -154,7 +161,7 @@ namespace POS1.Main.Model.Dashboard
                         totalQty += item.quantitySold;
                         name = item.Items.NAME;
                     }
-                    list.Add(new SalesItemModel
+                    list.Add(new DashboardModel
                     {
                         itemID = s,
                         totalQuantity = totalQty,
@@ -164,20 +171,10 @@ namespace POS1.Main.Model.Dashboard
                     });
                 }
                 list = list.OrderByDescending(q => q.totalQuantity).ToList();
-                //return db.SalesItem
-                //    .GroupBy(s => s.itemsID).ToList();
-
                 return list;
             }
         }
 
     }
 
-    public class SalesItemModel
-    {
-        public int itemID { get; set; }
-        public int totalQuantity { get; set; }
-        public string productName { get; set; }
-        public double totalPrice { get; set; }
-    }
 }

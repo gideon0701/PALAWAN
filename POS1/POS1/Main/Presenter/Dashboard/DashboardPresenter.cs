@@ -70,7 +70,7 @@ namespace POS1.Main.Presenter.Dashboard
             yearlyChart.Series["Sales"].Points.Clear();
             yearlyChart.Series["Sales"].ToolTip = "#VAL";
             yearlyChart.ChartAreas["ChartArea1"].AxisX.Interval = 1;
-            var groups = mModel.getAllSalesItem(year);
+            var groups = mModel.getAllSalesItemYearly(year);
             
             foreach (var items in groups)
             {

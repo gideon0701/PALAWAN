@@ -32,6 +32,8 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
             System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
             System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
             System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
@@ -42,8 +44,6 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.tabpageInventory = new MetroFramework.Controls.MetroTabPage();
             this.metroPanel4 = new MetroFramework.Controls.MetroPanel();
             this.btnInventorySearch = new MetroFramework.Controls.MetroButton();
@@ -62,6 +62,7 @@
             this.metroLabel4 = new MetroFramework.Controls.MetroLabel();
             this.btnInventoryAddUpdate = new MetroFramework.Controls.MetroButton();
             this.tabpageDashboard = new MetroFramework.Controls.MetroTabPage();
+            this.chDashboardProductSales = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.cboDashboardMonthlyChart = new MetroFramework.Controls.MetroComboBox();
             this.chDashboardMonthly = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.cboDashboardYearlyChart = new MetroFramework.Controls.MetroComboBox();
@@ -95,13 +96,13 @@
             this.metroStyleManager1 = new MetroFramework.Components.MetroStyleManager(this.components);
             this.errorMessage = new System.Windows.Forms.ErrorProvider(this.components);
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
-            this.chDashboardProductSales = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.tabpageInventory.SuspendLayout();
             this.metroPanel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grdInventory)).BeginInit();
             this.metroPanel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtInventoryQty)).BeginInit();
             this.tabpageDashboard.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.chDashboardProductSales)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chDashboardMonthly)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chDashboardYearly)).BeginInit();
             this.tabpageCashier.SuspendLayout();
@@ -115,7 +116,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.metroStyleManager1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorMessage)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chDashboardProductSales)).BeginInit();
             this.SuspendLayout();
             // 
             // tabpageInventory
@@ -454,6 +454,20 @@
             this.tabpageDashboard.VerticalScrollbarHighlightOnWheel = false;
             this.tabpageDashboard.VerticalScrollbarSize = 10;
             // 
+            // chDashboardProductSales
+            // 
+            chartArea1.Name = "ChartArea1";
+            this.chDashboardProductSales.ChartAreas.Add(chartArea1);
+            this.chDashboardProductSales.Location = new System.Drawing.Point(457, 260);
+            this.chDashboardProductSales.Name = "chDashboardProductSales";
+            series1.ChartArea = "ChartArea1";
+            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
+            series1.Name = "Sales";
+            this.chDashboardProductSales.Series.Add(series1);
+            this.chDashboardProductSales.Size = new System.Drawing.Size(264, 161);
+            this.chDashboardProductSales.TabIndex = 17;
+            this.chDashboardProductSales.Text = "chart1";
+            // 
             // cboDashboardMonthlyChart
             // 
             this.cboDashboardMonthlyChart.FormattingEnabled = true;
@@ -786,6 +800,7 @@
             // 
             this.dgdCashierCart.AllowUserToAddRows = false;
             this.dgdCashierCart.AllowUserToDeleteRows = false;
+            this.dgdCashierCart.AllowUserToResizeColumns = false;
             this.dgdCashierCart.AllowUserToResizeRows = false;
             this.dgdCashierCart.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.dgdCashierCart.BorderStyle = System.Windows.Forms.BorderStyle.None;
@@ -828,6 +843,8 @@
             this.dgdCashierCart.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgdCashierCart.Size = new System.Drawing.Size(459, 136);
             this.dgdCashierCart.TabIndex = 12;
+            this.dgdCashierCart.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.dgdCashierCart_CellPainting);
+            this.dgdCashierCart.Paint += new System.Windows.Forms.PaintEventHandler(this.dgdCashierCart_Paint);
             // 
             // btnClearCart
             // 
@@ -1030,7 +1047,7 @@
             this.tabControl.Controls.Add(this.tabpageInventory);
             this.tabControl.Location = new System.Drawing.Point(7, 39);
             this.tabControl.Name = "tabControl";
-            this.tabControl.SelectedIndex = 1;
+            this.tabControl.SelectedIndex = 0;
             this.tabControl.Size = new System.Drawing.Size(765, 492);
             this.tabControl.Style = MetroFramework.MetroColorStyle.Green;
             this.tabControl.TabIndex = 0;
@@ -1052,20 +1069,6 @@
             // 
             this.errorProvider1.ContainerControl = this;
             // 
-            // chDashboardProductSales
-            // 
-            chartArea1.Name = "ChartArea1";
-            this.chDashboardProductSales.ChartAreas.Add(chartArea1);
-            this.chDashboardProductSales.Location = new System.Drawing.Point(482, 60);
-            this.chDashboardProductSales.Name = "chDashboardProductSales";
-            series1.ChartArea = "ChartArea1";
-            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
-            series1.Name = "Sales";
-            this.chDashboardProductSales.Series.Add(series1);
-            this.chDashboardProductSales.Size = new System.Drawing.Size(264, 161);
-            this.chDashboardProductSales.TabIndex = 17;
-            this.chDashboardProductSales.Text = "chart1";
-            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1085,6 +1088,7 @@
             this.metroPanel3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtInventoryQty)).EndInit();
             this.tabpageDashboard.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.chDashboardProductSales)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chDashboardMonthly)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chDashboardYearly)).EndInit();
             this.tabpageCashier.ResumeLayout(false);
@@ -1101,7 +1105,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.metroStyleManager1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorMessage)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chDashboardProductSales)).EndInit();
             this.ResumeLayout(false);
 
         }
