@@ -1,6 +1,7 @@
 ﻿using POS1.Cashier.Model;
 using POS1.Cashier.View;
 using POS1.Utils;
+using System.Linq;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -114,6 +115,44 @@ namespace POS1.Cashier.Presenter
                 }
             }
             mVIew.onSelectedIndexChanged(count, max);
+        }
+
+        /// <summary>
+        /// Event for add or minus qty in the cart.
+        /// 1 for add
+        /// 0 for minus
+        /// </summary>
+        /// <param name="action"></param>
+        public void btnAddMinusQty(int action)
+        {
+            var cart = mVIew.cashierCart;
+            var items = mVIew.cashierItems;
+
+            var idSelected = cart.SelectedRows[0].Cells[0].Value.ToString();
+            var qty = int.Parse(cart.SelectedRows[0].Cells[3].Value.ToString());
+            try
+            {
+                var test = items.Rows
+               .Cast<DataGridViewRow>()
+               .Where(r => r.Cells[0].Value.ToString().Equals(idSelected) && !r.Cells[3].Value.ToString().Equals("0"))
+               .First();
+
+                if (action == 1)
+                {
+                    items.Rows[test.Index].Selected = true;
+                    addToCart(1);
+                }
+                else if (action == -1 && qty > 1)
+                {
+                    items.Rows[test.Index].Selected = true;
+                    addToCart(-1);
+                }
+            }
+            catch
+            {
+                return;
+            }
+           
         }
 
         /// <summary>
