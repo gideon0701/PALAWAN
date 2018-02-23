@@ -194,6 +194,7 @@ namespace POS1.Cashier.Presenter
                 mVIew.cashierVatPrice = "0";
                 mVIew.cashierCart.Rows.Clear();
             }
+            getAllItems();
 
         }
 
