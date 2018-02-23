@@ -43,12 +43,16 @@ namespace POS1.Main.Model.Dashboard
             return years;
         }
 
-        public List<string> getAllMonths()
+        public List<string> getAllMonths(string year)
         {
+            double startYear = double.Parse(year + "0101");
+            double endYear = double.Parse(year + "1231");
             List<string> months = new List<string>();
             using (var db = new TestEntities())
             {
-                var query = db.Sales.Select(y => y.dateOfTransaction).ToList();
+                var query = db.Sales
+                    .Where(y => y.dateOfTransaction >= startYear && y.dateOfTransaction <= endYear)
+                    .Select(s => s.dateOfTransaction).ToList();
 
                 foreach (var month in query)
                 {
@@ -60,6 +64,19 @@ namespace POS1.Main.Model.Dashboard
                 }
             }
             return months;
+        }
+
+        public double getSalesNow()
+        {
+            using (var db = new TestEntities())
+            {
+                double dateNow = double.Parse(DateUtils.getStringDateNow("yyyyMMdd"));
+                var totalSales = db.Sales
+                    .Where(d => d.dateOfTransaction == dateNow)
+                    .Sum(s => s.subtotalAmount);
+
+                return totalSales;
+            }
         }
 
         public List<double> getMonthlySales(string year)
@@ -106,12 +123,21 @@ namespace POS1.Main.Model.Dashboard
             }
             using (var db = new TestEntities())
             {
-                for (int i = 1; i <= 4; i++)
+                int maxWeek = DateUtils.getWeeksInMonth(int.Parse(year),int.Parse(month));
+                int chooseDate = int.Parse(year + month + "01");
+                for (int i = 0; i < maxWeek; i++)
                 {
                     double totalSales = 0;
-                    var startDay = int.Parse(DateUtils.FirstDateOfWeek(int.Parse(year), int.Parse(month), i));
-                    var endDay = startDay + 6;
+                    var startDay = 0;
+                    var endDay = 0;
+                    startDay = int.Parse(DateUtils.FirstDateOfWeek(int.Parse(year), int.Parse(month), i));
 
+                    endDay = startDay + 6;
+                    if (startDay < chooseDate) {
+                        var nextStartDay = int.Parse(DateUtils.FirstDateOfWeek(int.Parse(year), int.Parse(month), i + 1));
+                        endDay = chooseDate + (nextStartDay - chooseDate - 1);
+                        startDay = chooseDate;
+                    }
                     var query = db.Sales.Where(y => y.dateOfTransaction >= startDay && y.dateOfTransaction <= endDay)
                     .Select(s => s.subtotalAmount).ToList();
                     foreach (var q in query)
@@ -170,7 +196,7 @@ namespace POS1.Main.Model.Dashboard
 
                     });
                 }
-                list = list.OrderByDescending(q => q.totalQuantity).ToList();
+                list = list.OrderByDescending(q => q.totalQuantity).Take(3).ToList();
                 return list;
             }
         }

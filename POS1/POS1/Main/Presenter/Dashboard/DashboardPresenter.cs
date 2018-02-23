@@ -19,7 +19,6 @@ namespace POS1.Main.Presenter.Dashboard
 
         public DashboardPresenter(IDashboardView view)
         {
-            //mMOdel = new CashierInventoryModel();
             this.mView = view;
             mModel = new DashboardModel();
         }
@@ -30,6 +29,11 @@ namespace POS1.Main.Presenter.Dashboard
             fillYearlyChart();
             fillMonthlyChart();
             fillYearlyChartProduct();
+        }
+
+        public string getSalesNow()
+        {
+            return StringUtils.doubleToCurrency(mModel.getSalesNow());
         }
 
         private void setCombobox()
@@ -49,7 +53,9 @@ namespace POS1.Main.Presenter.Dashboard
 
             //FOR DROPDOWN MONTH
             mView.dashboardDropdownMonthly.Items.Clear();
-            var months = mModel.getAllMonths();
+            string year = (mView.dashboardDropdownYearly.SelectedItem as ComboboxItem).Value.ToString();
+            var months = mModel.getAllMonths(year);
+
             foreach (string s in months)
             {
                 mView.dashboardDropdownMonthly.Items.Add(new ComboboxItem() { Text = DateUtils.getMonthName(s), Value = DateUtils.getMonthName(s) });
@@ -83,22 +89,21 @@ namespace POS1.Main.Presenter.Dashboard
 
         public void fillMonthlyChart()
         {
-            string[] weeks = new string[] { "1st Week", "2nd Week", "3rd Week", "4th Week" };
             Chart monthlyChart = mView.dashboardChartMonthly;
             ComboBox monthlyDropdown = mView.dashboardDropdownMonthly;
             ComboBox yearlyDropdown = mView.dashboardDropdownYearly;
             monthlyChart.Series["Sales"].Points.Clear();
             monthlyChart.Series["Sales"].ToolTip = "#VAL";
             monthlyChart.ChartAreas["ChartArea1"].AxisX.Interval = 1;
-            int count = 0;
+            int count = 1;
             string month = DateUtils.getMonthNumber((monthlyDropdown.SelectedItem as ComboboxItem).Value.ToString());
             string year = (yearlyDropdown.SelectedItem as ComboboxItem).Value.ToString();
             var weeklaySales = mModel.getWeeklySales(month, year);
-            foreach (var week in weeks)
+            foreach (var week in weeklaySales)
             {
                 if (month != "")
                 {
-                    monthlyChart.Series["Sales"].Points.AddXY(week, weeklaySales[count]);
+                    monthlyChart.Series["Sales"].Points.AddXY("Week" + (count), week);
                 }
 
                 count++;

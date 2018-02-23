@@ -11,7 +11,7 @@ namespace POS1.Utils
     {
         public static string getStringDateNow(string pattern)
         {
-            var now = DateTime.Today;
+            var now = DateTime.Now;
             return now.ToString(pattern);
         }
 
