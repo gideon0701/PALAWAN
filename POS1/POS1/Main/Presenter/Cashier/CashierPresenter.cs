@@ -215,8 +215,8 @@ namespace POS1.Cashier.Presenter
             subtotal = total - vat;
 
             mVIew.cashierTotalPrice = total.ToString();
-            mVIew.cashierSubtotalPrice = subtotal.ToString();
-            mVIew.cashierVatPrice = vat.ToString();
+            mVIew.cashierSubtotalPrice = StringUtils.doubleToCurrency(subtotal);
+            mVIew.cashierVatPrice = StringUtils.doubleToCurrency(vat);
         }
 
         public void doTransact()
@@ -224,9 +224,9 @@ namespace POS1.Cashier.Presenter
             Sales sales = new Sales()
             {
                 dateOfTransaction = double.Parse(DateUtils.getStringDateNow("yyyyMMdd")),
-                subtotalAmount = double.Parse(mVIew.cashierSubtotalPrice),
+                subtotalAmount = StringUtils.currencyTodouble(mVIew.cashierSubtotalPrice),
                 taxAmount = double.Parse(mVIew.cashierVatPrice),
-                totalPriceAmount = double.Parse(mVIew.cashierTotalPrice),
+                totalPriceAmount = StringUtils.currencyTodouble(mVIew.cashierTotalPrice),
                 totalDiscountAmount = 0,
                 moneyPaid = double.Parse(mVIew.cashierAmountPaid),
                 SalesItem = new List<SalesItem>()
@@ -246,7 +246,7 @@ namespace POS1.Cashier.Presenter
             mMOdel.addSales(sales);
             clearCart(true);
             mVIew.cashierAmountPaid = "0";
-            mVIew.cashierAmountChange = change.ToString();
+            mVIew.cashierAmountChange = StringUtils.doubleToCurrency(change);
             mVIew.onTransactDone();
         }
 

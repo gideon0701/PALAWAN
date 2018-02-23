@@ -281,12 +281,20 @@ namespace POS1.Cashier
 
         private void MainForm_Load(object sender, EventArgs e)
         {
+            timer1.Start();
+            lblTotalSalesNow.Text = dashboardPresenter.getSalesNow();
+
             cashierPresenter.initTables();
             cashierPresenter.getAllItems();
 
             inventoryPresenter.getAllInventory();
 
             dashboardPresenter.initDashboard();
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            lblDateTime.Text = DateUtils.getStringDateNow("yyyy/MM/dd HH:mm:ss");
         }
 
         private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
@@ -330,9 +338,9 @@ namespace POS1.Cashier
         {
             try
             {
-                double amountPaid = double.Parse(cashierAmountPaid);
-                double amountTotal = double.Parse(cashierTotalPrice);
-                if (amountPaid >= amountTotal)
+                var amountPaid = double.Parse(cashierAmountPaid);
+                var amountTotal = double.Parse(cashierTotalPrice);
+                if (amountPaid >= amountTotal && amountTotal > 0)
                 {
                     btnItemTransact.Enabled = true;
                 }
@@ -430,6 +438,11 @@ namespace POS1.Cashier
         private void btnInventorySearch_Click(object sender, EventArgs e)
         {
             inventoryPresenter.getAllInventory();
+        }
+
+        private void grdInventory_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            btnInventoryEdit.PerformClick();
         }
 
         private void btnItemTransact_Click(object sender, EventArgs e)
@@ -545,7 +558,6 @@ namespace POS1.Cashier
         {
             MessageBox.Show("Tansaction Done");
         }
-
     }
 }
 
