@@ -23,7 +23,6 @@ namespace POS1.Cashier.Model
             using (var db = new TestEntities())
             {
                 return db.Items
-                    .Where( i => i.QTY != 0)
                     .Select(s => new CashierInventoryModel()
                 {
                     ID = s.ID,
@@ -38,7 +37,7 @@ namespace POS1.Cashier.Model
         {
             using (var db = new TestEntities())
             {
-                return db.Items.Where(s => s.NAME.ToLower().Contains(keyword.ToLower()) && s.QTY != 0)
+                return db.Items.Where(s => s.NAME.ToLower().Contains(keyword.ToLower()))
                .Select(s => new CashierInventoryModel()
                {
                    ID = s.ID,

@@ -857,6 +857,7 @@
             this.dgdCashierCart.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgdCashierCart.Size = new System.Drawing.Size(459, 136);
             this.dgdCashierCart.TabIndex = 12;
+            this.dgdCashierCart.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgdCashierCart_CellContentClick);
             this.dgdCashierCart.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.dgdCashierCart_CellPainting);
             this.dgdCashierCart.Paint += new System.Windows.Forms.PaintEventHandler(this.dgdCashierCart_Paint);
             // 
@@ -1061,7 +1062,7 @@
             this.tabControl.Controls.Add(this.tabpageInventory);
             this.tabControl.Location = new System.Drawing.Point(7, 44);
             this.tabControl.Name = "tabControl";
-            this.tabControl.SelectedIndex = 2;
+            this.tabControl.SelectedIndex = 0;
             this.tabControl.Size = new System.Drawing.Size(765, 487);
             this.tabControl.Style = MetroFramework.MetroColorStyle.Green;
             this.tabControl.TabIndex = 0;

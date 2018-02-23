@@ -304,11 +304,13 @@ namespace POS1.Cashier
 
         private void tabControl_SelectedIndexChanged(object sender, EventArgs e)
         {
+
             cashierPresenter.getAllItems();
 
             inventoryPresenter.getAllInventory();
 
             dashboardPresenter.initDashboard();
+            lblTotalSalesNow.Text = dashboardPresenter.getSalesNow();
         }
 
         private void dgdCashierItems_SelectionChanged(object sender, EventArgs e)
@@ -375,6 +377,19 @@ namespace POS1.Cashier
                 e.PaintContent(r2);
 
                 e.Handled = true;
+            }
+        }
+
+        private void dgdCashierCart_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.ColumnIndex == dgdCashierCart.Columns[4].Index)
+            {
+                cashierPresenter.btnAddMinusQty(1);
+            }
+
+            if (e.ColumnIndex == dgdCashierCart.Columns[5].Index)
+            {
+                cashierPresenter.btnAddMinusQty(-1);
             }
         }
 
@@ -511,7 +526,10 @@ namespace POS1.Cashier
         /// <param name="qty"></param>
         public void onSelectedIndexChanged(int numOfSelected, int qty)
         {
-            inputQty.Value = 1;
+            if (inputQty.Maximum != 0)
+            {
+                inputQty.Value = 1;
+            }
             if (numOfSelected > 0)
             {
                 pnlAdd.Visible = true;
@@ -521,7 +539,6 @@ namespace POS1.Cashier
             {
                 pnlAdd.Visible = false;
             }
-
         }
 
         /// <summary>
@@ -558,6 +575,7 @@ namespace POS1.Cashier
         {
             MessageBox.Show("Tansaction Done");
         }
+
     }
 }
 
