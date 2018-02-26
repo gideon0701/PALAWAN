@@ -109,7 +109,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>D9+0rQez5tYbqAoW4zN1nHYZnJRjHU6ZE3Q9FCkIqrQ=</dsig:DigestValue>
+        <dsig:DigestValue>XyT8c7mak80db/wOvt7pjItNkdL298QAM9hUntzfO6U=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -137,7 +137,7 @@
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>LnAJ/SKmoZ0xqbut9JOptSmN7q9H4gUhyo1nBxuSnr0=</dsig:DigestValue>
+      <dsig:DigestValue>AhWbnINN9YBhy0RMIPoWgxRyZ/jvB9FTGdRl1qWjH+s=</dsig:DigestValue>
     </hash>
   </file>
   <file name="TestModel.Context.tt" size="22933">
