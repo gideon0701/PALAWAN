@@ -22,9 +22,9 @@ namespace POS1
     
         public int ID { get; set; }
         public string NAME { get; set; }
-        public Nullable<double> PRICE { get; set; }
+        public Nullable<decimal> PRICE { get; set; }
         public Nullable<int> QTY { get; set; }
-        public Nullable<double> WHOLESALEPRICE { get; set; }
+        public Nullable<decimal> WHOLESALEPRICE { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<SalesItem> SalesItem { get; set; }

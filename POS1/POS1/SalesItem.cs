@@ -16,7 +16,7 @@ namespace POS1
     {
         public int Id { get; set; }
         public int quantitySold { get; set; }
-        public double pricePerUnit { get; set; }
+        public decimal pricePerUnit { get; set; }
         public int itemsID { get; set; }
         public int SalesId { get; set; }
     

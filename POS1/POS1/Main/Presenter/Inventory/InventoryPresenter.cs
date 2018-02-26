@@ -85,11 +85,10 @@ namespace POS1.Main.Presenter.Inventory
         {
             Items item = new Items
             {
-                
                 NAME = mVIew.inventoryName,
-                PRICE = double.Parse(mVIew.inventoryPrice),
+                PRICE = decimal.Parse(mVIew.inventoryPrice),
                 QTY = mVIew.inventoryQty,
-                WHOLESALEPRICE = double.Parse(mVIew.inventoryWholesalePrice)
+                WHOLESALEPRICE = decimal.Parse(mVIew.inventoryWholesalePrice)
 
             };
 

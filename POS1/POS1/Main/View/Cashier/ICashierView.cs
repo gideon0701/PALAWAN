@@ -18,6 +18,7 @@ namespace POS1.Cashier.View
         string cashierVatPrice { get; set; }
         string cashierAmountPaid { get; set; }
         string cashierAmountChange { get; set; }
+        
         bool cashierOptionIsRetail { get; }
 
         void onSelectedIndexChanged(int numOfSelected, int qty);

@@ -10,14 +10,14 @@ namespace POS1.Utils
     class StringUtils
     {
 
-        public static string doubleToCurrency(double money)
+        public static string decimalToCurrency(decimal money)
         {
             return money.ToString("#,##0.00");
         }
 
-        public static double currencyTodouble(string currency)
+        public static decimal currencyToDecimal(string currency)
         {
-            return double.Parse(currency, NumberStyles.Currency);
+            return decimal.Parse(currency, NumberStyles.Currency);
         }
 
     }
