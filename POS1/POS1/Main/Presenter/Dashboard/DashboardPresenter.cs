@@ -33,7 +33,7 @@ namespace POS1.Main.Presenter.Dashboard
 
         public string getSalesNow()
         {
-            return StringUtils.doubleToCurrency(mModel.getSalesNow());
+            return StringUtils.decimalToCurrency(mModel.getSalesNow());
         }
 
         private void setCombobox()

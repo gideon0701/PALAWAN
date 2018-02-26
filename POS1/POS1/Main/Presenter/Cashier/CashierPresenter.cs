@@ -48,15 +48,12 @@ namespace POS1.Cashier.Presenter
             grid.Columns[3].Name = "QTY";
             grid.Columns[3].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
             DataGridViewButtonColumn btnAddQty = new DataGridViewButtonColumn();
-            //btnAddQty.HeaderText = "Action";
-            //btnAddQty.Name = "Add";
             btnAddQty.Text = "Add";
             btnAddQty.Width = 40;
             btnAddQty.UseColumnTextForButtonValue = true;
             grid.Columns.Insert(4, btnAddQty);
             grid.Columns[4].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
             DataGridViewButtonColumn btnMinusQty = new DataGridViewButtonColumn();
-            //btnMinusQty.Name = "Minus";
             btnMinusQty.Text = "Minus";
             btnMinusQty.Width = 40;
             btnMinusQty.UseColumnTextForButtonValue = true;
@@ -164,14 +161,14 @@ namespace POS1.Cashier.Presenter
         public void addToCart(int qty)
         {
             bool result = false;
-            double price = 0;
+            decimal price = 0;
             DataGridView grid = mVIew.cashierItems;
             int item_id = int.Parse(grid.SelectedRows[0].Cells[0].Value.ToString());
 
             if (mMOdel.substractItemQty(item_id, qty))
             {
                 result = true;
-                price = double.Parse(grid.SelectedRows[0].Cells[2].Value.ToString());
+                price = decimal.Parse(grid.SelectedRows[0].Cells[2].Value.ToString());
                 grid.SelectedRows[0].Cells[3].Value = qty.ToString();
             }
 
@@ -183,7 +180,7 @@ namespace POS1.Cashier.Presenter
                 if (list.Cells[0].Value.ToString() == li.Cells[0].Value.ToString())
                 {
                     int newQty = int.Parse(li.Cells[3].Value.ToString()) + int.Parse(list.Cells[3].Value.ToString());
-                    li.Cells[2].Value = NumberUtils.computePrice(float.Parse(list.Cells[2].Value.ToString()), newQty);
+                    li.Cells[2].Value = NumberUtils.computePrice(decimal.Parse(list.Cells[2].Value.ToString()), newQty);
                     li.Cells[3].Value = newQty.ToString();
                     isThereItemAlready = true;
 
@@ -192,7 +189,7 @@ namespace POS1.Cashier.Presenter
 
             if (result && !isThereItemAlready) //Add item to the cart
             {
-                float newPrice = NumberUtils.computePrice(float.Parse(list.Cells[2].Value.ToString()), int.Parse(list.Cells[3].Value.ToString()));
+                decimal newPrice = NumberUtils.computePrice(decimal.Parse(list.Cells[2].Value.ToString()), int.Parse(list.Cells[3].Value.ToString()));
                 string[] row = new string[] {
                     list.Cells[0].Value.ToString(),
                     list.Cells[1].Value.ToString(),
@@ -245,19 +242,19 @@ namespace POS1.Cashier.Presenter
         public void showTotal()
         {
             var cartList = mVIew.cashierCart.Rows;
-            double total = 0;
-            double vat = 0;
-            double subtotal = 0;
+            decimal total = 0;
+            decimal vat = 0;
+            decimal subtotal = 0;
             foreach (DataGridViewRow li in cartList)
             {
-                total += double.Parse(li.Cells[2].Value.ToString());
+                total += decimal.Parse(li.Cells[2].Value.ToString());
             }
-            vat = (total * 0.12);
+            vat = (total * 0.12m);
             subtotal = total - vat;
 
             mVIew.cashierTotalPrice = total.ToString();
-            mVIew.cashierSubtotalPrice = StringUtils.doubleToCurrency(subtotal);
-            mVIew.cashierVatPrice = StringUtils.doubleToCurrency(vat);
+            mVIew.cashierSubtotalPrice = StringUtils.decimalToCurrency(subtotal);
+            mVIew.cashierVatPrice = StringUtils.decimalToCurrency(vat);
         }
 
         public void doTransact()
@@ -265,11 +262,11 @@ namespace POS1.Cashier.Presenter
             Sales sales = new Sales()
             {
                 dateOfTransaction = double.Parse(DateUtils.getStringDateNow("yyyyMMdd")),
-                subtotalAmount = StringUtils.currencyTodouble(mVIew.cashierSubtotalPrice),
-                taxAmount = double.Parse(mVIew.cashierVatPrice),
-                totalPriceAmount = StringUtils.currencyTodouble(mVIew.cashierTotalPrice),
+                subtotalAmount = StringUtils.currencyToDecimal(mVIew.cashierSubtotalPrice),
+                taxAmount = decimal.Parse(mVIew.cashierVatPrice),
+                totalPriceAmount = StringUtils.currencyToDecimal(mVIew.cashierTotalPrice),
                 totalDiscountAmount = 0,
-                moneyPaid = double.Parse(mVIew.cashierAmountPaid),
+                moneyPaid = decimal.Parse(mVIew.cashierAmountPaid),
                 SalesItem = new List<SalesItem>()
             };
 
@@ -279,15 +276,15 @@ namespace POS1.Cashier.Presenter
                 sales.SalesItem.Add(new SalesItem()
                 {
                     quantitySold = int.Parse(row.Cells[3].Value.ToString()),
-                    pricePerUnit = double.Parse(row.Cells[2].Value.ToString()) / double.Parse(row.Cells[3].Value.ToString()),
+                    pricePerUnit = decimal.Parse(row.Cells[2].Value.ToString()) / decimal.Parse(row.Cells[3].Value.ToString()),
                     itemsID = int .Parse(row.Cells[0].Value.ToString())
                 });
             }
-            double change = double.Parse(mVIew.cashierAmountPaid) - double.Parse(mVIew.cashierTotalPrice);
+            decimal change = decimal.Parse(mVIew.cashierAmountPaid) - decimal.Parse(mVIew.cashierTotalPrice);
             mMOdel.addSales(sales);
             clearCart(true);
             mVIew.cashierAmountPaid = "0";
-            mVIew.cashierAmountChange = StringUtils.doubleToCurrency(change);
+            mVIew.cashierAmountChange = StringUtils.decimalToCurrency(change);
             mVIew.onTransactDone();
         }
 

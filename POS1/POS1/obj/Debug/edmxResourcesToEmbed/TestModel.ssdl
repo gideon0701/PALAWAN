@@ -14,9 +14,9 @@
     </Key>
     <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="NAME" Type="varchar" MaxLength="50" Nullable="false" />
-    <Property Name="PRICE" Type="float" />
+    <Property Name="PRICE" Type="decimal" Precision="18" Scale="2" />
     <Property Name="QTY" Type="int" />
-    <Property Name="WHOLESALEPRICE" Type="float" />
+    <Property Name="WHOLESALEPRICE" Type="decimal" Precision="18" Scale="2" />
   </EntityType>
   <EntityType Name="Sales">
     <Key>
@@ -24,11 +24,11 @@
     </Key>
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="dateOfTransaction" Type="float" Nullable="false" />
-    <Property Name="subtotalAmount" Type="float" Nullable="false" />
-    <Property Name="taxAmount" Type="float" Nullable="false" />
-    <Property Name="totalPriceAmount" Type="float" Nullable="false" />
-    <Property Name="totalDiscountAmount" Type="float" Nullable="false" />
-    <Property Name="moneyPaid" Type="float" Nullable="false" />
+    <Property Name="subtotalAmount" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="taxAmount" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="totalPriceAmount" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="totalDiscountAmount" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="moneyPaid" Type="decimal" Precision="18" Scale="2" Nullable="false" />
   </EntityType>
   <EntityType Name="SalesItem">
     <Key>
@@ -36,7 +36,7 @@
     </Key>
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="quantitySold" Type="int" Nullable="false" />
-    <Property Name="pricePerUnit" Type="float" Nullable="false" />
+    <Property Name="pricePerUnit" Type="decimal" Precision="18" Scale="2" Nullable="false" />
     <Property Name="itemsID" Type="int" Nullable="false" />
     <Property Name="SalesId" Type="int" Nullable="false" />
   </EntityType>

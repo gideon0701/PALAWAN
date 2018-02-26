@@ -28,10 +28,10 @@
     </Key>
     <Property Name="ID" Type="Int32" Nullable="false" />
     <Property Name="NAME" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="PRICE" Type="Double" />
+    <Property Name="PRICE" Type="Decimal" Precision="18" Scale="2" />
     <Property Name="QTY" Type="Int32" />
     <NavigationProperty Name="SalesItem" Relationship="TestModel.FK__SalesItem__items__01142BA1" FromRole="Items" ToRole="SalesItem" />
-    <Property Name="WHOLESALEPRICE" Type="Double" />
+    <Property Name="WHOLESALEPRICE" Type="Decimal" Precision="18" Scale="2" />
   </EntityType>
   <EntityType Name="Sales">
     <Key>
@@ -39,11 +39,11 @@
     </Key>
     <Property Name="Id" Type="Int32" Nullable="false" />
     <Property Name="dateOfTransaction" Type="Double" Nullable="false" />
-    <Property Name="subtotalAmount" Type="Double" Nullable="false" />
-    <Property Name="taxAmount" Type="Double" Nullable="false" />
-    <Property Name="totalPriceAmount" Type="Double" Nullable="false" />
-    <Property Name="totalDiscountAmount" Type="Double" Nullable="false" />
-    <Property Name="moneyPaid" Type="Double" Nullable="false" />
+    <Property Name="subtotalAmount" Type="Decimal" Nullable="false" />
+    <Property Name="taxAmount" Type="Decimal" Nullable="false" />
+    <Property Name="totalPriceAmount" Type="Decimal" Nullable="false" />
+    <Property Name="totalDiscountAmount" Type="Decimal" Nullable="false" />
+    <Property Name="moneyPaid" Type="Decimal" Nullable="false" />
     <NavigationProperty Name="SalesItem" Relationship="TestModel.FK__SalesItem__Sales__02084FDA" FromRole="Sales" ToRole="SalesItem" />
   </EntityType>
   <EntityType Name="SalesItem">
@@ -52,7 +52,7 @@
     </Key>
     <Property Name="Id" Type="Int32" Nullable="false" />
     <Property Name="quantitySold" Type="Int32" Nullable="false" />
-    <Property Name="pricePerUnit" Type="Double" Nullable="false" />
+    <Property Name="pricePerUnit" Type="Decimal" Nullable="false" />
     <Property Name="itemsID" Type="Int32" Nullable="false" />
     <Property Name="SalesId" Type="Int32" Nullable="false" />
     <NavigationProperty Name="Items" Relationship="TestModel.FK__SalesItem__items__01142BA1" FromRole="SalesItem" ToRole="Items" />

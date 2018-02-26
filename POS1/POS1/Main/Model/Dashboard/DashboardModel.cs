@@ -10,18 +10,18 @@ namespace POS1.Main.Model.Dashboard
     {
         //SALES
         public int Id { get; set; }
-        public double dateOfTransaction { get; set; }
-        public double subtotalAmount { get; set; }
-        public double taxAmount { get; set; }
-        public double totalPriceAmount { get; set; }
-        public double totalDiscountAmount { get; set; }
-        public double moneyPaid { get; set; }
+        public decimal dateOfTransaction { get; set; }
+        public decimal subtotalAmount { get; set; }
+        public decimal taxAmount { get; set; }
+        public decimal totalPriceAmount { get; set; }
+        public decimal totalDiscountAmount { get; set; }
+        public decimal moneyPaid { get; set; }
 
         //SALES ITEM
         public int itemID { get; set; }
         public int totalQuantity { get; set; }
         public string productName { get; set; }
-        public double totalPrice { get; set; }
+        public decimal totalPrice { get; set; }
 
         public List<string> getAllYear()
         {
@@ -66,20 +66,20 @@ namespace POS1.Main.Model.Dashboard
             return months;
         }
 
-        public double getSalesNow()
+        public decimal getSalesNow()
         {
             using (var db = new TestEntities())
             {
                 double dateNow = double.Parse(DateUtils.getStringDateNow("yyyyMMdd"));
                 var totalSales = db.Sales
                     .Where(d => d.dateOfTransaction == dateNow)
-                    .Sum(s => (double?)s.subtotalAmount) ?? 0;
+                    .Sum(s => (decimal?)s.subtotalAmount) ?? 0;
 
                 return totalSales;
             }
         }
 
-        public List<double> getMonthlySales(string year)
+        public List<decimal> getMonthlySales(string year)
         {
             string[] months = {"01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12" };
          
@@ -88,12 +88,12 @@ namespace POS1.Main.Model.Dashboard
             double dateStart = 0;
             double dateEnd = 0;
 
-            List<double> monthlySales = new List<double>();
+            List<decimal> monthlySales = new List<decimal>();
             using (var db = new TestEntities())
             {
                 for (int i = 0; i < 12; i++)
                 {
-                    double totalSales = 0;
+                    decimal totalSales = 0;
                     string monthDayStart = string.Format(monthDayStartPattern, months[i]);
                     string monthDayEnd = string.Format(monthDayEndPattern, months[i]);
                     dateStart = double.Parse(year + monthDayStart);
@@ -113,10 +113,10 @@ namespace POS1.Main.Model.Dashboard
             return monthlySales;
         }
 
-        public List<double> getWeeklySales(string month, string year)
+        public List<decimal> getWeeklySales(string month, string year)
         {
 
-            List<double> weeklySales = new List<double>();
+            List<decimal> weeklySales = new List<decimal>();
             if (month == "")
             {
                 return weeklySales;
@@ -127,7 +127,7 @@ namespace POS1.Main.Model.Dashboard
                 int chooseDate = int.Parse(year + month + "01");
                 for (int i = 0; i < maxWeek; i++)
                 {
-                    double totalSales = 0;
+                    decimal totalSales = 0;
                     var startDay = 0;
                     var endDay = 0;
                     startDay = int.Parse(DateUtils.FirstDateOfWeek(int.Parse(year), int.Parse(month), i));
@@ -135,7 +135,7 @@ namespace POS1.Main.Model.Dashboard
                     endDay = startDay + 6;
                     if (startDay < chooseDate) {
                         var nextStartDay = int.Parse(DateUtils.FirstDateOfWeek(int.Parse(year), int.Parse(month), i + 1));
-                        endDay = chooseDate + (nextStartDay - chooseDate - 1);
+                        endDay = nextStartDay - 1;
                         startDay = chooseDate;
                     }
                     var query = db.Sales.Where(y => y.dateOfTransaction >= startDay && y.dateOfTransaction <= endDay)
@@ -176,7 +176,7 @@ namespace POS1.Main.Model.Dashboard
 
                 foreach (var group in groups)
                 {
-                    double total = 0;
+                    decimal total = 0;
                     int totalQty = 0;
                     var s = 0;
                     string name = "";

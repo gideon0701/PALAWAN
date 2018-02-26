@@ -22,11 +22,11 @@ namespace POS1
     
         public int Id { get; set; }
         public double dateOfTransaction { get; set; }
-        public double subtotalAmount { get; set; }
-        public double taxAmount { get; set; }
-        public double totalPriceAmount { get; set; }
-        public double totalDiscountAmount { get; set; }
-        public double moneyPaid { get; set; }
+        public decimal subtotalAmount { get; set; }
+        public decimal taxAmount { get; set; }
+        public decimal totalPriceAmount { get; set; }
+        public decimal totalDiscountAmount { get; set; }
+        public decimal moneyPaid { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<SalesItem> SalesItem { get; set; }

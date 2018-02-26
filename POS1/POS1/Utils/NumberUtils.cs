@@ -8,7 +8,7 @@ namespace POS1.Utils
 {
     class NumberUtils
     {
-        public static float computePrice(float price, int qty)
+        public static decimal computePrice(decimal price, int qty)
         {
             return price * qty;
         }
