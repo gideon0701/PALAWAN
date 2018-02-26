@@ -12,6 +12,7 @@ namespace POS1.Main.Model.Inventory
         public string NAME { get; set; }
         public double? PRICE { get; set; }
         public int? QTY { get; set; }
+        public double? WHOLESALEPRICE { get; set; }
 
         public List<InventoryModel> getAllInventory()
         {
@@ -22,7 +23,8 @@ namespace POS1.Main.Model.Inventory
                     ID = s.ID,
                     NAME = s.NAME,
                     PRICE = s.PRICE,
-                    QTY = s.QTY
+                    QTY = s.QTY,
+                    WHOLESALEPRICE = s.WHOLESALEPRICE
                 }).ToList();
             }
                
@@ -38,7 +40,8 @@ namespace POS1.Main.Model.Inventory
                     ID = s.ID,
                     NAME = s.NAME,
                     PRICE = s.PRICE,
-                    QTY = s.QTY
+                    QTY = s.QTY,
+                    WHOLESALEPRICE = s.WHOLESALEPRICE
                 }).ToList();
             }
         }

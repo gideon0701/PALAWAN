@@ -29,21 +29,21 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle21 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea7 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Series series7 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea8 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Series series8 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea9 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Series series9 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle25 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle26 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle27 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle22 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle23 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle24 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tabpageInventory = new MetroFramework.Controls.MetroTabPage();
             this.metroPanel4 = new MetroFramework.Controls.MetroPanel();
             this.btnInventorySearch = new MetroFramework.Controls.MetroButton();
@@ -52,6 +52,8 @@
             this.grdInventory = new MetroFramework.Controls.MetroGrid();
             this.btnInventoryEdit = new MetroFramework.Controls.MetroButton();
             this.metroPanel3 = new MetroFramework.Controls.MetroPanel();
+            this.txtInventoryWholesalePrice = new MetroFramework.Controls.MetroTextBox();
+            this.lblWholesalePrice = new MetroFramework.Controls.MetroLabel();
             this.txtInventoryQty = new System.Windows.Forms.NumericUpDown();
             this.txtInventoryPrice = new MetroFramework.Controls.MetroTextBox();
             this.txtInventoryName = new MetroFramework.Controls.MetroTextBox();
@@ -85,6 +87,8 @@
             this.btnClearCart = new MetroFramework.Controls.MetroButton();
             this.metroLabel2 = new MetroFramework.Controls.MetroLabel();
             this.metroPanel1 = new MetroFramework.Controls.MetroPanel();
+            this.optWholesale = new MetroFramework.Controls.MetroRadioButton();
+            this.optRetail = new MetroFramework.Controls.MetroRadioButton();
             this.dgdCashierItems = new MetroFramework.Controls.MetroGrid();
             this.btnItemSearch = new MetroFramework.Controls.MetroButton();
             this.txtItemSearch = new MetroFramework.Controls.MetroTextBox();
@@ -99,8 +103,6 @@
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.lblDateTime = new MetroFramework.Controls.MetroLabel();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.optWholesale = new MetroFramework.Controls.MetroRadioButton();
-            this.optRetail = new MetroFramework.Controls.MetroRadioButton();
             this.tabpageInventory.SuspendLayout();
             this.metroPanel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grdInventory)).BeginInit();
@@ -218,23 +220,23 @@
             this.grdInventory.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.grdInventory.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.grdInventory.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle19.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle19.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(177)))), ((int)(((byte)(89)))));
-            dataGridViewCellStyle19.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            dataGridViewCellStyle19.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle19.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(208)))), ((int)(((byte)(104)))));
-            dataGridViewCellStyle19.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle19.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.grdInventory.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle19;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(177)))), ((int)(((byte)(89)))));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(208)))), ((int)(((byte)(104)))));
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.grdInventory.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.grdInventory.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle20.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle20.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle20.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            dataGridViewCellStyle20.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(136)))), ((int)(((byte)(136)))));
-            dataGridViewCellStyle20.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(208)))), ((int)(((byte)(104)))));
-            dataGridViewCellStyle20.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle20.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.grdInventory.DefaultCellStyle = dataGridViewCellStyle20;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(136)))), ((int)(((byte)(136)))));
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(208)))), ((int)(((byte)(104)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.grdInventory.DefaultCellStyle = dataGridViewCellStyle2;
             this.grdInventory.EnableHeadersVisualStyles = false;
             this.grdInventory.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.grdInventory.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
@@ -243,14 +245,14 @@
             this.grdInventory.Name = "grdInventory";
             this.grdInventory.ReadOnly = true;
             this.grdInventory.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle21.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle21.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(177)))), ((int)(((byte)(89)))));
-            dataGridViewCellStyle21.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            dataGridViewCellStyle21.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle21.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(208)))), ((int)(((byte)(104)))));
-            dataGridViewCellStyle21.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle21.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.grdInventory.RowHeadersDefaultCellStyle = dataGridViewCellStyle21;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(177)))), ((int)(((byte)(89)))));
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(208)))), ((int)(((byte)(104)))));
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.grdInventory.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.grdInventory.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.grdInventory.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.grdInventory.Size = new System.Drawing.Size(437, 280);
@@ -271,6 +273,8 @@
             // 
             // metroPanel3
             // 
+            this.metroPanel3.Controls.Add(this.txtInventoryWholesalePrice);
+            this.metroPanel3.Controls.Add(this.lblWholesalePrice);
             this.metroPanel3.Controls.Add(this.txtInventoryQty);
             this.metroPanel3.Controls.Add(this.txtInventoryPrice);
             this.metroPanel3.Controls.Add(this.txtInventoryName);
@@ -291,10 +295,49 @@
             this.metroPanel3.VerticalScrollbarHighlightOnWheel = false;
             this.metroPanel3.VerticalScrollbarSize = 10;
             // 
+            // txtInventoryWholesalePrice
+            // 
+            // 
+            // 
+            // 
+            this.txtInventoryWholesalePrice.CustomButton.Image = null;
+            this.txtInventoryWholesalePrice.CustomButton.Location = new System.Drawing.Point(53, 1);
+            this.txtInventoryWholesalePrice.CustomButton.Name = "";
+            this.txtInventoryWholesalePrice.CustomButton.Size = new System.Drawing.Size(21, 21);
+            this.txtInventoryWholesalePrice.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
+            this.txtInventoryWholesalePrice.CustomButton.TabIndex = 1;
+            this.txtInventoryWholesalePrice.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
+            this.txtInventoryWholesalePrice.CustomButton.UseSelectable = true;
+            this.txtInventoryWholesalePrice.CustomButton.Visible = false;
+            this.txtInventoryWholesalePrice.Lines = new string[0];
+            this.txtInventoryWholesalePrice.Location = new System.Drawing.Point(47, 121);
+            this.txtInventoryWholesalePrice.MaxLength = 32767;
+            this.txtInventoryWholesalePrice.Name = "txtInventoryWholesalePrice";
+            this.txtInventoryWholesalePrice.PasswordChar = '\0';
+            this.txtInventoryWholesalePrice.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.txtInventoryWholesalePrice.SelectedText = "";
+            this.txtInventoryWholesalePrice.SelectionLength = 0;
+            this.txtInventoryWholesalePrice.SelectionStart = 0;
+            this.txtInventoryWholesalePrice.ShortcutsEnabled = true;
+            this.txtInventoryWholesalePrice.Size = new System.Drawing.Size(75, 23);
+            this.txtInventoryWholesalePrice.TabIndex = 13;
+            this.txtInventoryWholesalePrice.UseSelectable = true;
+            this.txtInventoryWholesalePrice.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            this.txtInventoryWholesalePrice.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
+            // 
+            // lblWholesalePrice
+            // 
+            this.lblWholesalePrice.AutoSize = true;
+            this.lblWholesalePrice.Location = new System.Drawing.Point(2, 125);
+            this.lblWholesalePrice.Name = "lblWholesalePrice";
+            this.lblWholesalePrice.Size = new System.Drawing.Size(51, 19);
+            this.lblWholesalePrice.TabIndex = 12;
+            this.lblWholesalePrice.Text = "PRICE: ";
+            // 
             // txtInventoryQty
             // 
             this.txtInventoryQty.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtInventoryQty.Location = new System.Drawing.Point(48, 152);
+            this.txtInventoryQty.Location = new System.Drawing.Point(48, 156);
             this.txtInventoryQty.Maximum = new decimal(new int[] {
             1000,
             0,
@@ -319,7 +362,7 @@
             this.txtInventoryPrice.CustomButton.UseSelectable = true;
             this.txtInventoryPrice.CustomButton.Visible = false;
             this.txtInventoryPrice.Lines = new string[0];
-            this.txtInventoryPrice.Location = new System.Drawing.Point(48, 114);
+            this.txtInventoryPrice.Location = new System.Drawing.Point(48, 90);
             this.txtInventoryPrice.MaxLength = 32767;
             this.txtInventoryPrice.Name = "txtInventoryPrice";
             this.txtInventoryPrice.PasswordChar = '\0';
@@ -349,7 +392,7 @@
             this.txtInventoryName.CustomButton.UseSelectable = true;
             this.txtInventoryName.CustomButton.Visible = false;
             this.txtInventoryName.Lines = new string[0];
-            this.txtInventoryName.Location = new System.Drawing.Point(48, 80);
+            this.txtInventoryName.Location = new System.Drawing.Point(48, 56);
             this.txtInventoryName.MaxLength = 32767;
             this.txtInventoryName.Name = "txtInventoryName";
             this.txtInventoryName.PasswordChar = '\0';
@@ -379,7 +422,7 @@
             this.txtInventoryId.CustomButton.UseSelectable = true;
             this.txtInventoryId.CustomButton.Visible = false;
             this.txtInventoryId.Lines = new string[0];
-            this.txtInventoryId.Location = new System.Drawing.Point(48, 50);
+            this.txtInventoryId.Location = new System.Drawing.Point(48, 26);
             this.txtInventoryId.MaxLength = 32767;
             this.txtInventoryId.Name = "txtInventoryId";
             this.txtInventoryId.PasswordChar = '\0';
@@ -398,7 +441,7 @@
             // metroLabel7
             // 
             this.metroLabel7.AutoSize = true;
-            this.metroLabel7.Location = new System.Drawing.Point(3, 153);
+            this.metroLabel7.Location = new System.Drawing.Point(3, 157);
             this.metroLabel7.Name = "metroLabel7";
             this.metroLabel7.Size = new System.Drawing.Size(38, 19);
             this.metroLabel7.TabIndex = 6;
@@ -407,7 +450,7 @@
             // metroLabel6
             // 
             this.metroLabel6.AutoSize = true;
-            this.metroLabel6.Location = new System.Drawing.Point(3, 118);
+            this.metroLabel6.Location = new System.Drawing.Point(3, 94);
             this.metroLabel6.Name = "metroLabel6";
             this.metroLabel6.Size = new System.Drawing.Size(51, 19);
             this.metroLabel6.TabIndex = 5;
@@ -416,7 +459,7 @@
             // metroLabel5
             // 
             this.metroLabel5.AutoSize = true;
-            this.metroLabel5.Location = new System.Drawing.Point(3, 84);
+            this.metroLabel5.Location = new System.Drawing.Point(3, 60);
             this.metroLabel5.Name = "metroLabel5";
             this.metroLabel5.Size = new System.Drawing.Size(50, 19);
             this.metroLabel5.TabIndex = 4;
@@ -425,7 +468,7 @@
             // metroLabel4
             // 
             this.metroLabel4.AutoSize = true;
-            this.metroLabel4.Location = new System.Drawing.Point(3, 54);
+            this.metroLabel4.Location = new System.Drawing.Point(3, 30);
             this.metroLabel4.Name = "metroLabel4";
             this.metroLabel4.Size = new System.Drawing.Size(28, 19);
             this.metroLabel4.TabIndex = 3;
@@ -471,15 +514,15 @@
             // 
             // chDashboardProductSales
             // 
-            chartArea7.Name = "ChartArea1";
-            this.chDashboardProductSales.ChartAreas.Add(chartArea7);
+            chartArea1.Name = "ChartArea1";
+            this.chDashboardProductSales.ChartAreas.Add(chartArea1);
             this.chDashboardProductSales.Location = new System.Drawing.Point(457, 260);
             this.chDashboardProductSales.Name = "chDashboardProductSales";
             this.chDashboardProductSales.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Excel;
-            series7.ChartArea = "ChartArea1";
-            series7.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Doughnut;
-            series7.Name = "Sales";
-            this.chDashboardProductSales.Series.Add(series7);
+            series1.ChartArea = "ChartArea1";
+            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Doughnut;
+            series1.Name = "Sales";
+            this.chDashboardProductSales.Series.Add(series1);
             this.chDashboardProductSales.Size = new System.Drawing.Size(264, 161);
             this.chDashboardProductSales.TabIndex = 17;
             this.chDashboardProductSales.Text = "chart1";
@@ -496,13 +539,13 @@
             // 
             // chDashboardMonthly
             // 
-            chartArea8.Name = "ChartArea1";
-            this.chDashboardMonthly.ChartAreas.Add(chartArea8);
+            chartArea2.Name = "ChartArea1";
+            this.chDashboardMonthly.ChartAreas.Add(chartArea2);
             this.chDashboardMonthly.Location = new System.Drawing.Point(12, 49);
             this.chDashboardMonthly.Name = "chDashboardMonthly";
-            series8.ChartArea = "ChartArea1";
-            series8.Name = "Sales";
-            this.chDashboardMonthly.Series.Add(series8);
+            series2.ChartArea = "ChartArea1";
+            series2.Name = "Sales";
+            this.chDashboardMonthly.Series.Add(series2);
             this.chDashboardMonthly.Size = new System.Drawing.Size(439, 161);
             this.chDashboardMonthly.TabIndex = 15;
             this.chDashboardMonthly.Text = "chart1";
@@ -520,15 +563,15 @@
             // 
             // chDashboardYearly
             // 
-            chartArea9.Name = "ChartArea1";
-            this.chDashboardYearly.ChartAreas.Add(chartArea9);
+            chartArea3.Name = "ChartArea1";
+            this.chDashboardYearly.ChartAreas.Add(chartArea3);
             this.chDashboardYearly.Location = new System.Drawing.Point(12, 260);
             this.chDashboardYearly.Name = "chDashboardYearly";
-            series9.ChartArea = "ChartArea1";
-            series9.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.FastLine;
-            series9.IsValueShownAsLabel = true;
-            series9.Name = "Sales";
-            this.chDashboardYearly.Series.Add(series9);
+            series3.ChartArea = "ChartArea1";
+            series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.FastLine;
+            series3.IsValueShownAsLabel = true;
+            series3.Name = "Sales";
+            this.chDashboardYearly.Series.Add(series3);
             this.chDashboardYearly.Size = new System.Drawing.Size(439, 161);
             this.chDashboardYearly.TabIndex = 13;
             this.chDashboardYearly.Text = "chart1";
@@ -822,23 +865,23 @@
             this.dgdCashierCart.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgdCashierCart.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.dgdCashierCart.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle25.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle25.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
-            dataGridViewCellStyle25.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            dataGridViewCellStyle25.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle25.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
-            dataGridViewCellStyle25.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle25.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgdCashierCart.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle25;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgdCashierCart.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.dgdCashierCart.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle26.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle26.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle26.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            dataGridViewCellStyle26.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(136)))), ((int)(((byte)(136)))));
-            dataGridViewCellStyle26.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
-            dataGridViewCellStyle26.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle26.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgdCashierCart.DefaultCellStyle = dataGridViewCellStyle26;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(136)))), ((int)(((byte)(136)))));
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgdCashierCart.DefaultCellStyle = dataGridViewCellStyle5;
             this.dgdCashierCart.EnableHeadersVisualStyles = false;
             this.dgdCashierCart.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.dgdCashierCart.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
@@ -847,14 +890,14 @@
             this.dgdCashierCart.Name = "dgdCashierCart";
             this.dgdCashierCart.ReadOnly = true;
             this.dgdCashierCart.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle27.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle27.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
-            dataGridViewCellStyle27.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            dataGridViewCellStyle27.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle27.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
-            dataGridViewCellStyle27.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle27.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgdCashierCart.RowHeadersDefaultCellStyle = dataGridViewCellStyle27;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgdCashierCart.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
             this.dgdCashierCart.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.dgdCashierCart.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgdCashierCart.Size = new System.Drawing.Size(459, 136);
@@ -902,6 +945,30 @@
             this.metroPanel1.VerticalScrollbarHighlightOnWheel = false;
             this.metroPanel1.VerticalScrollbarSize = 10;
             // 
+            // optWholesale
+            // 
+            this.optWholesale.AutoSize = true;
+            this.optWholesale.Location = new System.Drawing.Point(162, 10);
+            this.optWholesale.Name = "optWholesale";
+            this.optWholesale.Size = new System.Drawing.Size(78, 15);
+            this.optWholesale.TabIndex = 15;
+            this.optWholesale.Text = "WholeSale";
+            this.optWholesale.UseSelectable = true;
+            this.optWholesale.CheckedChanged += new System.EventHandler(this.salesOption_CheckedChanged);
+            // 
+            // optRetail
+            // 
+            this.optRetail.AutoSize = true;
+            this.optRetail.Checked = true;
+            this.optRetail.Location = new System.Drawing.Point(104, 10);
+            this.optRetail.Name = "optRetail";
+            this.optRetail.Size = new System.Drawing.Size(52, 15);
+            this.optRetail.TabIndex = 14;
+            this.optRetail.TabStop = true;
+            this.optRetail.Text = "Retail";
+            this.optRetail.UseSelectable = true;
+            this.optRetail.CheckedChanged += new System.EventHandler(this.salesOption_CheckedChanged);
+            // 
             // dgdCashierItems
             // 
             this.dgdCashierItems.AllowUserToAddRows = false;
@@ -911,23 +978,23 @@
             this.dgdCashierItems.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgdCashierItems.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.dgdCashierItems.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle22.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle22.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
-            dataGridViewCellStyle22.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            dataGridViewCellStyle22.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle22.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
-            dataGridViewCellStyle22.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle22.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgdCashierItems.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle22;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgdCashierItems.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
             this.dgdCashierItems.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle23.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle23.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle23.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            dataGridViewCellStyle23.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(136)))), ((int)(((byte)(136)))));
-            dataGridViewCellStyle23.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
-            dataGridViewCellStyle23.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle23.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgdCashierItems.DefaultCellStyle = dataGridViewCellStyle23;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(136)))), ((int)(((byte)(136)))));
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgdCashierItems.DefaultCellStyle = dataGridViewCellStyle8;
             this.dgdCashierItems.EnableHeadersVisualStyles = false;
             this.dgdCashierItems.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.dgdCashierItems.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
@@ -936,14 +1003,14 @@
             this.dgdCashierItems.Name = "dgdCashierItems";
             this.dgdCashierItems.ReadOnly = true;
             this.dgdCashierItems.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle24.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle24.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
-            dataGridViewCellStyle24.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            dataGridViewCellStyle24.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle24.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
-            dataGridViewCellStyle24.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle24.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgdCashierItems.RowHeadersDefaultCellStyle = dataGridViewCellStyle24;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgdCashierItems.RowHeadersDefaultCellStyle = dataGridViewCellStyle9;
             this.dgdCashierItems.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.dgdCashierItems.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgdCashierItems.Size = new System.Drawing.Size(459, 183);
@@ -1066,7 +1133,7 @@
             this.tabControl.Controls.Add(this.tabpageInventory);
             this.tabControl.Location = new System.Drawing.Point(7, 44);
             this.tabControl.Name = "tabControl";
-            this.tabControl.SelectedIndex = 0;
+            this.tabControl.SelectedIndex = 2;
             this.tabControl.Size = new System.Drawing.Size(765, 487);
             this.tabControl.Style = MetroFramework.MetroColorStyle.Green;
             this.tabControl.TabIndex = 0;
@@ -1099,30 +1166,6 @@
             // timer1
             // 
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
-            // 
-            // optWholesale
-            // 
-            this.optWholesale.AutoSize = true;
-            this.optWholesale.Location = new System.Drawing.Point(162, 10);
-            this.optWholesale.Name = "optWholesale";
-            this.optWholesale.Size = new System.Drawing.Size(78, 15);
-            this.optWholesale.TabIndex = 15;
-            this.optWholesale.Text = "WholeSale";
-            this.optWholesale.UseSelectable = true;
-            this.optWholesale.CheckedChanged += new System.EventHandler(this.salesOption_CheckedChanged);
-            // 
-            // optRetail
-            // 
-            this.optRetail.AutoSize = true;
-            this.optRetail.Checked = true;
-            this.optRetail.Location = new System.Drawing.Point(104, 10);
-            this.optRetail.Name = "optRetail";
-            this.optRetail.Size = new System.Drawing.Size(52, 15);
-            this.optRetail.TabIndex = 14;
-            this.optRetail.TabStop = true;
-            this.optRetail.Text = "Retail";
-            this.optRetail.UseSelectable = true;
-            this.optRetail.CheckedChanged += new System.EventHandler(this.salesOption_CheckedChanged);
             // 
             // MainForm
             // 
@@ -1226,5 +1269,7 @@
         private System.Windows.Forms.Timer timer1;
         private MetroFramework.Controls.MetroRadioButton optWholesale;
         private MetroFramework.Controls.MetroRadioButton optRetail;
+        private MetroFramework.Controls.MetroTextBox txtInventoryWholesalePrice;
+        private MetroFramework.Controls.MetroLabel lblWholesalePrice;
     }
 }
