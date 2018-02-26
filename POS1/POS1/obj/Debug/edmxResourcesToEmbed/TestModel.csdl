@@ -31,6 +31,7 @@
     <Property Name="PRICE" Type="Double" />
     <Property Name="QTY" Type="Int32" />
     <NavigationProperty Name="SalesItem" Relationship="TestModel.FK__SalesItem__items__01142BA1" FromRole="Items" ToRole="SalesItem" />
+    <Property Name="WHOLESALEPRICE" Type="Double" />
   </EntityType>
   <EntityType Name="Sales">
     <Key>

@@ -13,6 +13,7 @@
     <EntitySetMapping Name="Items">
       <EntityTypeMapping TypeName="TestModel.Items">
         <MappingFragment StoreEntitySet="Items">
+          <ScalarProperty Name="WHOLESALEPRICE" ColumnName="WHOLESALEPRICE" />
           <ScalarProperty Name="QTY" ColumnName="QTY" />
           <ScalarProperty Name="PRICE" ColumnName="PRICE" />
           <ScalarProperty Name="NAME" ColumnName="NAME" />

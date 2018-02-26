@@ -127,6 +127,15 @@ namespace POS1.Cashier
             }
         }
 
+        public bool cashierOptionIsRetail
+        {
+            get
+            {
+                return optRetail.Checked;
+            }
+
+        }
+
         public DataGridView inventoryDataGrid
         {
             get
@@ -311,6 +320,11 @@ namespace POS1.Cashier
 
             dashboardPresenter.initDashboard();
             lblTotalSalesNow.Text = dashboardPresenter.getSalesNow();
+        }
+
+        private void salesOption_CheckedChanged(object sender, EventArgs e)
+        {
+            cashierPresenter.getAllItems();
         }
 
         private void dgdCashierItems_SelectionChanged(object sender, EventArgs e)

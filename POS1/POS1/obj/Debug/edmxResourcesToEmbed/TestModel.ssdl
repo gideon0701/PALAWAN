@@ -16,6 +16,7 @@
     <Property Name="NAME" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="PRICE" Type="float" />
     <Property Name="QTY" Type="int" />
+    <Property Name="WHOLESALEPRICE" Type="float" />
   </EntityType>
   <EntityType Name="Sales">
     <Key>

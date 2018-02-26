@@ -86,10 +86,11 @@ namespace POS1.Cashier.Presenter
 
             foreach (CashierInventoryModel model in items)
             {
+                string price = mVIew.cashierOptionIsRetail ? model.PRICE.ToString() : model.WHOLESALEPRICE.ToString();
                 string[] row = new string[] {
                     model.ID.ToString(),
                     model.NAME,
-                    model.PRICE.ToString(),
+                    price,
                     model.QTY.ToString()
                 };
                 grid.Rows.Add(row);
