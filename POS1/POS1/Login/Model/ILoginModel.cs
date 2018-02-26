@@ -9,7 +9,7 @@ namespace POS1.Model
     {
         string USERNAME { get; set; }
         string PASSWORD { get; set; }
-        bool validateLogin();
+        int validateLogin();
         bool validateInputs();
     }
 }

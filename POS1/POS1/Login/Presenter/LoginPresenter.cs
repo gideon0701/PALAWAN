@@ -18,7 +18,6 @@ namespace POS1.Presenter
         public void doLogin() {
 
             mView.onLoginResult(mModel.validateLogin());
-
         }
 
         public void validateInput(string username, string password) {

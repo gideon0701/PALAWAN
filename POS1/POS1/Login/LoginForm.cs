@@ -23,19 +23,23 @@ namespace POS1
             presenter.validateInput(username.Text, password.Text);
         }
 
-        public void onLoginResult(bool result)
+        public void onLoginResult(int result)
         {
-            if (result)
+            if (result == 0)
             {
-             
+
                 MainForm cashier = new MainForm();
-                Hide();   
+                Hide();
                 cashier.ShowDialog();
                 Close();
             }
-            else
+            else if (result == -1)
             {
                 MessageBox.Show("Incorrect username or password");
+            }
+            else
+            {
+                MessageBox.Show("Cannot connect to the database for a while");
             }
         }
 

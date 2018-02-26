@@ -11,11 +11,6 @@ namespace POS1.Model
     {
         private string mUsername;
         private string mPassword;
-        private TestEntities db;
-        public MyModel()
-        {
-            db = new TestEntities();
-        }
 
         public string PASSWORD
         {
@@ -40,17 +35,30 @@ namespace POS1.Model
             }
         }
 
-        public bool validateLogin()
+        public int validateLogin()
         {
-            Employee emp = db.Employee.Where(e => e.USERNAME == mUsername && e.PASSWORD == mPassword).FirstOrDefault();
-            
-            if (emp == null)
+            using (var db = new TestEntities())
             {
-                return false;
+                try
+                {
+                    Employee emp = db.Employee.Where(e => e.USERNAME == mUsername && e.PASSWORD == mPassword).FirstOrDefault();
+
+                    if (emp == null)
+                    {
+                        return -1;
+                    }
+                    else
+                    {
+                        return 0;
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.InnerException.Message);
+                    return -2;
+                }
             }
-            else {
-                return true;
-            }
+               
         }
 
         public bool validateInputs()

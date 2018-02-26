@@ -351,7 +351,6 @@ namespace POS1.Cashier
         private void button_addCart_Click(object sender, EventArgs e)
         {
             cashierPresenter.addToCart(decimal.ToInt32(inputQty.Value));
-            pnlAdd.Visible = false;
             btnItemTransact.Enabled = false;
         }
 
@@ -578,18 +577,13 @@ namespace POS1.Cashier
         /// <param name="qty"></param>
         public void onSelectedIndexChanged(int numOfSelected, int qty)
         {
-            if (inputQty.Maximum != 0)
-            {
-                inputQty.Value = 1;
-            }
             if (numOfSelected > 0)
             {
-                pnlAdd.Visible = true;
                 inputQty.Maximum = qty;
-            }
-            else
-            {
-                pnlAdd.Visible = false;
+                if (qty != 0)
+                {
+                    inputQty.Value = 1;
+                }
             }
         }
 
