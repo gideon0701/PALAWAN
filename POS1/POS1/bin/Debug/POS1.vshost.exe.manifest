@@ -102,18 +102,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="POS1.exe" size="83456">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="POS1.exe" size="84480">
       <assemblyIdentity name="POS1" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-<<<<<<< HEAD
-        <dsig:DigestValue>UZpha9dbeAW1YnFlaE0QXlWClYtc8ldDg7I89+eRXAY=</dsig:DigestValue>
-=======
-        <dsig:DigestValue>lfZ1N3ccEJfPyi4/0qeN9NV84FepWk7hlo/bu+je1ZM=</dsig:DigestValue>
->>>>>>> gideon
+        <dsig:DigestValue>XyT8c7mak80db/wOvt7pjItNkdL298QAM9hUntzfO6U=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -141,7 +137,7 @@
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>JqE/SQIjlBBR8IZ1zu+mqw+e6kCNlX8OSRf0FbR7uBs=</dsig:DigestValue>
+      <dsig:DigestValue>AhWbnINN9YBhy0RMIPoWgxRyZ/jvB9FTGdRl1qWjH+s=</dsig:DigestValue>
     </hash>
   </file>
   <file name="TestModel.Context.tt" size="22933">
