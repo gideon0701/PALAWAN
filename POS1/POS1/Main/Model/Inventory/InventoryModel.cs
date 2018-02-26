@@ -13,7 +13,6 @@ namespace POS1.Main.Model.Inventory
         public decimal? PRICE { get; set; }
         public decimal? WHOLESALEPRICE { get; set; }
         public int? QTY { get; set; }
-      
 
         public List<InventoryModel> getAllInventory()
         {
