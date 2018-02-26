@@ -59,6 +59,12 @@ namespace POS1.Cashier.Presenter
             btnMinusQty.UseColumnTextForButtonValue = true;
             grid.Columns.Insert(5, btnMinusQty);
             grid.Columns[5].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+            DataGridViewButtonColumn btnDelRow = new DataGridViewButtonColumn();
+            btnDelRow.Text = "Delete";
+            btnDelRow.Width = 40;
+            btnDelRow.UseColumnTextForButtonValue = true;
+            grid.Columns.Insert(6, btnDelRow);
+            grid.Columns[6].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
 
         }
         /// <summary>
@@ -113,6 +119,20 @@ namespace POS1.Cashier.Presenter
                 }
             }
             mVIew.onSelectedIndexChanged(count, max);
+        }
+
+        /// <summary>
+        /// Event to remove or delete row in the cart.
+        /// </summary>
+        public void btnDeleteRow()
+        {
+            var cart = mVIew.cashierCart;
+            var row = cart.SelectedRows[0];
+            mMOdel.addItemQty(int.Parse(row.Cells[0].Value.ToString()), int.Parse(row.Cells[3].Value.ToString()));
+            cart.Rows.RemoveAt(row.Index);
+            getAllItems();
+            showTotal();
+
         }
 
         /// <summary>
@@ -232,7 +252,6 @@ namespace POS1.Cashier.Presenter
                 mVIew.cashierCart.Rows.Clear();
             }
             getAllItems();
-
         }
 
         /// <summary>
