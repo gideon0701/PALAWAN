@@ -304,7 +304,6 @@ namespace POS1.Cashier
         private void MainForm_Load(object sender, EventArgs e)
         {
             timer1.Start();
-            lblTotalSalesNow.Text = dashboardPresenter.getSalesNow();
 
             cashierPresenter.initTables();
             cashierPresenter.getAllItems();
@@ -312,6 +311,7 @@ namespace POS1.Cashier
             inventoryPresenter.getAllInventory();
 
             dashboardPresenter.initDashboard();
+            lblTotalSalesNow.Text = dashboardPresenter.getSalesNow();
         }
 
         private void timer1_Tick(object sender, EventArgs e)
