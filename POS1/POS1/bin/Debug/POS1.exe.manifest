@@ -109,7 +109,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>D9+0rQez5tYbqAoW4zN1nHYZnJRjHU6ZE3Q9FCkIqrQ=</dsig:DigestValue>
+        <dsig:DigestValue>srGunX3fWryE/eDYYKq8hKXiM7cMNnVP2U8KyIXIXzU=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -122,13 +122,13 @@
       <dsig:DigestValue>+yV6adEVlpUIOiH/IdsfqaixKo0MB7DiB/hBOyI4wKw=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="POS1.exe.config" size="1468">
+  <file name="POS1.exe.config" size="1459">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>D8ekQp2+/XNnvIp3Bkn4NAIp17z8xQJaB2pieAAgx0U=</dsig:DigestValue>
+      <dsig:DigestValue>95EWuUn7Dr9t8fFwKaWJvljx4BVNEOaHGtPcZf/v0+4=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Test.mdf" size="8388608" writeableType="applicationData">
@@ -137,7 +137,7 @@
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>LnAJ/SKmoZ0xqbut9JOptSmN7q9H4gUhyo1nBxuSnr0=</dsig:DigestValue>
+      <dsig:DigestValue>6lF9/XTQ5or1lT8N2d1RXxv3SHKTlmt1gF4tNKVGHh8=</dsig:DigestValue>
     </hash>
   </file>
   <file name="TestModel.Context.tt" size="22933">
