@@ -312,6 +312,8 @@ namespace POS1.Cashier
 
             dashboardPresenter.initDashboard();
             lblTotalSalesNow.Text = dashboardPresenter.getSalesNow();
+
+            tabControl.SelectedIndex = 0;
         }
 
         private void timer1_Tick(object sender, EventArgs e)
@@ -367,8 +369,8 @@ namespace POS1.Cashier
         {
             try
             {
-                var amountPaid = double.Parse(cashierAmountPaid);
-                var amountTotal = double.Parse(cashierTotalPrice);
+                var amountPaid = decimal.Parse(cashierAmountPaid);
+                var amountTotal = decimal.Parse(cashierTotalPrice);
                 if (amountPaid >= amountTotal && amountTotal > 0)
                 {
                     btnItemTransact.Enabled = true;
@@ -418,19 +420,25 @@ namespace POS1.Cashier
             {
                 cashierPresenter.btnAddMinusQty(-1);
             }
+
+            if (e.ColumnIndex == dgdCashierCart.Columns[6].Index)
+            {
+                cashierPresenter.btnDeleteRow();
+            }
         }
 
         private void dgdCashierCart_Paint(object sender, PaintEventArgs e)
         {
-
+            
             Rectangle r1 = this.dgdCashierCart.GetCellDisplayRectangle(4, -1, true);
             int w2 = this.dgdCashierCart.GetCellDisplayRectangle(5, -1, true).Width;
+            int w3 = this.dgdCashierCart.GetCellDisplayRectangle(6, -1, true).Width;
 
             r1.X += 1;
 
             r1.Y += 1;
 
-            r1.Width = r1.Width + w2 - 2;
+            r1.Width = r1.Width + w2 + w3 - 2;
 
             r1.Height = r1.Height;
 
