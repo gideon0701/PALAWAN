@@ -13,6 +13,7 @@ namespace POS1.Main.View.Inventory
         string inventoryID { get; set; }
         string inventoryName { get; set; }
         string inventoryPrice { get; set; }
+        string inventoryWholesalePrice { get; set; }
 
         string inventorySearch { get; set; }
 

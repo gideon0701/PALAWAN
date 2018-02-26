@@ -56,6 +56,7 @@ namespace POS1.Main.Presenter.Inventory
             mVIew.inventoryID = item.ID.ToString();
             mVIew.inventoryName = item.NAME;
             mVIew.inventoryPrice = item.PRICE.ToString();
+            mVIew.inventoryWholesalePrice = item.WHOLESALEPRICE.ToString();
             mVIew.inventoryQty = (int) item.QTY;
 
         }
@@ -87,7 +88,8 @@ namespace POS1.Main.Presenter.Inventory
                 
                 NAME = mVIew.inventoryName,
                 PRICE = double.Parse(mVIew.inventoryPrice),
-                QTY = mVIew.inventoryQty
+                QTY = mVIew.inventoryQty,
+                WHOLESALEPRICE = double.Parse(mVIew.inventoryWholesalePrice)
 
             };
 

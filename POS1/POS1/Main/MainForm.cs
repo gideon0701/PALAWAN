@@ -127,6 +127,15 @@ namespace POS1.Cashier
             }
         }
 
+        public bool cashierOptionIsRetail
+        {
+            get
+            {
+                return optRetail.Checked;
+            }
+
+        }
+
         public DataGridView inventoryDataGrid
         {
             get
@@ -176,6 +185,19 @@ namespace POS1.Cashier
             set
             {
                 txtInventoryPrice.Text = value;
+            }
+        }
+
+        public string inventoryWholesalePrice
+        {
+            get
+            {
+                return txtInventoryWholesalePrice.Text;
+            }
+
+            set
+            {
+                txtInventoryWholesalePrice.Text = value;
             }
         }
 
@@ -311,6 +333,11 @@ namespace POS1.Cashier
 
             dashboardPresenter.initDashboard();
             lblTotalSalesNow.Text = dashboardPresenter.getSalesNow();
+        }
+
+        private void salesOption_CheckedChanged(object sender, EventArgs e)
+        {
+            cashierPresenter.getAllItems();
         }
 
         private void dgdCashierItems_SelectionChanged(object sender, EventArgs e)
@@ -503,6 +530,23 @@ namespace POS1.Cashier
             {
                 errorMessage.SetError(txtInventoryPrice, null);
           
+            }
+
+            //validate wholesaleprice
+            if (ValidateUtil.isStringEmpty(inventoryWholesalePrice))
+            {
+                errorMessage.SetError(txtInventoryWholesalePrice, "Wholesale price is required");
+                errorCount++;
+            }
+            else if (!ValidateUtil.isFloat(inventoryWholesalePrice))
+            {
+                errorMessage.SetError(txtInventoryWholesalePrice, "Invalid Input");
+                errorCount++;
+            }
+            else
+            {
+                errorMessage.SetError(txtInventoryWholesalePrice, null);
+
             }
 
             //Validate Quantity

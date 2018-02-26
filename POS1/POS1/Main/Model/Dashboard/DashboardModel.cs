@@ -73,7 +73,11 @@ namespace POS1.Main.Model.Dashboard
                 double dateNow = double.Parse(DateUtils.getStringDateNow("yyyyMMdd"));
                 var totalSales = db.Sales
                     .Where(d => d.dateOfTransaction == dateNow)
+<<<<<<< HEAD
                     .Sum(s => (double?) s.subtotalAmount) ?? 0;
+=======
+                    .Sum(s => (double?)s.subtotalAmount) ?? 0;
+>>>>>>> gideon
 
                 return totalSales;
             }

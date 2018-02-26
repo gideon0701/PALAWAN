@@ -12,6 +12,7 @@ namespace POS1.Cashier.Model
         public string NAME { get; set; }
         public double? PRICE { get; set; }
         public int? QTY { get; set; }
+        public double? WHOLESALEPRICE { get; set; }
 
         public CashierInventoryModel()
         {
@@ -28,7 +29,8 @@ namespace POS1.Cashier.Model
                     ID = s.ID,
                     NAME = s.NAME,
                     PRICE = s.PRICE,
-                    QTY = s.QTY
+                    QTY = s.QTY,
+                    WHOLESALEPRICE = s.WHOLESALEPRICE
                 }).ToList();
             }
         }
@@ -43,7 +45,8 @@ namespace POS1.Cashier.Model
                    ID = s.ID,
                    NAME = s.NAME,
                    PRICE = s.PRICE,
-                   QTY = s.QTY
+                   QTY = s.QTY,
+                   WHOLESALEPRICE = s.WHOLESALEPRICE 
                }).ToList();
             }
         }

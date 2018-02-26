@@ -52,6 +52,8 @@
             this.grdInventory = new MetroFramework.Controls.MetroGrid();
             this.btnInventoryEdit = new MetroFramework.Controls.MetroButton();
             this.metroPanel3 = new MetroFramework.Controls.MetroPanel();
+            this.txtInventoryWholesalePrice = new MetroFramework.Controls.MetroTextBox();
+            this.lblWholesalePrice = new MetroFramework.Controls.MetroLabel();
             this.txtInventoryQty = new System.Windows.Forms.NumericUpDown();
             this.txtInventoryPrice = new MetroFramework.Controls.MetroTextBox();
             this.txtInventoryName = new MetroFramework.Controls.MetroTextBox();
@@ -85,6 +87,8 @@
             this.btnClearCart = new MetroFramework.Controls.MetroButton();
             this.metroLabel2 = new MetroFramework.Controls.MetroLabel();
             this.metroPanel1 = new MetroFramework.Controls.MetroPanel();
+            this.optWholesale = new MetroFramework.Controls.MetroRadioButton();
+            this.optRetail = new MetroFramework.Controls.MetroRadioButton();
             this.dgdCashierItems = new MetroFramework.Controls.MetroGrid();
             this.btnItemSearch = new MetroFramework.Controls.MetroButton();
             this.txtItemSearch = new MetroFramework.Controls.MetroTextBox();
@@ -269,6 +273,8 @@
             // 
             // metroPanel3
             // 
+            this.metroPanel3.Controls.Add(this.txtInventoryWholesalePrice);
+            this.metroPanel3.Controls.Add(this.lblWholesalePrice);
             this.metroPanel3.Controls.Add(this.txtInventoryQty);
             this.metroPanel3.Controls.Add(this.txtInventoryPrice);
             this.metroPanel3.Controls.Add(this.txtInventoryName);
@@ -289,10 +295,49 @@
             this.metroPanel3.VerticalScrollbarHighlightOnWheel = false;
             this.metroPanel3.VerticalScrollbarSize = 10;
             // 
+            // txtInventoryWholesalePrice
+            // 
+            // 
+            // 
+            // 
+            this.txtInventoryWholesalePrice.CustomButton.Image = null;
+            this.txtInventoryWholesalePrice.CustomButton.Location = new System.Drawing.Point(53, 1);
+            this.txtInventoryWholesalePrice.CustomButton.Name = "";
+            this.txtInventoryWholesalePrice.CustomButton.Size = new System.Drawing.Size(21, 21);
+            this.txtInventoryWholesalePrice.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
+            this.txtInventoryWholesalePrice.CustomButton.TabIndex = 1;
+            this.txtInventoryWholesalePrice.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
+            this.txtInventoryWholesalePrice.CustomButton.UseSelectable = true;
+            this.txtInventoryWholesalePrice.CustomButton.Visible = false;
+            this.txtInventoryWholesalePrice.Lines = new string[0];
+            this.txtInventoryWholesalePrice.Location = new System.Drawing.Point(47, 121);
+            this.txtInventoryWholesalePrice.MaxLength = 32767;
+            this.txtInventoryWholesalePrice.Name = "txtInventoryWholesalePrice";
+            this.txtInventoryWholesalePrice.PasswordChar = '\0';
+            this.txtInventoryWholesalePrice.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.txtInventoryWholesalePrice.SelectedText = "";
+            this.txtInventoryWholesalePrice.SelectionLength = 0;
+            this.txtInventoryWholesalePrice.SelectionStart = 0;
+            this.txtInventoryWholesalePrice.ShortcutsEnabled = true;
+            this.txtInventoryWholesalePrice.Size = new System.Drawing.Size(75, 23);
+            this.txtInventoryWholesalePrice.TabIndex = 13;
+            this.txtInventoryWholesalePrice.UseSelectable = true;
+            this.txtInventoryWholesalePrice.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            this.txtInventoryWholesalePrice.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
+            // 
+            // lblWholesalePrice
+            // 
+            this.lblWholesalePrice.AutoSize = true;
+            this.lblWholesalePrice.Location = new System.Drawing.Point(2, 125);
+            this.lblWholesalePrice.Name = "lblWholesalePrice";
+            this.lblWholesalePrice.Size = new System.Drawing.Size(51, 19);
+            this.lblWholesalePrice.TabIndex = 12;
+            this.lblWholesalePrice.Text = "PRICE: ";
+            // 
             // txtInventoryQty
             // 
             this.txtInventoryQty.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtInventoryQty.Location = new System.Drawing.Point(48, 152);
+            this.txtInventoryQty.Location = new System.Drawing.Point(48, 156);
             this.txtInventoryQty.Maximum = new decimal(new int[] {
             1000,
             0,
@@ -317,7 +362,7 @@
             this.txtInventoryPrice.CustomButton.UseSelectable = true;
             this.txtInventoryPrice.CustomButton.Visible = false;
             this.txtInventoryPrice.Lines = new string[0];
-            this.txtInventoryPrice.Location = new System.Drawing.Point(48, 114);
+            this.txtInventoryPrice.Location = new System.Drawing.Point(48, 90);
             this.txtInventoryPrice.MaxLength = 32767;
             this.txtInventoryPrice.Name = "txtInventoryPrice";
             this.txtInventoryPrice.PasswordChar = '\0';
@@ -347,7 +392,7 @@
             this.txtInventoryName.CustomButton.UseSelectable = true;
             this.txtInventoryName.CustomButton.Visible = false;
             this.txtInventoryName.Lines = new string[0];
-            this.txtInventoryName.Location = new System.Drawing.Point(48, 80);
+            this.txtInventoryName.Location = new System.Drawing.Point(48, 56);
             this.txtInventoryName.MaxLength = 32767;
             this.txtInventoryName.Name = "txtInventoryName";
             this.txtInventoryName.PasswordChar = '\0';
@@ -377,7 +422,7 @@
             this.txtInventoryId.CustomButton.UseSelectable = true;
             this.txtInventoryId.CustomButton.Visible = false;
             this.txtInventoryId.Lines = new string[0];
-            this.txtInventoryId.Location = new System.Drawing.Point(48, 50);
+            this.txtInventoryId.Location = new System.Drawing.Point(48, 26);
             this.txtInventoryId.MaxLength = 32767;
             this.txtInventoryId.Name = "txtInventoryId";
             this.txtInventoryId.PasswordChar = '\0';
@@ -396,7 +441,7 @@
             // metroLabel7
             // 
             this.metroLabel7.AutoSize = true;
-            this.metroLabel7.Location = new System.Drawing.Point(3, 153);
+            this.metroLabel7.Location = new System.Drawing.Point(3, 157);
             this.metroLabel7.Name = "metroLabel7";
             this.metroLabel7.Size = new System.Drawing.Size(38, 19);
             this.metroLabel7.TabIndex = 6;
@@ -405,7 +450,7 @@
             // metroLabel6
             // 
             this.metroLabel6.AutoSize = true;
-            this.metroLabel6.Location = new System.Drawing.Point(3, 118);
+            this.metroLabel6.Location = new System.Drawing.Point(3, 94);
             this.metroLabel6.Name = "metroLabel6";
             this.metroLabel6.Size = new System.Drawing.Size(51, 19);
             this.metroLabel6.TabIndex = 5;
@@ -414,7 +459,7 @@
             // metroLabel5
             // 
             this.metroLabel5.AutoSize = true;
-            this.metroLabel5.Location = new System.Drawing.Point(3, 84);
+            this.metroLabel5.Location = new System.Drawing.Point(3, 60);
             this.metroLabel5.Name = "metroLabel5";
             this.metroLabel5.Size = new System.Drawing.Size(50, 19);
             this.metroLabel5.TabIndex = 4;
@@ -423,7 +468,7 @@
             // metroLabel4
             // 
             this.metroLabel4.AutoSize = true;
-            this.metroLabel4.Location = new System.Drawing.Point(3, 54);
+            this.metroLabel4.Location = new System.Drawing.Point(3, 30);
             this.metroLabel4.Name = "metroLabel4";
             this.metroLabel4.Size = new System.Drawing.Size(28, 19);
             this.metroLabel4.TabIndex = 3;
@@ -882,6 +927,8 @@
             // 
             // metroPanel1
             // 
+            this.metroPanel1.Controls.Add(this.optWholesale);
+            this.metroPanel1.Controls.Add(this.optRetail);
             this.metroPanel1.Controls.Add(this.dgdCashierItems);
             this.metroPanel1.Controls.Add(this.btnItemSearch);
             this.metroPanel1.Controls.Add(this.txtItemSearch);
@@ -897,6 +944,30 @@
             this.metroPanel1.VerticalScrollbarBarColor = true;
             this.metroPanel1.VerticalScrollbarHighlightOnWheel = false;
             this.metroPanel1.VerticalScrollbarSize = 10;
+            // 
+            // optWholesale
+            // 
+            this.optWholesale.AutoSize = true;
+            this.optWholesale.Location = new System.Drawing.Point(162, 10);
+            this.optWholesale.Name = "optWholesale";
+            this.optWholesale.Size = new System.Drawing.Size(78, 15);
+            this.optWholesale.TabIndex = 15;
+            this.optWholesale.Text = "WholeSale";
+            this.optWholesale.UseSelectable = true;
+            this.optWholesale.CheckedChanged += new System.EventHandler(this.salesOption_CheckedChanged);
+            // 
+            // optRetail
+            // 
+            this.optRetail.AutoSize = true;
+            this.optRetail.Checked = true;
+            this.optRetail.Location = new System.Drawing.Point(104, 10);
+            this.optRetail.Name = "optRetail";
+            this.optRetail.Size = new System.Drawing.Size(52, 15);
+            this.optRetail.TabIndex = 14;
+            this.optRetail.TabStop = true;
+            this.optRetail.Text = "Retail";
+            this.optRetail.UseSelectable = true;
+            this.optRetail.CheckedChanged += new System.EventHandler(this.salesOption_CheckedChanged);
             // 
             // dgdCashierItems
             // 
@@ -1062,7 +1133,7 @@
             this.tabControl.Controls.Add(this.tabpageInventory);
             this.tabControl.Location = new System.Drawing.Point(7, 44);
             this.tabControl.Name = "tabControl";
-            this.tabControl.SelectedIndex = 0;
+            this.tabControl.SelectedIndex = 2;
             this.tabControl.Size = new System.Drawing.Size(765, 487);
             this.tabControl.Style = MetroFramework.MetroColorStyle.Green;
             this.tabControl.TabIndex = 0;
@@ -1196,5 +1267,9 @@
         private MetroFramework.Controls.MetroLabel lblDateTime;
         private MetroFramework.Controls.MetroLabel lblTotalSalesNow;
         private System.Windows.Forms.Timer timer1;
+        private MetroFramework.Controls.MetroRadioButton optWholesale;
+        private MetroFramework.Controls.MetroRadioButton optRetail;
+        private MetroFramework.Controls.MetroTextBox txtInventoryWholesalePrice;
+        private MetroFramework.Controls.MetroLabel lblWholesalePrice;
     }
 }

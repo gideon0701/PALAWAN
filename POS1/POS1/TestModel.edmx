@@ -21,6 +21,7 @@
           <Property Name="NAME" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="PRICE" Type="float" />
           <Property Name="QTY" Type="int" />
+          <Property Name="WHOLESALEPRICE" Type="float" />
         </EntityType>
         <EntityType Name="Sales">
           <Key>
@@ -117,6 +118,7 @@
           <Property Name="PRICE" Type="Double" />
           <Property Name="QTY" Type="Int32" />
           <NavigationProperty Name="SalesItem" Relationship="TestModel.FK__SalesItem__items__01142BA1" FromRole="Items" ToRole="SalesItem" />
+          <Property Name="WHOLESALEPRICE" Type="Double" />
         </EntityType>
         <EntityType Name="Sales">
           <Key>
@@ -185,6 +187,7 @@
           <EntitySetMapping Name="Items">
             <EntityTypeMapping TypeName="TestModel.Items">
               <MappingFragment StoreEntitySet="Items">
+                <ScalarProperty Name="WHOLESALEPRICE" ColumnName="WHOLESALEPRICE" />
                 <ScalarProperty Name="QTY" ColumnName="QTY" />
                 <ScalarProperty Name="PRICE" ColumnName="PRICE" />
                 <ScalarProperty Name="NAME" ColumnName="NAME" />

@@ -216,8 +216,8 @@
       <LastGenOutput>TestModel.cs</LastGenOutput>
     </Content>
     <Content Include="Test_log.ldf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <DependentUpon>Test.mdf</DependentUpon>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
   <ItemGroup>
