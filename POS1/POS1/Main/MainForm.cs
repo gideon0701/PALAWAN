@@ -373,7 +373,7 @@ namespace POS1.Cashier
         private void button_addCart_Click(object sender, EventArgs e)
         {
             cashierPresenter.addToCart(decimal.ToInt32(inputQty.Value));
-            btnItemTransact.Enabled = false;
+
         }
 
         private void btn_cart_clear_Click(object sender, EventArgs e)
@@ -386,7 +386,7 @@ namespace POS1.Cashier
             cashierPresenter.getAllItems();
         }
 
-        private void txtReceived_TextChanged(object sender, EventArgs e)
+        private void txtReceivedTotal_TextChanged(object sender, EventArgs e)
         {
             try
             {
