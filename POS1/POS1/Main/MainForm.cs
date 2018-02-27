@@ -322,17 +322,10 @@ namespace POS1.Cashier
         {
             timer1.Start();
 
-            cashierPresenter.initTables();
-            cashierPresenter.getAllItems();
-
-            inventoryPresenter.getAllInventory();
-
-            dashboardPresenter.initDashboard();
-            lblTotalSalesNow.Text = dashboardPresenter.getSalesNow();
-
+            cashierPresenter.initTables(); 
             salesPresenter.initTable();
-            salesPresenter.getAllSales();
 
+            cashierPresenter.getAllItems();
             tabControl.SelectedIndex = 0;
         }
 
@@ -452,15 +445,13 @@ namespace POS1.Cashier
         {
             
             Rectangle r1 = this.dgdCashierCart.GetCellDisplayRectangle(4, -1, true);
-            int w2 = this.dgdCashierCart.GetCellDisplayRectangle(5, -1, true).Width;
-            int w3 = this.dgdCashierCart.GetCellDisplayRectangle(6, -1, true).Width;
+            int w2 = dgdCashierCart.GetCellDisplayRectangle(5, -1, true).Width;
+            int w3 = dgdCashierCart.GetCellDisplayRectangle(6, -1, true).Width;
 
             r1.X += 1;
-
             r1.Y += 1;
 
             r1.Width = r1.Width + w2 + w3 - 2;
-
             r1.Height = r1.Height;
 
             e.Graphics.FillRectangle(new SolidBrush(this.dgdCashierCart.ColumnHeadersDefaultCellStyle.BackColor), r1);
