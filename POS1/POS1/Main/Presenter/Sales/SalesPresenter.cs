@@ -27,22 +27,18 @@ namespace POS1.Main.Presenter.Sales
 
             salesGrid.ColumnCount = 7;
             salesGrid.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
+            salesGrid.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+
             salesGrid.RowsDefaultCellStyle.WrapMode = DataGridViewTriState.True;
             salesGrid.ColumnHeadersDefaultCellStyle.WrapMode = DataGridViewTriState.False;
+
             salesGrid.Columns[0].Name = "SALES ID";
-            salesGrid.Columns[0].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
             salesGrid.Columns[1].Name = "DATE OF TRANSACTION";
-            salesGrid.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
             salesGrid.Columns[2].Name = "SUBTOTAL";
-            salesGrid.Columns[2].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
             salesGrid.Columns[3].Name = "VAT";
-            salesGrid.Columns[3].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
             salesGrid.Columns[4].Name = "TOTAL";
-            salesGrid.Columns[4].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
             salesGrid.Columns[5].Name = "DISCOUNT";
-            salesGrid.Columns[5].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-            salesGrid.Columns[6].Name = "ITEM(Price per Unit)";
-            salesGrid.Columns[6].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            salesGrid.Columns[6].Name = "ITEM(Price per Unit)                                                            ";
         }
 
         public void getAllSales()

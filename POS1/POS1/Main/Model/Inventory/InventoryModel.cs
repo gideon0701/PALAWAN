@@ -38,7 +38,7 @@ namespace POS1.Main.Model.Inventory
             {
                 return db.Items
                     .AsNoTracking()
-                    .Where(s => s.NAME.ToLower().Contains(keyword.ToLower()))
+                    .Where(s => s.NAME.ToLower().Contains(keyword.ToLower()) || s.ID.ToString().ToLower().Contains(keyword.ToLower()))
                     .Select(s => new InventoryModel()
                     {
                         ID = s.ID,
