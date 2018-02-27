@@ -18,14 +18,16 @@ namespace POS1.Main.Model.Inventory
         {
             using (var db = new TestEntities())
             {
-                return db.Items.Select(s => new InventoryModel()
-                {
-                    ID = s.ID,
-                    NAME = s.NAME,
-                    PRICE = s.PRICE,
-                    QTY = s.QTY,
-                    WHOLESALEPRICE = s.WHOLESALEPRICE
-                }).ToList();
+                return db.Items
+                    .AsNoTracking()
+                    .Select(s => new InventoryModel()
+                    {
+                        ID = s.ID,
+                        NAME = s.NAME,
+                        PRICE = s.PRICE,
+                        QTY = s.QTY,
+                        WHOLESALEPRICE = s.WHOLESALEPRICE
+                    }).ToList();
             }
                
         }
@@ -34,15 +36,17 @@ namespace POS1.Main.Model.Inventory
         {
             using (var db = new TestEntities())
             {
-                return db.Items.Where(s => s.NAME.ToLower().Contains(keyword.ToLower()))
-                .Select(s => new InventoryModel()
-                {
-                    ID = s.ID,
-                    NAME = s.NAME,
-                    PRICE = s.PRICE,
-                    QTY = s.QTY,
-                    WHOLESALEPRICE = s.WHOLESALEPRICE
-                }).ToList();
+                return db.Items
+                    .AsNoTracking()
+                    .Where(s => s.NAME.ToLower().Contains(keyword.ToLower()))
+                    .Select(s => new InventoryModel()
+                    {
+                        ID = s.ID,
+                        NAME = s.NAME,
+                        PRICE = s.PRICE,
+                        QTY = s.QTY,
+                        WHOLESALEPRICE = s.WHOLESALEPRICE
+                    }).ToList();
             }
         }
 

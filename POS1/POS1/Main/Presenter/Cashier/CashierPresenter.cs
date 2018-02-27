@@ -180,6 +180,10 @@ namespace POS1.Cashier.Presenter
         /// <param name="qty"></param>
         public void addToCart(int qty)
         {
+            if (qty == 0)
+            {
+                return;
+            }
             bool result = false;
             decimal price = 0;
             DataGridView grid = mVIew.cashierItems;

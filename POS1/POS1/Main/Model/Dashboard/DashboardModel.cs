@@ -28,7 +28,9 @@ namespace POS1.Main.Model.Dashboard
             List<string> years = new List<string>();
             using (var db = new TestEntities())
             {
-                var query = db.Sales.Select(y => y.dateOfTransaction).ToList();
+                var query = db.Sales
+                    .AsNoTracking()
+                    .Select(y => y.dateOfTransaction).ToList();
 
                 foreach (var year in query)
                 {
@@ -51,6 +53,7 @@ namespace POS1.Main.Model.Dashboard
             using (var db = new TestEntities())
             {
                 var query = db.Sales
+                    .AsNoTracking()
                     .Where(y => y.dateOfTransaction >= startYear && y.dateOfTransaction <= endYear)
                     .Select(s => s.dateOfTransaction).ToList();
 
@@ -72,6 +75,7 @@ namespace POS1.Main.Model.Dashboard
             {
                 double dateNow = double.Parse(DateUtils.getStringDateNow("yyyyMMdd"));
                 var totalSales = db.Sales
+                    .AsNoTracking()
                     .Where(d => d.dateOfTransaction == dateNow)
                     .Sum(s => (decimal?)s.subtotalAmount) ?? 0;
 
@@ -99,7 +103,9 @@ namespace POS1.Main.Model.Dashboard
                     dateStart = double.Parse(year + monthDayStart);
                     dateEnd = double.Parse(year + monthDayEnd);
 
-                    var query = db.Sales.Where(y => y.dateOfTransaction >= dateStart && y.dateOfTransaction <= dateEnd)
+                    var query = db.Sales
+                        .AsNoTracking()
+                        .Where(y => y.dateOfTransaction >= dateStart && y.dateOfTransaction <= dateEnd)
                     .Select(s => s.subtotalAmount).ToList();
                     foreach (var q in query)
                     {
@@ -138,15 +144,17 @@ namespace POS1.Main.Model.Dashboard
                         endDay = nextStartDay - 1;
                         startDay = chooseDate;
                     }
-                    var query = db.Sales.Where(y => y.dateOfTransaction >= startDay && y.dateOfTransaction <= endDay)
-                    .Select(s => s.subtotalAmount).ToList();
-                    foreach (var q in query)
-                    {
-                        totalSales += q;
-                    }
 
-                    weeklySales.Add(totalSales);
+                    var query = db.Sales
+                        .AsNoTracking()
+                        .Where(y => y.dateOfTransaction >= startDay && y.dateOfTransaction <= endDay)
+                        .Select(s => s.subtotalAmount).ToList();
+                        foreach (var q in query)
+                        {
+                            totalSales += q;
+                        }
 
+                        weeklySales.Add(totalSales);
                 }
             }
               
@@ -162,7 +170,9 @@ namespace POS1.Main.Model.Dashboard
             List<DashboardModel> list = new List<DashboardModel>();
             using (var db = new TestEntities())
             {
-                var res = db.Sales.Where(y => y.dateOfTransaction >= startYear && y.dateOfTransaction <= endYear)
+                var res = db.Sales
+                    .AsNoTracking()
+                    .Where(y => y.dateOfTransaction >= startYear && y.dateOfTransaction <= endYear)
                     .Select(s => s.SalesItem).ToList();
                 foreach (var sales in res)
                 {

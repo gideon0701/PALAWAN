@@ -3,7 +3,7 @@ namespace POS1.View
 {
     public interface IView
     {
-        void onLoginResult(bool result);
+        void onLoginResult(int result);
         void onValidateInput(bool isNotEmpty);
     }
 }

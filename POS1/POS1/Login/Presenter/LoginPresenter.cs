@@ -1,5 +1,6 @@
 ﻿using POS1.Model;
 using POS1.View;
+using System.Threading.Tasks;
 
 namespace POS1.Presenter
 {
@@ -16,9 +17,7 @@ namespace POS1.Presenter
         }
 
         public void doLogin() {
-
             mView.onLoginResult(mModel.validateLogin());
-
         }
 
         public void validateInput(string username, string password) {
