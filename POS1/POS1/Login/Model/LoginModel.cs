@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using POS1.Presenter;
+using System.Threading;
 
 namespace POS1.Model
 {
@@ -41,9 +42,12 @@ namespace POS1.Model
             {
                 try
                 {
-                    Employee emp = db.Employee.Where(e => e.USERNAME == mUsername && e.PASSWORD == mPassword).FirstOrDefault();
+                    var noOFRes = db.Employee
+                        .AsNoTracking()
+                        .Where(e => e.USERNAME == mUsername && e.PASSWORD == mPassword)
+                        .Count();
 
-                    if (emp == null)
+                    if (noOFRes <= 0)
                     {
                         return -1;
                     }
@@ -57,8 +61,7 @@ namespace POS1.Model
                     Console.WriteLine(ex.InnerException.Message);
                     return -2;
                 }
-            }
-               
+            }    
         }
 
         public bool validateInputs()

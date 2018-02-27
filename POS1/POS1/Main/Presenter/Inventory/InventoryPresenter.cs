@@ -100,6 +100,7 @@ namespace POS1.Main.Presenter.Inventory
             mVIew.inventoryID = "";
             mVIew.inventoryName = "";
             mVIew.inventoryPrice = "";
+            mVIew.inventoryWholesalePrice = "";
             mVIew.inventoryQty = 0;
         }
 

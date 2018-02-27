@@ -12,14 +12,17 @@ using POS1.Main.View.Dashboard;
 using System.Windows.Forms.DataVisualization.Charting;
 using POS1.Main.Presenter.Dashboard;
 using System.Drawing;
+using POS1.Main.View.Sales;
+using POS1.Main.Presenter.Sales;
 
 namespace POS1.Cashier
 {
-    public partial class MainForm : MetroForm, ICashierView, IInventoryView, IDashboardView
+    public partial class MainForm : MetroForm, ICashierView, IInventoryView, IDashboardView, ISalesView
     {
         CashierPresenter cashierPresenter;
         InventoryPresenter inventoryPresenter;
         DashboardPresenter dashboardPresenter;
+        SalesPresenter salesPresenter;
 
         int errorCount = 0;
 
@@ -292,6 +295,19 @@ namespace POS1.Cashier
             }
         }
 
+        public DataGridView salesDataGrid
+        {
+            get
+            {
+                return dgdSales;
+            }
+
+            set
+            {
+                dgdSales = (MetroGrid) value;
+            }
+        }
+
         public MainForm()
         {
             InitializeComponent();
@@ -299,6 +315,7 @@ namespace POS1.Cashier
             cashierPresenter = new CashierPresenter(this);
             inventoryPresenter = new InventoryPresenter(this);
             dashboardPresenter = new DashboardPresenter(this);
+            salesPresenter = new SalesPresenter(this);
         }
 
         private void MainForm_Load(object sender, EventArgs e)
@@ -312,6 +329,9 @@ namespace POS1.Cashier
 
             dashboardPresenter.initDashboard();
             lblTotalSalesNow.Text = dashboardPresenter.getSalesNow();
+
+            salesPresenter.initTable();
+            salesPresenter.getAllSales();
 
             tabControl.SelectedIndex = 0;
         }
@@ -335,6 +355,8 @@ namespace POS1.Cashier
 
             dashboardPresenter.initDashboard();
             lblTotalSalesNow.Text = dashboardPresenter.getSalesNow();
+
+            salesPresenter.getAllSales();
         }
 
         private void salesOption_CheckedChanged(object sender, EventArgs e)

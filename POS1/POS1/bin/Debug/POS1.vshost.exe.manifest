@@ -102,14 +102,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="POS1.exe" size="84480">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="POS1.exe" size="91648">
       <assemblyIdentity name="POS1" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>MoOlQ6ZZpd6HUlRPp3OoYXjw56w99iocBPfeTIpk75I=</dsig:DigestValue>
+        <dsig:DigestValue>IvD9rmOWxrrZO9sxOzciMA8BuM/sVueEKpDEhIrpMWo=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -137,7 +137,7 @@
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>rz5L5ITwI25paDJIbul1YQK31Q08Caoh1PDgMT8j+QA=</dsig:DigestValue>
+      <dsig:DigestValue>0y7wvuJ0zpMHCefzSXMDJl6YgONBKyHSfyr+HBhipKY=</dsig:DigestValue>
     </hash>
   </file>
   <file name="TestModel.Context.tt" size="22933">
