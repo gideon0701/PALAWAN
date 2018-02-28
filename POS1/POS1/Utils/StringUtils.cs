@@ -20,9 +20,12 @@ namespace POS1.Utils
             return decimal.Parse(currency, NumberStyles.Currency);
         }
 
-        public static string generateGUID()
+        public static string shortGUID()
         {
-            string guid = Convert.ToBase64String(Guid.NewGuid().ToByteArray());
+            string guid = Convert.ToBase64String(Guid.NewGuid().ToByteArray())
+                .Substring(0, 22)
+                .Replace("+", "-")
+                .Replace("/","_");
             return guid;
         }
 

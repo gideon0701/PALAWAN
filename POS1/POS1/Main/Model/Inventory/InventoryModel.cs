@@ -55,7 +55,7 @@ namespace POS1.Main.Model.Inventory
         {
             using (var db = new TestEntities())
             {
-                item.ID = StringUtils.generateGUID();
+                item.ID = StringUtils.shortGUID();
                 db.Items.Add(item);
                 db.SaveChanges();
             }
