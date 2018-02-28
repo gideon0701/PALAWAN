@@ -13,7 +13,7 @@ namespace POS1.Presenter
         public MyPresenter(IView mView)
         {
             this.mView = mView;
-            mModel = new MyModel();
+            mModel = new LoginModel();
         }
 
         public void doLogin() {

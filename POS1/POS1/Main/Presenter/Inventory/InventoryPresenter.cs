@@ -100,13 +100,11 @@ namespace POS1.Main.Presenter.Inventory
                 switch (saveFile.FilterIndex)
                 {
                     case 1:
-
                         image.Save(fs,
                            System.Drawing.Imaging.ImageFormat.Png);
                         break;
 
                     case 2:
-
                         image.Save(fs,
                            System.Drawing.Imaging.ImageFormat.Jpeg);
                         break;
@@ -124,9 +122,7 @@ namespace POS1.Main.Presenter.Inventory
                 PRICE = decimal.Parse(mVIew.inventoryPrice),
                 QTY = mVIew.inventoryQty,
                 WHOLESALEPRICE = decimal.Parse(mVIew.inventoryWholesalePrice)
-
             };
-
             return item;
         }
 

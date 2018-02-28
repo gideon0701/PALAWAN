@@ -8,8 +8,10 @@ using System.Threading;
 
 namespace POS1.Model
 {
-    class MyModel : IModel
+    class LoginModel : IModel
     {
+        public static int empType;
+
         private string mUsername;
         private string mPassword;
 
@@ -42,17 +44,18 @@ namespace POS1.Model
             {
                 try
                 {
-                    var noOFRes = db.Employee
+                    var employee = db.Employee
                         .AsNoTracking()
                         .Where(e => e.USERNAME == mUsername && e.PASSWORD == mPassword)
-                        .Count();
+                        .Single();
 
-                    if (noOFRes <= 0)
+                    if (employee == null)
                     {
                         return -1;
                     }
                     else
                     {
+                        empType = employee.TYPE ?? 3;
                         return 0;
                     }
                 }

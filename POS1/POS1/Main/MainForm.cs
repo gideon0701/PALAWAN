@@ -14,6 +14,7 @@ using POS1.Main.Presenter.Dashboard;
 using System.Drawing;
 using POS1.Main.View.Sales;
 using POS1.Main.Presenter.Sales;
+using POS1.Model;
 
 namespace POS1.Cashier
 {
@@ -26,6 +27,7 @@ namespace POS1.Cashier
 
         int errorCount = 0;
 
+        //---------------------CASHIER VARIABLES START--------------------------------------------------
         public DataGridView cashierItems
         {
             get
@@ -138,7 +140,9 @@ namespace POS1.Cashier
             }
 
         }
+        //---------------------CASHIER VARIABLES END--------------------------------------------------
 
+        //---------------------INVENTORY VARIABLES START--------------------------------------------------
         public DataGridView inventoryDataGrid
         {
             get
@@ -229,7 +233,9 @@ namespace POS1.Cashier
                 txtInventorySearch.Text = value;
             }
         }
+        //---------------------INVENTORY VARIABLES END--------------------------------------------------
 
+        //---------------------DASHBOARD VARIABLES START--------------------------------------------------
         public Chart dashboardChartYearly
         {
             get
@@ -294,7 +300,9 @@ namespace POS1.Cashier
                 chDashboardProductSales = value;
             }
         }
+        //---------------------DASHBOARD VARIABLES END--------------------------------------------------
 
+        //---------------------SALES VARIABLES START--------------------------------------------------
         public DataGridView salesDataGrid
         {
             get
@@ -307,6 +315,7 @@ namespace POS1.Cashier
                 dgdSales = (MetroGrid) value;
             }
         }
+        //---------------------SALES VARIABLES END--------------------------------------------------
 
         public MainForm()
         {
@@ -322,11 +331,12 @@ namespace POS1.Cashier
         {
             timer1.Start();
 
-            cashierPresenter.initTables(); 
+            cashierPresenter.initTables();
             salesPresenter.initTable();
-
             cashierPresenter.getAllItems();
+
             tabControl.SelectedIndex = 0;
+            limitTabPages();
         }
 
         private void timer1_Tick(object sender, EventArgs e)
@@ -343,13 +353,14 @@ namespace POS1.Cashier
         {
 
             cashierPresenter.getAllItems();
-
-            inventoryPresenter.getAllInventory();
-
             dashboardPresenter.initDashboard();
             lblTotalSalesNow.Text = dashboardPresenter.getSalesNow();
 
-            salesPresenter.getAllSales();
+            if (LoginModel.empType == 0)
+            {
+                inventoryPresenter.getAllInventory();
+                salesPresenter.getAllSales();
+            }  
         }
 
         private void salesOption_CheckedChanged(object sender, EventArgs e)
@@ -443,7 +454,6 @@ namespace POS1.Cashier
 
         private void dgdCashierCart_Paint(object sender, PaintEventArgs e)
         {
-            
             Rectangle r1 = this.dgdCashierCart.GetCellDisplayRectangle(4, -1, true);
             int w2 = dgdCashierCart.GetCellDisplayRectangle(5, -1, true).Width;
             int w3 = dgdCashierCart.GetCellDisplayRectangle(6, -1, true).Width;
@@ -585,6 +595,18 @@ namespace POS1.Cashier
             {
                 errorMessage.SetError(txtInventoryQty, null);
             
+            }
+        }
+
+        /// <summary>
+        /// CONTROL TABPAGES FOR STAFFS
+        /// </summary>
+        private void limitTabPages()
+        {
+            if (LoginModel.empType == 1)
+            {
+                tabControl.TabPages.Remove(tabpageInventory);
+                tabControl.TabPages.Remove(tabpageSales);
             }
         }
 

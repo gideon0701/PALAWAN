@@ -7,6 +7,7 @@
     <Property Name="ID" Type="int" Nullable="false" />
     <Property Name="USERNAME" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="PASSWORD" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="TYPE" Type="int" />
   </EntityType>
   <EntityType Name="Items">
     <Key>
