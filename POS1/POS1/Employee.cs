@@ -17,5 +17,6 @@ namespace POS1
         public int ID { get; set; }
         public string USERNAME { get; set; }
         public string PASSWORD { get; set; }
+        public Nullable<int> TYPE { get; set; }
     }
 }

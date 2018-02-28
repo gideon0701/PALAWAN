@@ -14,6 +14,7 @@ using POS1.Main.Presenter.Dashboard;
 using System.Drawing;
 using POS1.Main.View.Sales;
 using POS1.Main.Presenter.Sales;
+using POS1.Model;
 
 namespace POS1.Cashier
 {
@@ -322,11 +323,12 @@ namespace POS1.Cashier
         {
             timer1.Start();
 
-            cashierPresenter.initTables(); 
+            cashierPresenter.initTables();
             salesPresenter.initTable();
-
             cashierPresenter.getAllItems();
+
             tabControl.SelectedIndex = 0;
+            limitTabPages();
         }
 
         private void timer1_Tick(object sender, EventArgs e)
@@ -343,13 +345,14 @@ namespace POS1.Cashier
         {
 
             cashierPresenter.getAllItems();
-
-            inventoryPresenter.getAllInventory();
-
             dashboardPresenter.initDashboard();
             lblTotalSalesNow.Text = dashboardPresenter.getSalesNow();
 
-            salesPresenter.getAllSales();
+            if (MyModel.empType == 0)
+            {
+                inventoryPresenter.getAllInventory();
+                salesPresenter.getAllSales();
+            }  
         }
 
         private void salesOption_CheckedChanged(object sender, EventArgs e)
@@ -585,6 +588,15 @@ namespace POS1.Cashier
             {
                 errorMessage.SetError(txtInventoryQty, null);
             
+            }
+        }
+
+        private void limitTabPages()
+        {
+            if (MyModel.empType == 1)
+            {
+                tabControl.TabPages.Remove(tabpageInventory);
+                tabControl.TabPages.Remove(tabpageSales);
             }
         }
 
