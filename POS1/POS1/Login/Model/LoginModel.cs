@@ -8,9 +8,10 @@ using System.Threading;
 
 namespace POS1.Model
 {
-    class MyModel : IModel
+    class LoginModel : IModel
     {
         public static int empType;
+
         private string mUsername;
         private string mPassword;
 

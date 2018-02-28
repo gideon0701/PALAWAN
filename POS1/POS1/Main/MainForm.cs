@@ -27,6 +27,7 @@ namespace POS1.Cashier
 
         int errorCount = 0;
 
+        //---------------------CASHIER VARIABLES START--------------------------------------------------
         public DataGridView cashierItems
         {
             get
@@ -139,7 +140,9 @@ namespace POS1.Cashier
             }
 
         }
+        //---------------------CASHIER VARIABLES END--------------------------------------------------
 
+        //---------------------INVENTORY VARIABLES START--------------------------------------------------
         public DataGridView inventoryDataGrid
         {
             get
@@ -230,7 +233,9 @@ namespace POS1.Cashier
                 txtInventorySearch.Text = value;
             }
         }
+        //---------------------INVENTORY VARIABLES END--------------------------------------------------
 
+        //---------------------DASHBOARD VARIABLES START--------------------------------------------------
         public Chart dashboardChartYearly
         {
             get
@@ -295,7 +300,9 @@ namespace POS1.Cashier
                 chDashboardProductSales = value;
             }
         }
+        //---------------------DASHBOARD VARIABLES END--------------------------------------------------
 
+        //---------------------SALES VARIABLES START--------------------------------------------------
         public DataGridView salesDataGrid
         {
             get
@@ -308,6 +315,7 @@ namespace POS1.Cashier
                 dgdSales = (MetroGrid) value;
             }
         }
+        //---------------------SALES VARIABLES END--------------------------------------------------
 
         public MainForm()
         {
@@ -348,7 +356,7 @@ namespace POS1.Cashier
             dashboardPresenter.initDashboard();
             lblTotalSalesNow.Text = dashboardPresenter.getSalesNow();
 
-            if (MyModel.empType == 0)
+            if (LoginModel.empType == 0)
             {
                 inventoryPresenter.getAllInventory();
                 salesPresenter.getAllSales();
@@ -446,7 +454,6 @@ namespace POS1.Cashier
 
         private void dgdCashierCart_Paint(object sender, PaintEventArgs e)
         {
-            
             Rectangle r1 = this.dgdCashierCart.GetCellDisplayRectangle(4, -1, true);
             int w2 = dgdCashierCart.GetCellDisplayRectangle(5, -1, true).Width;
             int w3 = dgdCashierCart.GetCellDisplayRectangle(6, -1, true).Width;
@@ -591,9 +598,12 @@ namespace POS1.Cashier
             }
         }
 
+        /// <summary>
+        /// CONTROL TABPAGES FOR STAFFS
+        /// </summary>
         private void limitTabPages()
         {
-            if (MyModel.empType == 1)
+            if (LoginModel.empType == 1)
             {
                 tabControl.TabPages.Remove(tabpageInventory);
                 tabControl.TabPages.Remove(tabpageSales);
