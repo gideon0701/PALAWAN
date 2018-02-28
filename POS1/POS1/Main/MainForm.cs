@@ -497,6 +497,11 @@ namespace POS1.Cashier
             inventoryPresenter.deleteItem();
         }
 
+        private void btnInventoryBarcode_Click(object sender, EventArgs e)
+        {
+            inventoryPresenter.generateBarcode();
+        }
+
         private void btnInventorySearch_Click(object sender, EventArgs e)
         {
             inventoryPresenter.getAllInventory();
@@ -634,7 +639,6 @@ namespace POS1.Cashier
         {
             MessageBox.Show("Tansaction Done");
         }
-
     }
 }
 

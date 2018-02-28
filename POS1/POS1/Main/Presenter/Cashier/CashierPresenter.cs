@@ -128,7 +128,7 @@ namespace POS1.Cashier.Presenter
         {
             var cart = mVIew.cashierCart;
             var row = cart.SelectedRows[0];
-            mMOdel.addItemQty(int.Parse(row.Cells[0].Value.ToString()), int.Parse(row.Cells[3].Value.ToString()));
+            mMOdel.addItemQty(row.Cells[0].Value.ToString(), int.Parse(row.Cells[3].Value.ToString()));
             cart.Rows.RemoveAt(row.Index);
             getAllItems();
             showTotal();
@@ -187,7 +187,7 @@ namespace POS1.Cashier.Presenter
             bool result = false;
             decimal price = 0;
             DataGridView grid = mVIew.cashierItems;
-            int item_id = int.Parse(grid.SelectedRows[0].Cells[0].Value.ToString());
+            string item_id = grid.SelectedRows[0].Cells[0].Value.ToString();
 
             if (mMOdel.substractItemQty(item_id, qty))
             {
@@ -241,7 +241,7 @@ namespace POS1.Cashier.Presenter
                 var cartList = mVIew.cashierCart.Rows;
                 foreach (DataGridViewRow li in cartList)
                 {
-                    if (!mMOdel.addItemQty(int.Parse(li.Cells[0].Value.ToString()), int.Parse(li.Cells[3].Value.ToString())))
+                    if (!mMOdel.addItemQty(li.Cells[0].Value.ToString(), int.Parse(li.Cells[3].Value.ToString())))
                     {
                         result = false;
                     }
@@ -300,7 +300,7 @@ namespace POS1.Cashier.Presenter
                 {
                     quantitySold = int.Parse(row.Cells[3].Value.ToString()),
                     pricePerUnit = decimal.Parse(row.Cells[2].Value.ToString()) / decimal.Parse(row.Cells[3].Value.ToString()),
-                    itemsID = int .Parse(row.Cells[0].Value.ToString())
+                    itemsID = row.Cells[0].Value.ToString()
                 });
             }
             decimal change = decimal.Parse(mVIew.cashierAmountPaid) - decimal.Parse(mVIew.cashierTotalPrice);

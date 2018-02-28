@@ -18,7 +18,7 @@ namespace POS1.Main.Model.Dashboard
         public decimal moneyPaid { get; set; }
 
         //SALES ITEM
-        public int itemID { get; set; }
+        public string itemID { get; set; }
         public int totalQuantity { get; set; }
         public string productName { get; set; }
         public decimal totalPrice { get; set; }
@@ -188,7 +188,7 @@ namespace POS1.Main.Model.Dashboard
                 {
                     decimal total = 0;
                     int totalQty = 0;
-                    var s = 0;
+                    var s = "";
                     string name = "";
                     foreach (var item in group)
                     {
