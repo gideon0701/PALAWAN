@@ -17,7 +17,7 @@
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ID" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="NAME" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="PRICE" Type="decimal" Precision="18" Scale="2" />
           <Property Name="QTY" Type="int" />
@@ -42,10 +42,10 @@
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="quantitySold" Type="int" Nullable="false" />
           <Property Name="pricePerUnit" Type="decimal" Precision="18" Scale="2" Nullable="false" />
-          <Property Name="itemsID" Type="int" Nullable="false" />
+          <Property Name="itemsID" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="SalesId" Type="int" Nullable="false" />
         </EntityType>
-        <Association Name="FK__SalesItem__items__18EBB532">
+        <Association Name="FK__SalesItem__items__29221CFB">
           <End Role="Items" Type="Self.Items" Multiplicity="1" />
           <End Role="SalesItem" Type="Self.SalesItem" Multiplicity="*" />
           <ReferentialConstraint>
@@ -74,7 +74,7 @@
           <EntitySet Name="Items" EntityType="Self.Items" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Sales" EntityType="Self.Sales" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="SalesItem" EntityType="Self.SalesItem" Schema="dbo" store:Type="Tables" />
-          <AssociationSet Name="FK__SalesItem__items__18EBB532" Association="Self.FK__SalesItem__items__18EBB532">
+          <AssociationSet Name="FK__SalesItem__items__29221CFB" Association="Self.FK__SalesItem__items__29221CFB">
             <End Role="Items" EntitySet="Items" />
             <End Role="SalesItem" EntitySet="SalesItem" />
           </AssociationSet>
@@ -113,7 +113,7 @@
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="ID" Type="String" Nullable="false" />
           <Property Name="NAME" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="PRICE" Type="Decimal" Precision="18" Scale="2" />
           <Property Name="QTY" Type="Int32" />
@@ -126,11 +126,11 @@
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" />
           <Property Name="dateOfTransaction" Type="Double" Nullable="false" />
-          <Property Name="subtotalAmount" Type="Decimal" Nullable="false" />
-          <Property Name="taxAmount" Type="Decimal" Nullable="false" />
-          <Property Name="totalPriceAmount" Type="Decimal" Nullable="false" />
-          <Property Name="totalDiscountAmount" Type="Decimal" Nullable="false" />
-          <Property Name="moneyPaid" Type="Decimal" Nullable="false" />
+          <Property Name="subtotalAmount" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+          <Property Name="taxAmount" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+          <Property Name="totalPriceAmount" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+          <Property Name="totalDiscountAmount" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+          <Property Name="moneyPaid" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
           <NavigationProperty Name="SalesItem" Relationship="TestModel.FK__SalesItem__Sales__02084FDA" FromRole="Sales" ToRole="SalesItem" />
         </EntityType>
         <EntityType Name="SalesItem">
@@ -139,8 +139,8 @@
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" />
           <Property Name="quantitySold" Type="Int32" Nullable="false" />
-          <Property Name="pricePerUnit" Type="Decimal" Nullable="false" />
-          <Property Name="itemsID" Type="Int32" Nullable="false" />
+          <Property Name="pricePerUnit" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+          <Property Name="itemsID" Type="String" Nullable="false" />
           <Property Name="SalesId" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Items" Relationship="TestModel.FK__SalesItem__items__01142BA1" FromRole="SalesItem" ToRole="Items" />
           <NavigationProperty Name="Sales" Relationship="TestModel.FK__SalesItem__Sales__02084FDA" FromRole="SalesItem" ToRole="Sales" />

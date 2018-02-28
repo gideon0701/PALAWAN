@@ -1,4 +1,5 @@
-﻿using System;
+﻿using POS1.Utils;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,7 +9,7 @@ namespace POS1.Main.Model.Inventory
 {
     class InventoryModel
     {
-        public int ID { get; set; }
+        public string ID { get; set; }
         public string NAME { get; set; }
         public decimal? PRICE { get; set; }
         public decimal? WHOLESALEPRICE { get; set; }
@@ -54,6 +55,7 @@ namespace POS1.Main.Model.Inventory
         {
             using (var db = new TestEntities())
             {
+                item.ID = StringUtils.generateGUID();
                 db.Items.Add(item);
                 db.SaveChanges();
             }

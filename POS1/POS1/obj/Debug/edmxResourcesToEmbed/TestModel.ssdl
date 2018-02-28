@@ -12,7 +12,7 @@
     <Key>
       <PropertyRef Name="ID" />
     </Key>
-    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ID" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="NAME" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="PRICE" Type="decimal" Precision="18" Scale="2" />
     <Property Name="QTY" Type="int" />
@@ -37,10 +37,10 @@
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="quantitySold" Type="int" Nullable="false" />
     <Property Name="pricePerUnit" Type="decimal" Precision="18" Scale="2" Nullable="false" />
-    <Property Name="itemsID" Type="int" Nullable="false" />
+    <Property Name="itemsID" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="SalesId" Type="int" Nullable="false" />
   </EntityType>
-  <Association Name="FK__SalesItem__items__18EBB532">
+  <Association Name="FK__SalesItem__items__29221CFB">
     <End Role="Items" Type="Self.Items" Multiplicity="1" />
     <End Role="SalesItem" Type="Self.SalesItem" Multiplicity="*" />
     <ReferentialConstraint>
@@ -69,7 +69,7 @@
     <EntitySet Name="Items" EntityType="Self.Items" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Sales" EntityType="Self.Sales" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="SalesItem" EntityType="Self.SalesItem" Schema="dbo" store:Type="Tables" />
-    <AssociationSet Name="FK__SalesItem__items__18EBB532" Association="Self.FK__SalesItem__items__18EBB532">
+    <AssociationSet Name="FK__SalesItem__items__29221CFB" Association="Self.FK__SalesItem__items__29221CFB">
       <End Role="Items" EntitySet="Items" />
       <End Role="SalesItem" EntitySet="SalesItem" />
     </AssociationSet>

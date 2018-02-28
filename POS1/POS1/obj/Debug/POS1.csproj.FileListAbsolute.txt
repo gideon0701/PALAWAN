@@ -67,3 +67,4 @@ C:\git\PALAWAN\POS1\POS1\obj\Debug\POS1.exe
 C:\git\PALAWAN\POS1\POS1\obj\Debug\POS1.pdb
 C:\git\PALAWAN\POS1\POS1\bin\Debug\Test_log.ldf
 C:\git\PALAWAN\POS1\POS1\obj\Debug\POS1.csprojResolveAssemblyReference.cache
+C:\git\PALAWAN\POS1\POS1\bin\Debug\Zen.Barcode.Core.dll

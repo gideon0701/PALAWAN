@@ -20,7 +20,7 @@ namespace POS1
             this.SalesItem = new HashSet<SalesItem>();
         }
     
-        public int ID { get; set; }
+        public string ID { get; set; }
         public string NAME { get; set; }
         public Nullable<decimal> PRICE { get; set; }
         public Nullable<int> QTY { get; set; }

@@ -8,7 +8,7 @@ namespace POS1.Cashier.Model
 {
     class CashierInventoryModel 
     {
-        public int ID { get; set; }
+        public string ID { get; set; }
         public string NAME { get; set; }
         public decimal? PRICE { get; set; }
         public int? QTY { get; set; }
@@ -54,7 +54,7 @@ namespace POS1.Cashier.Model
             }
         }
 
-        public bool substractItemQty(int id, int qty)
+        public bool substractItemQty(string id, int qty)
         {
             using (var db = new TestEntities())
             {
@@ -70,7 +70,7 @@ namespace POS1.Cashier.Model
             return false;
         }
 
-        public bool addItemQty(int id, int qty)
+        public bool addItemQty(string id, int qty)
         {
             using (var db = new TestEntities())
             {
