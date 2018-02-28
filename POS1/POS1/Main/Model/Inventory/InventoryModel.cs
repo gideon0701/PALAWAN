@@ -85,7 +85,6 @@ namespace POS1.Main.Model.Inventory
                 db.Items.Remove(i);
                 db.SaveChanges();
             }
-       
         }
 
     }

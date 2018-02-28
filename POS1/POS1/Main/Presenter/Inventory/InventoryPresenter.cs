@@ -86,11 +86,12 @@ namespace POS1.Main.Presenter.Inventory
         {
             var selectedItem = (InventoryModel)mVIew.inventoryDataGrid.CurrentRow.DataBoundItem;
             Zen.Barcode.Code128BarcodeDraw barcode = Zen.Barcode.BarcodeDrawFactory.Code128WithChecksum;
-            var image = barcode.Draw(selectedItem.ID, 50);
+            var image = barcode.Draw(selectedItem.ID, 70);
             SaveFileDialog saveFile = new SaveFileDialog();
             saveFile.Filter = "PNG|*.png|JPEG|*.jpg";
             saveFile.Title = "Save barcode";
             saveFile.FileName = selectedItem.NAME + " (Barcode)";
+            saveFile.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
             saveFile.ShowDialog();
             if (saveFile.FileName != "")
             {
