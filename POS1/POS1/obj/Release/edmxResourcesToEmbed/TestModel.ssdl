@@ -1,0 +1,82 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="TestModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Employee">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="USERNAME" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="PASSWORD" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="TYPE" Type="int" />
+  </EntityType>
+  <EntityType Name="Items">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="NAME" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="PRICE" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="QTY" Type="int" />
+    <Property Name="WHOLESALEPRICE" Type="decimal" Precision="18" Scale="2" />
+  </EntityType>
+  <EntityType Name="Sales">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="dateOfTransaction" Type="float" Nullable="false" />
+    <Property Name="subtotalAmount" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="taxAmount" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="totalPriceAmount" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="totalDiscountAmount" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="moneyPaid" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+  </EntityType>
+  <EntityType Name="SalesItem">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="quantitySold" Type="int" Nullable="false" />
+    <Property Name="pricePerUnit" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="itemsID" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="SalesId" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="FK__SalesItem__items__29221CFB">
+    <End Role="Items" Type="Self.Items" Multiplicity="1" />
+    <End Role="SalesItem" Type="Self.SalesItem" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Items">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="SalesItem">
+        <PropertyRef Name="itemsID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__SalesItem__Sales__19DFD96B">
+    <End Role="Sales" Type="Self.Sales" Multiplicity="1" />
+    <End Role="SalesItem" Type="Self.SalesItem" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Sales">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="SalesItem">
+        <PropertyRef Name="SalesId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="TestModelStoreContainer">
+    <EntitySet Name="Employee" EntityType="Self.Employee" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Items" EntityType="Self.Items" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Sales" EntityType="Self.Sales" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SalesItem" EntityType="Self.SalesItem" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__SalesItem__items__29221CFB" Association="Self.FK__SalesItem__items__29221CFB">
+      <End Role="Items" EntitySet="Items" />
+      <End Role="SalesItem" EntitySet="SalesItem" />
+    </AssociationSet>
+    <AssociationSet Name="FK__SalesItem__Sales__19DFD96B" Association="Self.FK__SalesItem__Sales__19DFD96B">
+      <End Role="Sales" EntitySet="Sales" />
+      <End Role="SalesItem" EntitySet="SalesItem" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

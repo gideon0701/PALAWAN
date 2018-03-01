@@ -557,6 +557,7 @@
             this.cboDashboardMonthlyChart.Size = new System.Drawing.Size(121, 29);
             this.cboDashboardMonthlyChart.TabIndex = 16;
             this.cboDashboardMonthlyChart.UseSelectable = true;
+            this.cboDashboardMonthlyChart.SelectedIndexChanged += new System.EventHandler(this.cboDashboardMonthlyChart_SelectedIndexChanged);
             // 
             // chDashboardMonthly
             // 
@@ -1155,7 +1156,7 @@
             this.tabControl.Controls.Add(this.tabpageSales);
             this.tabControl.Location = new System.Drawing.Point(7, 44);
             this.tabControl.Name = "tabControl";
-            this.tabControl.SelectedIndex = 0;
+            this.tabControl.SelectedIndex = 1;
             this.tabControl.Size = new System.Drawing.Size(765, 487);
             this.tabControl.Style = MetroFramework.MetroColorStyle.Green;
             this.tabControl.TabIndex = 0;

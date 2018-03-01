@@ -38,6 +38,7 @@ namespace POS1.Main.Presenter.Dashboard
 
         private void setCombobox()
         {
+            var index = 0;
             //FOR DROPDOWN YEAR
             mView.dashboardDropdownYearly.Items.Clear();
             var years = mModel.getAllYear();
@@ -49,7 +50,8 @@ namespace POS1.Main.Presenter.Dashboard
             {
                 mView.dashboardDropdownYearly.Items.Add(new ComboboxItem() { Text = "", Value = "" });
             }
-            mView.dashboardDropdownYearly.SelectedIndex = 0;
+            index = mView.dashboardDropdownYearly.Items.Count;
+            mView.dashboardDropdownYearly.SelectedIndex = index - 1;
 
             //FOR DROPDOWN MONTH
             mView.dashboardDropdownMonthly.Items.Clear();
@@ -64,7 +66,8 @@ namespace POS1.Main.Presenter.Dashboard
             {
                 mView.dashboardDropdownMonthly.Items.Add(new ComboboxItem() { Text = "", Value = "" });
             }
-            mView.dashboardDropdownMonthly.SelectedIndex = 0;
+            index = mView.dashboardDropdownMonthly.Items.Count;
+            mView.dashboardDropdownMonthly.SelectedIndex = index - 1;
 
         }
 
