@@ -1035,7 +1035,7 @@
             this.dgdCashierItems.RowHeadersDefaultCellStyle = dataGridViewCellStyle9;
             this.dgdCashierItems.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.dgdCashierItems.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgdCashierItems.Size = new System.Drawing.Size(408, 183);
+            this.dgdCashierItems.Size = new System.Drawing.Size(278, 183);
             this.dgdCashierItems.TabIndex = 11;
             this.dgdCashierItems.SelectionChanged += new System.EventHandler(this.dgdCashierItems_SelectionChanged);
             // 
@@ -1088,7 +1088,7 @@
             this.pnlAdd.HorizontalScrollbarBarColor = true;
             this.pnlAdd.HorizontalScrollbarHighlightOnWheel = false;
             this.pnlAdd.HorizontalScrollbarSize = 10;
-            this.pnlAdd.Location = new System.Drawing.Point(426, 155);
+            this.pnlAdd.Location = new System.Drawing.Point(296, 155);
             this.pnlAdd.Name = "pnlAdd";
             this.pnlAdd.Size = new System.Drawing.Size(83, 89);
             this.pnlAdd.TabIndex = 8;
@@ -1155,7 +1155,7 @@
             this.tabControl.Controls.Add(this.tabpageSales);
             this.tabControl.Location = new System.Drawing.Point(7, 44);
             this.tabControl.Name = "tabControl";
-            this.tabControl.SelectedIndex = 2;
+            this.tabControl.SelectedIndex = 0;
             this.tabControl.Size = new System.Drawing.Size(765, 487);
             this.tabControl.Style = MetroFramework.MetroColorStyle.Green;
             this.tabControl.TabIndex = 0;

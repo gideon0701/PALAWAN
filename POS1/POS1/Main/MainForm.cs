@@ -325,6 +325,7 @@ namespace POS1.Cashier
             inventoryPresenter = new InventoryPresenter(this);
             dashboardPresenter = new DashboardPresenter(this);
             salesPresenter = new SalesPresenter(this);
+
         }
 
         private void MainForm_Load(object sender, EventArgs e)
@@ -594,7 +595,6 @@ namespace POS1.Cashier
             else
             {
                 errorMessage.SetError(txtInventoryQty, null);
-            
             }
         }
 

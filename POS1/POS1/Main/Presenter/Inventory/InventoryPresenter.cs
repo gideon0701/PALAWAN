@@ -1,10 +1,7 @@
 ﻿using POS1.Main.Model.Inventory;
 using POS1.Main.View.Inventory;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using Zen.Barcode;
 using System.Windows.Forms;
 
 namespace POS1.Main.Presenter.Inventory
@@ -32,7 +29,6 @@ namespace POS1.Main.Presenter.Inventory
             {
                 mVIew.inventoryDataGrid.DataSource = mMOdel.searchInventory(searchKeyword);
             }
-          
         }
 
         public void deleteItem()
@@ -48,7 +44,6 @@ namespace POS1.Main.Presenter.Inventory
             {
                 mVIew.onDbActionResult("delete", false);
             }
-            
         }
 
         public void doEdit()
@@ -59,12 +54,10 @@ namespace POS1.Main.Presenter.Inventory
             mVIew.inventoryPrice = item.PRICE.ToString();
             mVIew.inventoryWholesalePrice = item.WHOLESALEPRICE.ToString();
             mVIew.inventoryQty = (int) item.QTY;
-
         }
 
         public void doAddUpdate()
         {
-
             if (mVIew.inventoryID == "")
             {
                 mMOdel.doAdd(inputToItemModel());
@@ -79,14 +72,14 @@ namespace POS1.Main.Presenter.Inventory
             }
             clearFormInput();
             getAllInventory();
-
         }
 
         public void generateBarcode()
         {
             var selectedItem = (InventoryModel)mVIew.inventoryDataGrid.CurrentRow.DataBoundItem;
-            Zen.Barcode.Code128BarcodeDraw barcode = Zen.Barcode.BarcodeDrawFactory.Code128WithChecksum;
+            Code128BarcodeDraw barcode = BarcodeDrawFactory.Code128WithChecksum;
             var image = barcode.Draw(selectedItem.ID, 70);
+
             SaveFileDialog saveFile = new SaveFileDialog();
             saveFile.Filter = "PNG|*.png|JPEG|*.jpg";
             saveFile.Title = "Save barcode";
@@ -134,6 +127,5 @@ namespace POS1.Main.Presenter.Inventory
             mVIew.inventoryWholesalePrice = "";
             mVIew.inventoryQty = 0;
         }
-
     }
 }
