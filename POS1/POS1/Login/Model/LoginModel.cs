@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using POS1.Presenter;
 using System.Threading;
+using System.Diagnostics;
 
 namespace POS1.Model
 {

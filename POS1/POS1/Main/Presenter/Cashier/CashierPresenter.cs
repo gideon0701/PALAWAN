@@ -29,6 +29,7 @@ namespace POS1.Cashier.Presenter
             grid.ColumnCount = 4;
             grid.Columns[0].Name = "PRODUCT ID";
             grid.Columns[0].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+            grid.Columns[0].Visible = false;
             grid.Columns[1].Name = "NAME";
             grid.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
             grid.Columns[2].Name = "PRICE PER UNIT";
@@ -41,6 +42,7 @@ namespace POS1.Cashier.Presenter
             grid.ColumnCount = 5;
             grid.Columns[0].Name = "PRODUCT ID";
             grid.Columns[0].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+            grid.Columns[0].Visible = false;
             grid.Columns[1].Name = "NAME";
             grid.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
             grid.Columns[2].Name = "PRICE";
