@@ -1,0 +1,86 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="TestModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Employee">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" />
+    <Property Name="USERNAME" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="PASSWORD" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="TYPE" Type="Int32" />
+  </EntityType>
+  <EntityContainer Name="TestEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Employee" EntityType="Self.Employee" />
+    <EntitySet Name="Items" EntityType="TestModel.Items" />
+    <EntitySet Name="Sales" EntityType="TestModel.Sales" />
+    <EntitySet Name="SalesItem" EntityType="TestModel.SalesItem" />
+    <AssociationSet Name="FK__SalesItem__items__01142BA1" Association="TestModel.FK__SalesItem__items__01142BA1">
+      <End Role="Items" EntitySet="Items" />
+      <End Role="SalesItem" EntitySet="SalesItem" />
+    </AssociationSet>
+    <AssociationSet Name="FK__SalesItem__Sales__02084FDA" Association="TestModel.FK__SalesItem__Sales__02084FDA">
+      <End Role="Sales" EntitySet="Sales" />
+      <End Role="SalesItem" EntitySet="SalesItem" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Items">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="NAME" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="PRICE" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="QTY" Type="Int32" />
+    <NavigationProperty Name="SalesItem" Relationship="TestModel.FK__SalesItem__items__01142BA1" FromRole="Items" ToRole="SalesItem" />
+    <Property Name="WHOLESALEPRICE" Type="Decimal" Precision="18" Scale="2" />
+  </EntityType>
+  <EntityType Name="Sales">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="dateOfTransaction" Type="Double" Nullable="false" />
+    <Property Name="subtotalAmount" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+    <Property Name="taxAmount" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+    <Property Name="totalPriceAmount" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+    <Property Name="totalDiscountAmount" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+    <Property Name="moneyPaid" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+    <NavigationProperty Name="SalesItem" Relationship="TestModel.FK__SalesItem__Sales__02084FDA" FromRole="Sales" ToRole="SalesItem" />
+  </EntityType>
+  <EntityType Name="SalesItem">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="quantitySold" Type="Int32" Nullable="false" />
+    <Property Name="pricePerUnit" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+    <Property Name="itemsID" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="SalesId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Items" Relationship="TestModel.FK__SalesItem__items__01142BA1" FromRole="SalesItem" ToRole="Items" />
+    <NavigationProperty Name="Sales" Relationship="TestModel.FK__SalesItem__Sales__02084FDA" FromRole="SalesItem" ToRole="Sales" />
+  </EntityType>
+  <Association Name="FK__SalesItem__items__01142BA1">
+    <End Type="TestModel.Items" Role="Items" Multiplicity="1" />
+    <End Type="TestModel.SalesItem" Role="SalesItem" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Items">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="SalesItem">
+        <PropertyRef Name="itemsID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__SalesItem__Sales__02084FDA">
+    <End Type="TestModel.Sales" Role="Sales" Multiplicity="1" />
+    <End Type="TestModel.SalesItem" Role="SalesItem" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Sales">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="SalesItem">
+        <PropertyRef Name="SalesId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

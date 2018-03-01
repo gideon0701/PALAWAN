@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Windows.Forms;
 using MetroFramework.Forms;
 using POS1.Cashier.View;
@@ -334,7 +333,6 @@ namespace POS1.Cashier
 
             cashierPresenter.initTables();
             salesPresenter.initTable();
-            cashierPresenter.getAllItems();
 
             tabControl.SelectedIndex = 0;
             limitTabPages();
@@ -531,6 +529,12 @@ namespace POS1.Cashier
         private void cboDashboardYearlyChart_SelectedIndexChanged(object sender, EventArgs e)
         {
             dashboardPresenter.fillYearlyChart();
+            dashboardPresenter.fillYearlyChartProduct();
+        }
+
+        private void cboDashboardMonthlyChart_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            dashboardPresenter.fillMonthlyChart();
         }
 
         /// <summary>
