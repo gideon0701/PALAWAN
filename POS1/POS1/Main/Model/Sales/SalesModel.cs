@@ -37,7 +37,7 @@ namespace POS1.Main.Model.Sales
             }
         }
 
-        public string getAllItems(int salesId)
+        public List<dynamic> getAllItems(int salesId)
         {
             using (var db = new TestEntities())
             {
@@ -46,21 +46,21 @@ namespace POS1.Main.Model.Sales
                     .AsNoTracking()
                     .Where(s => s.SalesId == salesId)
                     .Select(i => new { i.Items.NAME, i.quantitySold, i.pricePerUnit })
-                    .ToList();
+                    .ToList<dynamic>();
 
-                foreach (var i in list)
-                {
-                    sb.Append(i.NAME);
-                    sb.Append("(");
-                    sb.Append(StringUtils.decimalToCurrency(i.pricePerUnit));
-                    sb.Append(")");
-                    sb.Append("    ");
-                    sb.Append(i.quantitySold);
-                    sb.Append("x");
-                    sb.AppendLine();
-                }
+                //foreach (var i in list)
+                //{
+                //    sb.Append(i.NAME);
+                //    sb.Append("(");
+                //    sb.Append(StringUtils.decimalToCurrency(i.pricePerUnit));
+                //    sb.Append(")");
+                //    sb.Append("    ");
+                //    sb.Append(i.quantitySold);
+                //    sb.Append("x");
+                //    sb.AppendLine();
+                //}
 
-                return sb.ToString();
+                return list;
             }     
         }
     }

@@ -138,6 +138,8 @@
     <Compile Include="Login\Presenter\LoginPresenter.cs" />
     <Compile Include="Main\View\Dashboard\IDashboardView.cs" />
     <Compile Include="Main\View\Inventory\IInventoryView.cs" />
+    <Compile Include="Main\View\Sales\gridViewCustomListviewCell.cs" />
+    <Compile Include="Main\View\Sales\gridViewCustomListviewColumn.cs" />
     <Compile Include="Main\View\Sales\ISalesView.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
