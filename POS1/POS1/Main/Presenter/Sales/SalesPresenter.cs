@@ -25,7 +25,7 @@ namespace POS1.Main.Presenter.Sales
         {
             DataGridView salesGrid = mView.salesDataGrid;
 
-            salesGrid.ColumnCount = 8;
+            salesGrid.ColumnCount = 7;
             salesGrid.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
             salesGrid.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
 
@@ -38,11 +38,10 @@ namespace POS1.Main.Presenter.Sales
             salesGrid.Columns[3].Name = "VAT";
             salesGrid.Columns[4].Name = "TOTAL";
             salesGrid.Columns[5].Name = "DISCOUNT";
-            salesGrid.Columns[6].Name = "ITEM(Price per Unit)";
-            gridViewCustomListviewColumn customCol = new gridViewCustomListviewColumn();
-            salesGrid.Columns.Insert(7, customCol);
-
-
+            CustomColumn listCol = new CustomColumn();
+            listCol.HeaderText = "Sales Item";
+            salesGrid.Columns.Insert(6, listCol);
+           
         }
 
         public void getAllSales()
@@ -53,33 +52,23 @@ namespace POS1.Main.Presenter.Sales
 
             foreach (var list in salesList)
             {
-                //string[] rows = new string[] {
-                //    list.Id.ToString(),
-                //    DateUtils.changeDateStringFormat(list.dateOfTransaction.ToString(),"yyyyMMdd","yyyy/MM/dd"),
-                //    StringUtils.decimalToCurrency(list.subtotalAmount),
-                //    StringUtils.decimalToCurrency(list.taxAmount),
-                //    StringUtils.decimalToCurrency(list.totalPriceAmount),
-                //    StringUtils.decimalToCurrency(list.totalPriceAmount),
-                //    "adadadasqe"
-                //};
-                ListView customList = new ListView();
-               
-                foreach (var i in mModel.getAllItems(list.Id))
-                {
-                    customList.Items.Add(i.NAME);
-                }
-              
-                var test = salesGrid.Rows.Add();
-                salesGrid.Rows[test].Cells[0].Value = "";
-                salesGrid.Rows[test].Cells[1].Value = "";
-                salesGrid.Rows[test].Cells[2].Value = "";
-                salesGrid.Rows[test].Cells[3].Value = "";
-                salesGrid.Rows[test].Cells[4].Value = "";
-                salesGrid.Rows[test].Cells[5].Value = "";
-                salesGrid.Rows[test].Cells[6].Value = "";
-                salesGrid.Rows[test].Cells[7].Value = customList;
+                var row = salesGrid.Rows.Add();
+                salesGrid.Rows[row].Cells[0].Value = list.Id.ToString();
+                salesGrid.Rows[row].Cells[1].Value = DateUtils.changeDateStringFormat(list.dateOfTransaction.ToString(), "yyyyMMdd", "yyyy/MM/dd");
+                salesGrid.Rows[row].Cells[2].Value = StringUtils.decimalToCurrency(list.subtotalAmount);
+                salesGrid.Rows[row].Cells[3].Value = StringUtils.decimalToCurrency(list.taxAmount);
+                salesGrid.Rows[row].Cells[4].Value = StringUtils.decimalToCurrency(list.totalPriceAmount);
+                salesGrid.Rows[row].Cells[5].Value = StringUtils.decimalToCurrency(list.totalDiscountAmount);
+
+                //ListViewItem itemList = new ListViewItem();
+                //foreach (var l in mModel.getAllItems(list.Id))
+                //{
+                //    itemList.SubItems.Add(l.Item1);
+                //}
+                salesGrid.Rows[row].Cells[6].Value = mModel.getAllItems(list.Id);
 
             }
+            
         }
     }
 }

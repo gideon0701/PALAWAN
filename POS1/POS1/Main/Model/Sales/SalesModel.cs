@@ -36,29 +36,30 @@ namespace POS1.Main.Model.Sales
                 return list;
             }
         }
-
-        public List<dynamic> getAllItems(int salesId)
+        //Tuple<string,int,decimal>
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="salesId"></param>
+        /// <returns></returns>
+        public List<string> getAllItems(int salesId)
         {
             using (var db = new TestEntities())
             {
-                StringBuilder sb = new StringBuilder();
-                var list = db.SalesItem
-                    .AsNoTracking()
-                    .Where(s => s.SalesId == salesId)
-                    .Select(i => new { i.Items.NAME, i.quantitySold, i.pricePerUnit })
-                    .ToList<dynamic>();
 
-                //foreach (var i in list)
-                //{
-                //    sb.Append(i.NAME);
-                //    sb.Append("(");
-                //    sb.Append(StringUtils.decimalToCurrency(i.pricePerUnit));
-                //    sb.Append(")");
-                //    sb.Append("    ");
-                //    sb.Append(i.quantitySold);
-                //    sb.Append("x");
-                //    sb.AppendLine();
-                //}
+                //var list = db.SalesItem
+                //    .AsNoTracking()
+                //    .Where(s => s.SalesId == salesId)
+                //    .Select(i => new { i.Items.NAME, i.quantitySold, i.pricePerUnit })
+                //    .AsEnumerable()
+                //    .Select(i => new Tuple<string,int,decimal>(i.NAME, i.quantitySold, i.pricePerUnit))
+                //    .ToList();
+
+                var list = db.SalesItem
+                   .AsNoTracking()
+                   .Where(s => s.SalesId == salesId)
+                   .Select(i => i.Items.NAME)
+                   .ToList();
 
                 return list;
             }     

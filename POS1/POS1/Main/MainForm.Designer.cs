@@ -1156,7 +1156,7 @@
             this.tabControl.Controls.Add(this.tabpageSales);
             this.tabControl.Location = new System.Drawing.Point(7, 44);
             this.tabControl.Name = "tabControl";
-            this.tabControl.SelectedIndex = 1;
+            this.tabControl.SelectedIndex = 3;
             this.tabControl.Size = new System.Drawing.Size(765, 487);
             this.tabControl.Style = MetroFramework.MetroColorStyle.Green;
             this.tabControl.TabIndex = 0;

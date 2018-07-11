@@ -125,6 +125,7 @@
     <Compile Include="Main\Presenter\Cashier\CashierPresenter.cs" />
     <Compile Include="Main\Presenter\Dashboard\DashboardPresenter.cs" />
     <Compile Include="Main\Presenter\Inventory\InventoryPresenter.cs" />
+    <Compile Include="Main\View\Sales\CustomColumn.cs" />
     <Compile Include="Main\Presenter\Sales\SalesPresenter.cs" />
     <Compile Include="Main\View\Cashier\ICashierView.cs" />
     <Compile Include="Login\LoginForm.cs">
@@ -138,9 +139,10 @@
     <Compile Include="Login\Presenter\LoginPresenter.cs" />
     <Compile Include="Main\View\Dashboard\IDashboardView.cs" />
     <Compile Include="Main\View\Inventory\IInventoryView.cs" />
-    <Compile Include="Main\View\Sales\gridViewCustomListviewCell.cs" />
-    <Compile Include="Main\View\Sales\gridViewCustomListviewColumn.cs" />
     <Compile Include="Main\View\Sales\ISalesView.cs" />
+    <Compile Include="Main\View\Sales\ListEditingControl.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Login\View\ILoginView.cs" />
